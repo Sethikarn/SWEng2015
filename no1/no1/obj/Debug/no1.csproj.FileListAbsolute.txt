@@ -1,0 +1,11 @@
+D:\Course2014-2\Comp System\no1\no1\bin\no1.dll
+D:\Course2014-2\Comp System\no1\no1\bin\no1.pdb
+D:\Course2014-2\Comp System\no1\no1\obj\Debug\no1.csprojResolveAssemblyReference.cache
+D:\Course2014-2\Comp System\no1\no1\obj\Debug\no1.dll
+D:\Course2014-2\Comp System\no1\no1\obj\Debug\no1.pdb
+C:\Users\Sethikarn\Desktop\ProjectBagaJN\no1\no1\bin\no1.dll.config
+C:\Users\Sethikarn\Desktop\ProjectBagaJN\no1\no1\bin\no1.dll
+C:\Users\Sethikarn\Desktop\ProjectBagaJN\no1\no1\bin\no1.pdb
+C:\Users\Sethikarn\Desktop\ProjectBagaJN\no1\no1\obj\Debug\no1.csprojResolveAssemblyReference.cache
+C:\Users\Sethikarn\Desktop\ProjectBagaJN\no1\no1\obj\Debug\no1.dll
+C:\Users\Sethikarn\Desktop\ProjectBagaJN\no1\no1\obj\Debug\no1.pdb
