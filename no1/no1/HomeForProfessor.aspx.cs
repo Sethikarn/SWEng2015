@@ -26,7 +26,14 @@ namespace no1
 
         protected void logout_Click(object sender, EventArgs e)
         {
-            Server.Transfer("WebForm1.aspx");
+            Session["sIsAuthenticated"] = false;
+            Session["AuthenName"] = null;
+
+            Session.Clear();
+            Session.Abandon();
+            Session.RemoveAll();
+
+            Response.Redirect("~/");
         }
 
         protected void HomeButton_Click(object sender, EventArgs e)
