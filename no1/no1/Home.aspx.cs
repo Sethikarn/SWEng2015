@@ -16,35 +16,44 @@ namespace no1
         string constr1 = WebConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Page.PreviousPage != null)
+            if (Session["sIsAuthenticated"] != null)
             {
-
-                var user1 = (PreviousPage.FindControl("username")) as System.Web.UI.WebControls.Label;
-                username.Text = user1.Text;
-
+                if (Session["sIsAuthenticated"].Equals(true))
+                {
+                        var user1 = Session["AuthenName"].ToString();
+                        username.Text = Session["AuthenName"].ToString();
+                    
+                }
+                else
+                {
+                    Response.Redirect("~/");
+                }
             }
-
+            else
+            {
+                Response.Redirect("~/");
+            }
         }
 
         protected void CPE01_Click(object sender, EventArgs e)
-        {   SqlConnection con = new SqlConnection(constr1);
+        {
+            SqlConnection con = new SqlConnection(constr1);
             con.Open();
-            SqlCommand myCommand = new SqlCommand("SELECT * FROM student WHERE s_id ='"+username.Text+"'", con);
+            SqlCommand myCommand = new SqlCommand("SELECT * FROM student WHERE s_id ='" + username.Text + "'", con);
             SqlDataReader read2 = myCommand.ExecuteReader();
             string idp = "";
-            while(read2.Read())
+            while (read2.Read())
             {
                 idp = read2["idproject"].ToString();
                 if (idp != "")
-                    {
-                        CheckEdit(idp);
-                    }
+                {
+                    CheckEdit(idp);
+                }
                 else
-                    {
-                        Server.Transfer("CPE1.aspx");  
-                    }
+                {
+                    Response.Redirect("~/CPE1.aspx");
+                }
             }
-               
         }
         protected void CheckEdit(string id)
         {
@@ -62,11 +71,11 @@ namespace no1
                     {
                         Server.Transfer("CPE1.aspx");
                     }
-                    
+
                 }
                 else
                 {
-                    MessageBox.Show("คุณได้เสนอโครงงานไปแล้ว");
+                    Response.Write("<script>alert('คุณได้เสนอโครงงานไปแล้ว');</script>");
                 }
             }
         }
@@ -86,7 +95,7 @@ namespace no1
                 }
                 else //if(idp == null)
                 {
-                    MessageBox.Show("คุณยังไม่ได้ส่งคำขอ CPE01");
+                    Response.Write("<script>alert('คุณยังไม่ได้ส่งคำขอ CPE01');</script>");
                 }
 
             }
@@ -153,16 +162,23 @@ namespace no1
                 {
                     CheckApprove3(idp);
                 }
-                else 
+                else
                 {
-                    MessageBox.Show("คุณยังไม่ได้ส่งคำขอ CPE01");
+                    Response.Write("<script>alert('คุณยังไม่ได้ส่งคำขอ CPE01');</script>");
                 }
             }
         }
 
         protected void logout_Click(object sender, EventArgs e)
         {
-            Server.Transfer("WebForm1.aspx");
+            Session["sIsAuthenticated"] = false;
+            Session["AuthenName"] = null;
+
+            Session.Clear();
+            Session.Abandon();
+            Session.RemoveAll();
+
+            Response.Redirect("~/");
         }
 
         protected void about_Click(object sender, EventArgs e)
@@ -174,11 +190,5 @@ namespace no1
         {
             Server.Transfer("Home.aspx");
         }
-
-
-
-
-        }
-
-
     }
+}
