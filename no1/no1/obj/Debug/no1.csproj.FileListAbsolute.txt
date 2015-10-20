@@ -9,3 +9,9 @@ C:\Users\Sethikarn\Desktop\ProjectBagaJN\no1\no1\bin\no1.pdb
 C:\Users\Sethikarn\Desktop\ProjectBagaJN\no1\no1\obj\Debug\no1.csprojResolveAssemblyReference.cache
 C:\Users\Sethikarn\Desktop\ProjectBagaJN\no1\no1\obj\Debug\no1.dll
 C:\Users\Sethikarn\Desktop\ProjectBagaJN\no1\no1\obj\Debug\no1.pdb
+C:\Users\Sethikarn\Documents\GitHub\SWEng2015\no1\no1\bin\no1.dll.config
+C:\Users\Sethikarn\Documents\GitHub\SWEng2015\no1\no1\bin\no1.dll
+C:\Users\Sethikarn\Documents\GitHub\SWEng2015\no1\no1\bin\no1.pdb
+C:\Users\Sethikarn\Documents\GitHub\SWEng2015\no1\no1\obj\Debug\no1.csprojResolveAssemblyReference.cache
+C:\Users\Sethikarn\Documents\GitHub\SWEng2015\no1\no1\obj\Debug\no1.dll
+C:\Users\Sethikarn\Documents\GitHub\SWEng2015\no1\no1\obj\Debug\no1.pdb
