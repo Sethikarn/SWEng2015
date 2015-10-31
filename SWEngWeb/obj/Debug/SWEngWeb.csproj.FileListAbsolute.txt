@@ -1,0 +1,6 @@
+C:\Users\Sethikarn\Desktop\SWEngWeb\SWEngWeb\bin\no1.dll.config
+C:\Users\Sethikarn\Desktop\SWEngWeb\SWEngWeb\bin\no1.dll
+C:\Users\Sethikarn\Desktop\SWEngWeb\SWEngWeb\bin\no1.pdb
+C:\Users\Sethikarn\Desktop\SWEngWeb\SWEngWeb\obj\Debug\SWEngWeb.csprojResolveAssemblyReference.cache
+C:\Users\Sethikarn\Desktop\SWEngWeb\SWEngWeb\obj\Debug\no1.dll
+C:\Users\Sethikarn\Desktop\SWEngWeb\SWEngWeb\obj\Debug\no1.pdb
