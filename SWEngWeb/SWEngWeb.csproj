@@ -92,7 +92,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Welcome.aspx" />
+    <Content Include="Login.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -109,6 +109,7 @@
     <Compile Include="ApproveProject.aspx.designer.cs">
       <DependentUpon>ApproveProject.aspx</DependentUpon>
     </Compile>
+    <Compile Include="user.cs" />
     <Compile Include="CPE1.aspx.cs">
       <DependentUpon>CPE1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -173,12 +174,12 @@
     <Compile Include="SaveCPE1.aspx.designer.cs">
       <DependentUpon>SaveCPE1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Welcome.aspx.cs">
-      <DependentUpon>Welcome.aspx</DependentUpon>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Welcome.aspx.designer.cs">
-      <DependentUpon>Welcome.aspx</DependentUpon>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

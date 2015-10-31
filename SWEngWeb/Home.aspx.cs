@@ -14,20 +14,12 @@ namespace SWEngWeb
     public partial class Home : System.Web.UI.Page
     {
         string constr1 = WebConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["sIsAuthenticated"] != null)
+            if (user.isLogin())
             {
-                if (Session["sIsAuthenticated"].Equals(true))
-                {
-                        var user1 = Session["AuthenName"].ToString();
-                        username.Text = Session["AuthenName"].ToString();
-                    
-                }
-                else
-                {
-                    Response.Redirect("~/");
-                }
+                username.Text = user.name();
             }
             else
             {
@@ -179,24 +171,17 @@ namespace SWEngWeb
 
         protected void logout_Click(object sender, EventArgs e)
         {
-            Session["sIsAuthenticated"] = false;
-            Session["AuthenName"] = null;
-
-            Session.Clear();
-            Session.Abandon();
-            Session.RemoveAll();
-
-            Response.Redirect("~/");
+            user.logout();
         }
 
         protected void about_Click(object sender, EventArgs e)
         {
-            Server.Transfer("About.aspx");
+            Response.Redirect("~/About.aspx");
         }
 
         protected void HomeButton_Click(object sender, EventArgs e)
         {
-            Server.Transfer("Home.aspx");
+            Response.Redirect("~/");
         }
     }
 }

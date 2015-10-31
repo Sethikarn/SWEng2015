@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Welcome.aspx.cs" Inherits="SWEngWeb.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="SWEngWeb.WebForm1" %>
 
 <!DOCTYPE html>
 
@@ -140,7 +140,7 @@
                         <asp:Image ID="Image3" runat="server" Height="40px" ImageUrl="~/username.PNG" Width="115px" Style="text-align: right" />
                     </td>
                     <td class="auto-style9">
-                        <asp:TextBox ID="user" runat="server" BackColor="#FFCC99" ForeColor="Black" Height="23px" Style="margin-left: 0px; text-align: left;" Width="181px"></asp:TextBox>
+                        <asp:TextBox ID="userNameInput" runat="server" BackColor="#FFCC99" ForeColor="Black" Height="23px" Style="margin-left: 0px; text-align: left;" Width="181px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -157,8 +157,6 @@
                     </td>
                 </tr>
             </table>
-
-            <asp:Label ID="username" runat="server" Style="text-align: center"></asp:Label>
 
         </div>
         <div id="tab3">

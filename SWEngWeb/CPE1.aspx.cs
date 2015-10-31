@@ -14,6 +14,15 @@ namespace SWEngWeb
         string constr = WebConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (user.isLogin())
+            {
+
+            }
+            else
+            {
+                Response.Redirect("~/");
+            }
+
             if (Page.PreviousPage != null)
             {
                 var user1 = (PreviousPage.FindControl("username")) as Label;
@@ -273,13 +282,7 @@ namespace SWEngWeb
 
         protected void logout_Click(object sender, EventArgs e)
         {
-            Session["sIsAuthenticated"] = false;
-            Session["AuthenName"] = null;
-
-            Session.Clear();
-            Session.Abandon();
-            Session.RemoveAll();
-
+            user.logout();
             Response.Redirect("~/");
         }
 

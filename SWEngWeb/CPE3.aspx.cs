@@ -15,6 +15,15 @@ namespace SWEngWeb
         string constr1 = WebConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (user.isLogin())
+            {
+
+            }
+            else
+            {
+                Response.Redirect("~/");
+            }
+
             if (Page.PreviousPage != null)
             {
                 var user1 = (PreviousPage.FindControl("username")) as Label;
@@ -75,7 +84,8 @@ namespace SWEngWeb
 
         protected void logout_Click(object sender, EventArgs e)
         {
-            Server.Transfer("WebForm1.aspx");
+            user.logout();
+            Response.Redirect("~/");
         }
 
         protected void about_Click(object sender, EventArgs e)
