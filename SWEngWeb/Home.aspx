@@ -123,7 +123,7 @@
 <body>
     <form id="form1" runat="server">
         <div id="header">
-            <img alt="" class="auto-style13" src="banner.jpg" />
+            <img alt="" class="auto-style13" src="pic/banner.jpg" />
         </div>
 
         <div id="tab">
@@ -249,23 +249,25 @@
         </div>
     
      <div>
-            <div id="tab4">
-                <br />
-                <p class="auto-style7"><font color="White">เว็บไซต์นี้ถูกสร้างขึ้นเพื่อเป็นระบบประเมินและตรวจสอบโครงการของนิสิตคณะวิศวกรรมศาสตร์ สาขาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยนเรศวร</font></p>
+        <div id="tab4">
+            <br />
+            <p class="auto-style7">
+                <font color="White">
+                    เว็บไซต์นี้ถูกสร้างขึ้นเพื่อเป็นระบบประเมินและตรวจสอบโครงการของนิสิตคณะวิศวกรรมศาสตร์ สาขาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยนเรศวร
+                </font>
+            </p>
 
-                 <div class="auto-style7">
-
-                <font color="White">© 2014 BagaJN  |  © 2015 หัวหลิม</font></font>
-
+            <div class="auto-style7">
+                <font color="White">
+                    © 2014 BagaJN  |  © 2015 หัวหลิม
+                </font>
             </div>
-            </div>
-            
         </div>
-        <p style="font-size:12px" class="auto-style23"><font color="Gray">P03</font></div>
-        <div class="footer-copyright" style="height: 35px; line-height: 35px;">            
-                
-        
-        
-            </form>
+    </div>
+    <p style="font-size:12px" class="auto-style23">
+        <font color="Gray">
+            P03
+        </font>         
+</form>
 </body>
 </html>

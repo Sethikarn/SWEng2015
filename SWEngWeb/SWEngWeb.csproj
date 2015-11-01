@@ -59,36 +59,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="about.jpg" />
-    <Content Include="aey1.jpg" />
     <Content Include="ApproveProject.aspx" />
-    <Content Include="banner.jpg" />
     <Content Include="CPE1.aspx" />
     <Content Include="CPE2.aspx" />
     <Content Include="CPE2forProfessor.aspx" />
     <Content Include="CPE3.aspx" />
     <Content Include="CPE3forPr.aspx" />
     <Content Include="default.aspx" />
-    <Content Include="find.gif" />
     <Content Include="Home.aspx" />
-    <Content Include="home.jpg" />
     <Content Include="HomeForProfessor.aspx" />
-    <Content Include="jarn1.jpg" />
-    <Content Include="liw.PNG" />
-    <Content Include="lo.PNG" />
-    <Content Include="login.PNG" />
-    <Content Include="login_icon.png" />
-    <Content Include="Logo_NU.jpg" />
-    <Content Include="noi.jpg" />
-    <Content Include="noi1.jpg" />
-    <Content Include="noon.jpg" />
-    <Content Include="noon1.jpg" />
-    <Content Include="productor.PNG" />
-    <Content Include="pw.PNG" />
     <Content Include="SaveCPE1.aspx" />
-    <Content Include="select.PNG" />
     <Content Include="StyleSheet1.css" />
-    <Content Include="username.PNG" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

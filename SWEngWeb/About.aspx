@@ -137,7 +137,7 @@
 <body>
     <form id="form1" runat="server">
         <div id="header">
-            <asp:Image ID="Image1" runat="server" Height="145px" ImageUrl="~/banner.jpg" Width="1000px" />
+            <asp:Image ID="Image1" runat="server" Height="145px" ImageUrl="~/pic/banner.jpg" Width="1000px" />
         </div>
 
         <div id="tab">
@@ -158,12 +158,12 @@
             <table class="auto-style1">
                 <tr>
                     <td class="auto-style20" colspan="4">
-                        <asp:Image ID="Image7" runat="server" Height="50px" ImageUrl="~/productor.PNG" />
+                        <asp:Image ID="Image7" runat="server" Height="50px" ImageUrl="~/pic/productor.PNG" />
                     </td>
                 </tr>
   <tr>
                     <td class="auto-style31">
-                        <asp:Image ID="Image3" runat="server" Height="220px" ImageUrl="~/noon1.jpg" Style="text-align: center" />
+                        <asp:Image ID="Image3" runat="server" Height="220px" ImageUrl="~/pic/noon1.jpg" Style="text-align: center" />
                     </td>
                     <td class="auto-style33">55361267<br />
                         นางสาวศุภรัตน์&nbsp;&nbsp; ยงค์เจาะ<br />
@@ -174,7 +174,7 @@
                         <br />
                         094-6064705</td>
                     <td class="auto-style31">
-                        <asp:Image ID="Image4" runat="server" Height="220px" ImageUrl="~/noi1.jpg" />
+                        <asp:Image ID="Image4" runat="server" Height="220px" ImageUrl="~/pic/noi1.jpg" />
                     </td>
                     <td class="auto-style33">55362080<br />
                         นางสาวนราภรณ์&nbsp;&nbsp; ทนทาน<br />
@@ -187,7 +187,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style31">
-                        <asp:Image ID="Image5" runat="server" Height="220px" ImageUrl="~/jarn1.jpg" />
+                        <asp:Image ID="Image5" runat="server" Height="220px" ImageUrl="~/pic/jarn1.jpg" />
                     </td>
                     <td class="auto-style33">55362547<br />
                         นายอโนชา&nbsp; ขอนทอง<br />
@@ -198,7 +198,7 @@
                         <br />
                         082-4077440</td>
                     <td class="auto-style31">
-                        <asp:Image ID="Image6" runat="server" Height="220px" ImageUrl="~/aey1.jpg" />
+                        <asp:Image ID="Image6" runat="server" Height="220px" ImageUrl="~/pic/aey1.jpg" />
                     </td>
                     <td class="auto-style33
                        ">55366637<br />

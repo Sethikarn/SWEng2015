@@ -110,7 +110,7 @@
 
     <form id="form1" runat="server">
         <div id="header">
-            <asp:Image ID="Image1" runat="server" Height="145px" ImageUrl="~/banner.jpg" Width="1000px" />
+            <asp:Image ID="Image1" runat="server" Height="145px" ImageUrl="~/pic/banner.jpg" Width="1000px" />
         </div>
 
         <div id="tab">
@@ -132,12 +132,12 @@
             <table class="auto-style1">
                 <tr>
                     <td class="auto-style7" colspan="2">
-                        <asp:Image ID="Image6" runat="server" Height="163px" ImageUrl="~/login.PNG" Width="260px" />
+                        <asp:Image ID="Image6" runat="server" Height="163px" ImageUrl="~/pic/login.PNG" Width="260px" />
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style18">
-                        <asp:Image ID="Image3" runat="server" Height="40px" ImageUrl="~/username.PNG" Width="115px" Style="text-align: right" />
+                        <asp:Image ID="Image3" runat="server" Height="40px" ImageUrl="~/pic/username.PNG" Width="115px" Style="text-align: right" />
                     </td>
                     <td class="auto-style9">
                         <asp:TextBox ID="userNameInput" runat="server" BackColor="#FFCC99" ForeColor="Black" Height="23px" Style="margin-left: 0px; text-align: left;" Width="181px"></asp:TextBox>
@@ -145,7 +145,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style18">
-                        <asp:Image ID="Image4" runat="server" Height="40px" ImageUrl="~/pw.PNG" />
+                        <asp:Image ID="Image4" runat="server" Height="40px" ImageUrl="~/pic/pw.PNG" />
                     </td>
                     <td class="auto-style9">
                         <asp:TextBox ID="TextBox2" type="password" runat="server" BackColor="#FFCC99" Height="23px" Width="181px"></asp:TextBox>
@@ -153,7 +153,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style11" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:ImageButton ID="ImageButton2" runat="server" Height="47px" ImageUrl="~/liw.PNG" OnClick="ImageButton2_Click" Width="140px" />
+                        <asp:ImageButton ID="ImageButton2" runat="server" Height="47px" ImageUrl="~/pic/liw.PNG" OnClick="ImageButton2_Click" Width="140px" />
                     </td>
                 </tr>
             </table>
