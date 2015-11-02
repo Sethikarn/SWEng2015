@@ -4,7 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>ระบบประเมินและตรวจสอบโครงการ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร</title>
+    <!-- CSS  -->
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
     <style>
         body {
             width: 1000px;
@@ -96,22 +102,98 @@
         .auto-style19 {
             color: #CC0000;
         }
+
         .auto-style20 {
             text-align: right;
         }
     </style>
-    
+
+    <style type="text/css">
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .page-home {
+            min-height: 100%;
+            width: 100%;
+        }
+    </style>
+
 </head>
 
-<body>
-
-
-
-
+<body class="page-home">
     <form id="form1" runat="server">
-        <div id="header">
-            <asp:Image ID="Image1" runat="server" Height="145px" ImageUrl="~/pic/banner.jpg" Width="1000px" />
+
+        <nav class="red lighten-2 z-depth-1" role="navigation">
+            <div class="container">
+
+                <a href="http://www.nu.ac.th" target="_blank">
+                    <img src="pic/NU_LOGO1.png" alt="" class="left circle responsive-img" /></a>
+
+                <!-- <a class="waves-effect waves-light btn right " href="" style="margin-top: 12px; margin-bottom:0px;"></a>-->
+
+                <ul id="nav-mobile2" class="right">
+                    <li><a href="About.aspx">เกี่ยวกับ</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="login_background parallax-container valign-wrapper" style="width:100%;">
+            <div class="section no-pad-bot" style="top: 0%">
+                <div class="row center">
+                    <h5 class="header col s12 light"></h5>
+                    <h3 class="header center  grey-text text-darken-2">ยินดีต้อนรับสู่</h3>
+                    <h1 class="header center grey-text text-darken-2">ระบบประเมินและตรวจสอบโครงการ</h1>
+                    <div class="row center">
+                        <h5 class="header col s12 grey-text text-darken-2">คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="parallax">
+                <img src="data:image/jpg;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Unsplashed background img 2" style="bottom: -100px; display: block; background-image: url(https://gb8hrw.bn1301.livefilestore.com/y2pArGnPgviBDe4oz3hB7OommJYEwvkhhj0DhxieheoRD_V_emiz3NGrXPnnbl1zzEhxrm1FC3wwjEy4Osjx5ex87k64itDkrOoVAo9RInrlxADKSXaxUfdqEFvE18Th-Ybw7iPuBL6Mg2oD-NJWv0UvQ/2-fix.jpg?psid=1);" />
+            </div>
         </div>
+
+        <footer class="page-footer red lighten-1" style="padding-top: 0px;">
+            <div>
+                <p class="center-align grey-text text-lighten-4" style="margin: 0px;">เว็บไซต์นี้ถูกสร้างขึ้นเพื่อเป็นระบบประเมินและตรวจสอบโครงการของนิสิตคณะวิศวกรรมศาสตร์ สาขาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยนเรศวร</p>
+            </div>
+            <div class="footer-copyright" style="height: 35px; line-height: 35px;">
+                <div class="container center-align">
+                © 2014 <a class=" grey-text text-lighten-4" href="About.aspx">BagaJN</a> | © 2015 <a class=" grey-text text-lighten-4" href="About.aspx">แอ๊ดหัวหลิม</a> | Powered by <a class=" grey-text text-lighten-4" href="http://materializecss.com">Materialize</a><a class="right grey-text text-lighten-1" href="About.aspx">P01</a>
+                </div>
+            </div>
+        </footer>
+
+        <div style="text-align: center;">
+            <div id="tab4">
+                <br />
+                <p class="auto-style7"><font color="White">เว็บไซต์นี้ถูกสร้างขึ้นเพื่อเป็นระบบประเมินและตรวจสอบโครงการของนิสิตคณะวิศวกรรมศาสตร์ สาขาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยนเรศวร</font></p>
+
+                <div class="auto-style20">
+                    <div class="auto-style7">
+                        <font color="White">© 2014 BagaJN  |  © 2015 หัวหลิม</font>
+                        <br />
+                    </div>
+                    <p style="font-size: 12px" class="auto-style20">
+                        <font color="Gray">P01</font>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+<%--        <div id="header">
+            <asp:Image ID="Image1" runat="server" Height="145px" ImageUrl="~/pic/banner.jpg" Width="1000px" />
+        </div>--%>
 
         <div id="tab">
         </div>
@@ -162,24 +244,65 @@
         <div id="tab3">
         </div>
 
-        <div style="text-align: right">
-            <div id="tab4">
-                <br />
-                <p class="auto-style7"><font color="White">เว็บไซต์นี้ถูกสร้างขึ้นเพื่อเป็นระบบประเมินและตรวจสอบโครงการของนิสิตคณะวิศวกรรมศาสตร์ สาขาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยนเรศวร</font></p>
+        
 
-                 <div class="auto-style20">
-                     <div class="auto-style7">
-                <font color="White">© 2014 BagaJN  |  © 2015 หัวหลิม</font>
-                     <br />
-                     </div>
-                     <p style="font-size:12px" class="auto-style20"><font color="Gray">P01</font></div>
 
-            </div>
-            </div>
-            
-            
-        <div class="footer-copyright" style="height: 35px; line-height: 35px;">
-           
+        <div class="footer-copyright" style="height: 35px; line-height: 35px;"></div>
+
+
+
+
+        <!--  Scripts-->
+        <!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+
+        <script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+
+        <script type="text/javascript">
+
+            function homePageResposive() {
+                var DisplayHeight = document.documentElement.clientHeight;
+                var H = DisplayHeight;
+                var minPageHeight = 600;
+                var currentHight;
+
+                $(".page-home").css("min-height", function () {
+                    if (DisplayHeight < minPageHeight) {
+                        currentHight = minPageHeight;
+                        return currentHight;
+                    }
+                    else {
+                        currentHight = DisplayHeight;
+                        return currentHight;
+                    }
+                });
+
+                $(".login_background").css("min-height", function () {
+                    /*H = (H / 2) - 62;
+                    if (H < 236) {
+                        H = 236;
+                    }*/
+                    return H - 129;
+                });
+
+                $(".login_background").css("max-height", function () {
+                    return H - 129;
+                });
+            }
+
+            homePageResposive();
+
+            window.onresize = function () {
+                homePageResposive();
+            }
+        </script>
+
+
+
+
+
+
     </form>
 
 
