@@ -19,9 +19,9 @@ namespace SWEngWeb
             }
         }
 
-        protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
+        protected void ButtonLogin_Click(object sender, EventArgs e)
         {
-            if(user.login(userNameInput.Text, TextBox2.Text))
+            if (user.login(String.Format("{0}", Request.Form["UserName"]), String.Format("{0}", Request.Form["PassWord"])))
             {
                 Response.Redirect("~/Home.aspx");
             }
