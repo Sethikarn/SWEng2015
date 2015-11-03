@@ -30,10 +30,6 @@
 </head>
 
 <body class="page-home">
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-
     <form id="form1" runat="server" style="margin-bottom: 0px;">
 
         <nav class="red lighten-2 z-depth-1" role="navigation">
@@ -42,13 +38,10 @@
                 <a href="http://www.nu.ac.th" target="_blank">
                     <img src="pic/NU_LOGO1.png" alt="" class="left circle responsive-img z-depth-1"  />
                 </a>
-
-                <!--
                 <a href="http://www.eng.nu.ac.th" target="_blank">
-                    <img src="pic/EngLogoColor2.png" alt="" class="left circle responsive-img" />
+                    <img src="pic/logoEng.png" alt="" class="left circle responsive-img z-depth-1" style="margin-left:4px;" />
                 </a>
-                -->
-
+                
                 <a class="waves-effect waves-light btn right " href="About.aspx" style="margin-top: 12px; margin-bottom: 0px;">เกี่ยวกับ</a>
             </div>
         </nav>
@@ -76,20 +69,20 @@
             </div>
             <div class="footer-copyright" style="height: 35px; line-height: 35px;">
                 <div class="container center-align">
-                    © 2014 <a class=" grey-text text-lighten-4" href="About.aspx">BagaJN</a> | © 2015 <a class=" grey-text text-lighten-4" href="About.aspx">แอ๊ดหัวหลิม</a> | Powered by <a class=" grey-text text-lighten-4" href="http://materializecss.com">Materialize</a><a class="right grey-text text-lighten-1">P01</a>
+                    © 2014 <a class=" grey-text text-lighten-4" href="About.aspx">BagaJN</a> | © 2015 <a class=" grey-text text-lighten-4" href="About.aspx">แอ๊ดหัวหลิม</a> | Powered by <a class=" grey-text text-lighten-4" href="http://materializecss.com" target="_blank">Materialize</a><a class="right grey-text text-lighten-1">P01</a>
                 </div>
             </div>
         </footer>
 
         <div class="row" style="margin-bottom: 0px;">
             <div class="right col s12 m7">
-                <div class="right card red lighten-4" style="margin-top: -350px; margin-bottom: 0px;">
+                <div class="right card red lighten-4" style="margin-top: -320px; margin-bottom: 0px;">
                     <div class="card-content" style="padding: 0px 20px 0px 20px;">
-                        <div class="row" style="margin-bottom: 0px;">
+                       <!-- <div class="row" style="margin-bottom: 0px;">
                             <span class="card-title grey-text text-darken-4 right" style="margin-right: 12px; margin-bottom: 0px;">เข้าสู่ระบบ</span>
                         </div>
-
-                        <div class="row valign-wrapper" style="margin-bottom: 0px;">
+                        -->
+                        <div class="row valign-wrapper" style="margin-bottom: 0px; margin-top:15px;">
                             <div class="row">
                                 <div class="row" style="margin-bottom: 0px;">
                                     <div class="input-field col s12 grey-text text-darken-4">
@@ -122,6 +115,7 @@
         <!--  Scripts-->
         <!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
 
+        <script type="text/javascript" src="js/materialize.min.js"></script>
         <script src="js/jquery-2.1.1.min.js"></script>
         <script src="js/materialize.js"></script>
         <script src="js/init.js"></script>
@@ -142,8 +136,11 @@
             function homePageResposive() {
                 var DisplayHeight = document.documentElement.clientHeight;
                 var H = DisplayHeight;
-                var minPageHeight = 740;
+                var minPageHeight = 650;
                 var currentHight;
+
+                var DisplayWidth = document.documentElement.clientWidth;
+                var minPageWidth = 860;
 
                 $(".page-home").css("min-height", function () {
                     if (DisplayHeight < minPageHeight) {
@@ -156,10 +153,19 @@
                     }
                 });
 
+                $(".page-home").css("min-width", function () {
+                    if (DisplayWidth < minPageWidth) {
+                        return minPageWidth;
+                    }
+                    else {
+                        return DisplayWidth;
+                    }
+                });
+
                 $(".login_background").css("min-height", function () {
                     H = H - 129;
-                    if (H < 740 - 129) {
-                        H = 740 - 129;
+                    if (H < 650 - 129) {
+                        H = 650 - 129;
                     }
                     return H;
                 });

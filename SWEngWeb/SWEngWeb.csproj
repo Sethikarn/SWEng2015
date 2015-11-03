@@ -60,16 +60,25 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="ApproveProject.aspx" />
-    <Content Include="CPE1.aspx" />
-    <Content Include="CPE2.aspx" />
+    <Content Include="CPE01.aspx" />
+    <Content Include="CPE02.aspx" />
+    <Content Include="CPE04.aspx" />
+    <Content Include="CPE05.aspx" />
+    <Content Include="CPE06.aspx" />
+    <Content Include="CPE07.aspx" />
     <Content Include="CPE2forProfessor.aspx" />
-    <Content Include="CPE3.aspx" />
+    <Content Include="CPE03.aspx" />
     <Content Include="CPE3forPr.aspx" />
     <Content Include="default.aspx" />
-    <Content Include="Home.aspx" />
+    <Content Include="StudentMenu.aspx" />
     <Content Include="HomeForProfessor.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="Notification.aspx" />
     <Content Include="SaveCPE1.aspx" />
     <Content Include="StyleSheet1.css" />
+    <Content Include="TeacherMenu.aspx" />
+    <Content Include="test.aspx" />
+    <Content Include="under_construction.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -90,20 +99,83 @@
     <Compile Include="ApproveProject.aspx.designer.cs">
       <DependentUpon>ApproveProject.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CPE04.aspx.cs">
+      <DependentUpon>CPE04.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CPE04.aspx.designer.cs">
+      <DependentUpon>CPE04.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CPE05.aspx.cs">
+      <DependentUpon>CPE05.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CPE05.aspx.designer.cs">
+      <DependentUpon>CPE05.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CPE06.aspx.cs">
+      <DependentUpon>CPE06.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CPE06.aspx.designer.cs">
+      <DependentUpon>CPE06.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CPE07.aspx.cs">
+      <DependentUpon>CPE07.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CPE07.aspx.designer.cs">
+      <DependentUpon>CPE07.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Notification.aspx.cs">
+      <DependentUpon>Notification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Notification.aspx.designer.cs">
+      <DependentUpon>Notification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherMenu.aspx.cs">
+      <DependentUpon>TeacherMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherMenu.aspx.designer.cs">
+      <DependentUpon>TeacherMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="under_construction.aspx.cs">
+      <DependentUpon>under_construction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="under_construction.aspx.designer.cs">
+      <DependentUpon>under_construction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user.cs" />
-    <Compile Include="CPE1.aspx.cs">
-      <DependentUpon>CPE1.aspx</DependentUpon>
+    <Compile Include="CPE01.aspx.cs">
+      <DependentUpon>CPE01.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CPE1.aspx.designer.cs">
-      <DependentUpon>CPE1.aspx</DependentUpon>
+    <Compile Include="CPE01.aspx.designer.cs">
+      <DependentUpon>CPE01.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CPE2.aspx.cs">
-      <DependentUpon>CPE2.aspx</DependentUpon>
+    <Compile Include="CPE02.aspx.cs">
+      <DependentUpon>CPE02.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CPE2.aspx.designer.cs">
-      <DependentUpon>CPE2.aspx</DependentUpon>
+    <Compile Include="CPE02.aspx.designer.cs">
+      <DependentUpon>CPE02.aspx</DependentUpon>
     </Compile>
     <Compile Include="CPE2forProfessor.aspx.cs">
       <DependentUpon>CPE2forProfessor.aspx</DependentUpon>
@@ -112,12 +184,12 @@
     <Compile Include="CPE2forProfessor.aspx.designer.cs">
       <DependentUpon>CPE2forProfessor.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CPE3.aspx.cs">
-      <DependentUpon>CPE3.aspx</DependentUpon>
+    <Compile Include="CPE03.aspx.cs">
+      <DependentUpon>CPE03.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CPE3.aspx.designer.cs">
-      <DependentUpon>CPE3.aspx</DependentUpon>
+    <Compile Include="CPE03.aspx.designer.cs">
+      <DependentUpon>CPE03.aspx</DependentUpon>
     </Compile>
     <Compile Include="CPE3forPr.aspx.cs">
       <DependentUpon>CPE3forPr.aspx</DependentUpon>
@@ -133,12 +205,12 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="StudentMenu.aspx.cs">
+      <DependentUpon>StudentMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="StudentMenu.aspx.designer.cs">
+      <DependentUpon>StudentMenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomeForProfessor.aspx.cs">
       <DependentUpon>HomeForProfessor.aspx</DependentUpon>

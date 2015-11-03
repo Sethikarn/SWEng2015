@@ -15,7 +15,15 @@ namespace SWEngWeb
         {
             if (user.isLogin())
             {
-                Response.Redirect("~/Home.aspx");
+                if (user.position() == "student")
+                {
+                    Response.Redirect("~/StudentMenu.aspx");
+                }
+                else
+                {
+                    Response.Redirect("~/TeacherMenu.aspx");
+                }
+                    
             }
         }
 
@@ -23,7 +31,14 @@ namespace SWEngWeb
         {
             if (user.login(String.Format("{0}", Request.Form["UserName"]), String.Format("{0}", Request.Form["PassWord"])))
             {
-                Response.Redirect("~/Home.aspx");
+                if (user.position() == "student")
+                {
+                    Response.Redirect("~/StudentMenu.aspx");
+                }
+                else
+                {
+                    Response.Redirect("~/TeacherMenu.aspx");
+                }
             }
             else
             {

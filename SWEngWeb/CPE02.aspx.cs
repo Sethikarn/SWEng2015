@@ -18,7 +18,7 @@ namespace SWEngWeb
         {
             if (user.isLogin())
             {
-
+                Response.Redirect("~/under_construction.aspx");
             }
             else
             {

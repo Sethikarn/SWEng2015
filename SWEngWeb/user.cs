@@ -24,7 +24,11 @@ namespace SWEngWeb
 
         public static string position()
         {
-            return HttpContext.Current.Session["position"].ToString();
+            if (HttpContext.Current.Session["position"].ToString() == "S")
+            {
+                return "student";
+            }
+            return "teacher";
         }
 
         public static bool login(string userName ,string password)
@@ -32,14 +36,14 @@ namespace SWEngWeb
             string constr = WebConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
             SqlConnection con = new SqlConnection(constr);
             con.Open();
-            SqlCommand myCommand = new SqlCommand("SELECT password , firstName , lastName , position FROM person where username = '" + userName + "'", con);
+            SqlCommand myCommand = new SqlCommand("SELECT password , title , firstName , lastName , position FROM person where username = '" + userName + "'", con);
             SqlDataReader read = myCommand.ExecuteReader();
             if (read.Read())
             {
                 if (password == read["password"].ToString())
                 {
                     HttpContext.Current.Session["userName"] = userName;
-                    HttpContext.Current.Session["name"] = read["firstName"].ToString() + " " + read["lastName"].ToString();
+                    HttpContext.Current.Session["name"] = read["title"].ToString() + read["firstName"].ToString() + " " + read["lastName"].ToString();
                     HttpContext.Current.Session["position"] = read["position"].ToString();
                     con.Close();
                     return true;
@@ -63,6 +67,7 @@ namespace SWEngWeb
         {
             HttpContext.Current.Session["userName"] = null;
             HttpContext.Current.Session["name"] = null;
+            HttpContext.Current.Session["position"] = null;
 
             HttpContext.Current.Session.Clear();
             HttpContext.Current.Session.Abandon();

@@ -19,7 +19,7 @@ namespace SWEngWeb
         {
             if (user.isLogin())
             {
-                username.Text = user.name();
+
             }
             else
             {
@@ -79,7 +79,7 @@ namespace SWEngWeb
         {
             SqlConnection con = new SqlConnection(constr1);
             con.Open();
-            SqlCommand myCommand = new SqlCommand("SELECT * FROM  student where s_id = '" + username.Text + "'", con);
+            SqlCommand myCommand = new SqlCommand("SELECT * FROM  student where s_id = '" + "username.Text" + "'", con);
             SqlDataReader read2 = myCommand.ExecuteReader();
             string idp = "";
             while (read2.Read())
