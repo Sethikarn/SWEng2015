@@ -31,12 +31,17 @@ namespace SWEngWeb
             return "teacher";
         }
 
+        public static string userID()
+        {
+            return HttpContext.Current.Session["userID"].ToString();
+        }
+
         public static bool login(string userName ,string password)
         {
             string constr = WebConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
             SqlConnection con = new SqlConnection(constr);
             con.Open();
-            SqlCommand myCommand = new SqlCommand("SELECT password , title , firstName , lastName , position FROM person where username = '" + userName + "'", con);
+            SqlCommand myCommand = new SqlCommand("SELECT password , title , firstName , lastName , position , personID FROM person where username = '" + userName + "'", con);
             SqlDataReader read = myCommand.ExecuteReader();
             if (read.Read())
             {
@@ -45,6 +50,7 @@ namespace SWEngWeb
                     HttpContext.Current.Session["userName"] = userName;
                     HttpContext.Current.Session["name"] = read["title"].ToString() + read["firstName"].ToString() + " " + read["lastName"].ToString();
                     HttpContext.Current.Session["position"] = read["position"].ToString();
+                    HttpContext.Current.Session["userID"] = read["personID"].ToString();
                     con.Close();
                     return true;
                 }
@@ -68,6 +74,7 @@ namespace SWEngWeb
             HttpContext.Current.Session["userName"] = null;
             HttpContext.Current.Session["name"] = null;
             HttpContext.Current.Session["position"] = null;
+            HttpContext.Current.Session["personID"] = null;
 
             HttpContext.Current.Session.Clear();
             HttpContext.Current.Session.Abandon();
