@@ -12,7 +12,7 @@
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
-<body style="min-width:860px;">
+<body style="min-width: 860px;">
     <form id="form1" runat="server">
         <nav class="red lighten-2 z-depth-2" role="navigation">
             <div class="container">
@@ -32,7 +32,7 @@
 
         <div class="container">
             <div class="row" style="margin-bottom: 5px;">
-                <div id="menubar" class="col s3 left" style="margin-right: 0px; min-height: 538px; padding-right:5px; padding-left:5px;" runat="server">
+                <div id="menubar" class="col s3 left" style="margin-right: 0px; min-height: 538px; padding-right: 5px; padding-left: 5px;" runat="server">
 
                     <div class="row red lighten-5" style="margin: 0px;">
                         <a href="http://www.eng.nu.ac.th" target="_blank">
@@ -68,7 +68,69 @@
                     </div>
                 </div>
                 <div class="col s9" style="margin-left: 0px; padding-left: 0px; padding: 0px;">
-                    <div class="card-panel infor" style="padding: 15px; margin:0px; min-height:527px;">
+                    <div class="card-panel infor" style="padding: 15px; margin: 0px; min-height: 527px;">
+
+                        <div class="col s12">
+                            <!-- <div class="section" style="margin-bottom: -20px;"> -->
+                            <div class="row" style="margin-bottom: 0px;">
+                                
+                                <div class="col s6">
+                                    <div class="row" style="margin:0px;">
+                                    <div class="information card-panel light" style="height: 225px;">
+                                        <div class="icon-block">
+                                            <h2 class="center brown-text" style="margin-top:10px; margin-bottom:10px;"><i class="large material-icons">info</i></h2>
+                                            <h5 class="center">สถานะล่าสุด</h5>
+
+                                            <p class="light center">ท่านยังไม่มีแบบเสนอหัวข้อโครงงาน</p>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin:0px;">
+                                    <div class="information card-panel light" style="height: 225px;">
+                                        <div class="icon-block">
+                                            <h2 class="center brown-text" style="margin-top:10px; margin-bottom:10px;"><i class="large material-icons">web</i></h2>
+                                            <h5 class="center">โครงงานของท่าน</h5>
+
+                                            <p class="light center">ท่านยังไม่มีโครงงาน</p>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+
+                                <div class="col s6">
+                                    <div class="information card-panel light">
+                                        <div class="icon-block" style="padding: 0px;">
+                                            <h2 class="center brown-text"><i class="large material-icons">assessment</i></h2>
+                                            <h5 class="center">ภาพรวม</h5>
+                                            <br />
+                                            <div>
+                                                <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบเสนอหัวข้อโครงงาน</a>
+                                                <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบบันทึกการดำเนินงาน</a>
+                                                <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบขอสอบข้อเสนอโครงงาน</a>
+                                                <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบประเมินข้อเสนอโครงงาน</a>
+                                                <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบประเมินความก้าวหน้า</a>
+                                                <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบขอสอบโครงงาน</a>
+                                                <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบประเมินโครงงาน</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
                         <asp:GridView ID="GridView1" runat="server" class="striped centered">
                             <Columns>
                                 <asp:ButtonField Text="Accept" CommandName="a" />

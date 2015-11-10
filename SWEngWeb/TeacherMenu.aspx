@@ -69,6 +69,30 @@
                 </div>
                 <div class="col s9" style="margin-left: 0px; padding-left: 0px; padding: 0px;">
                     <div class="card-panel infor" style="padding: 15px; margin:0px; min-height:527px;">
+
+                        <div class="col s12">
+                            <!-- <div class="section" style="margin-bottom: -20px;"> -->
+                            <div class="row" style="margin-bottom: 0px;">
+                                
+                                <div class="col s12">
+                                    <div class="row" style="margin:0px;">
+                                    <div class="information card-panel light" style="height: 470px;">
+                                        <div class="icon-block">
+                                            <h2 class="center brown-text" style="margin-top:10px; margin-bottom:10px;"><i class="large material-icons">recent_actors</i></h2>
+                                            <h5 class="center">โครงงานในความดูแลของท่าน</h5>
+
+                                            <p class="light center">ท่านยังไม่มีโครงงานที่อยู่ในการดูแล</p>
+                                        </div>
+                                        </div>
+                                    </div>
+         
+                                </div>
+                                
+
+                            </div>
+                        </div>
+
+
                         <asp:GridView ID="GridView1" runat="server" class="striped centered">
                             <Columns>
                                 <asp:ButtonField Text="Accept" CommandName="a" />
