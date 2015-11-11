@@ -39,9 +39,6 @@ namespace SWEngWeb
 
             if (projectID == null)
                 Response.Redirect("CreateProject.aspx");
-
-            /*//////////////////////////////--------------- Check is user have project ---------------///////////////////////////////
-            */
         }
     }
 }

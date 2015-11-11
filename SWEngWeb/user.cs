@@ -17,6 +17,53 @@ namespace SWEngWeb
             return HttpContext.Current.Session["name"].ToString();
         }
 
+        public static int ontificationCount()
+        {
+            int count = 0;
+
+            string constr = WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
+            SqlConnection conn = new SqlConnection(constr);
+            conn.Open();
+            String Checkuser = "select * from request where replyID =" + user.userID();
+            SqlCommand com = new SqlCommand(Checkuser, conn);
+            var reader = com.ExecuteReader();
+            while (reader.Read())
+            {
+                count++;
+            }
+            conn.Close();
+            return count;
+        }
+
+        public static int projectID()
+        {
+            int projectID = 0;
+
+            string constr = WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
+            SqlConnection conn = new SqlConnection(constr);
+            conn.Open();
+            String Checkuser = "select projectID from position where personID =" + user.userID() + " and personStatusID = 1";
+            SqlCommand com = new SqlCommand(Checkuser, conn);
+            var reader = com.ExecuteScalar();
+            conn.Close();
+            projectID = int.Parse(reader.ToString());
+            return projectID;
+        }
+
+        public static string thaiProjectName()
+        {
+            string tName = "";
+            string constr = WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
+            SqlConnection conn = new SqlConnection(constr);
+            conn.Open();
+            String Checkuser = "select thaiName from project where projectID =" + projectID().ToString() ;
+            SqlCommand com = new SqlCommand(Checkuser, conn);
+            var reader = com.ExecuteScalar();
+            tName = reader.ToString();
+            conn.Close();
+            return tName;
+        }
+
         public static string userName()
         {
             return HttpContext.Current.Session["userName"].ToString();
@@ -24,6 +71,7 @@ namespace SWEngWeb
 
         public static string position()
         {
+
             if (HttpContext.Current.Session["position"].ToString() == "S")
             {
                 return "student";

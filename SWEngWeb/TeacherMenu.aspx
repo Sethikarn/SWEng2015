@@ -26,6 +26,13 @@
 
                 <a class="center-align grey-text text-lighten-4 center" style="margin-left: 70px;"><span style="font-size: 21px;">ระบบประเมินและตรวจสอบโครงการคณะวิศวกรรมศาสตร์</span></a>
                 <a class="waves-effect waves-light btn right " href="Logout.aspx" style="margin-top: 12px; margin-bottom: 0px;">ออกจากระบบ</a>
+                <% 
+                    int notiCount = SWEngWeb.user.ontificationCount();
+                    string notiColor = "";
+                    if (notiCount != 0)
+                        notiColor = "red";
+                %>
+                <a class="waves-effect waves-light btn right <%: notiColor %>" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left:10px;">textsms</i> <%: notiCount %> </a>
 
             </div>
         </nav>
@@ -40,7 +47,6 @@
                         </a>
                     </div>
 
-                    <%string UName = SWEngWeb.user.name(); %>
                     <div class="row" style="margin: 0px 0px; -6px 0px;">
                         <div class="card-panel red lighten-4 z-depth-1" style="margin: 0px 0px 0px 0px; padding: 0px 3px 0px 3px; height: 40px;">
                             <div class="row valign-wrapper" style="margin-bottom: 0px;">
@@ -48,7 +54,7 @@
                                     <i class="material-icons prefix" style="margin-left: 5px; margin-right: 2px; margin-top: 8px;">person_pin</i>
                                 </div>
                                 <div class="col s11" style="margin-left: 0px; line-height: 40px;">
-                                    <span class="black-text center">สวัสดี <%: UName %>
+                                    <span class="black-text center">สวัสดี <%: SWEngWeb.user.name() %>
                                     </span>
                                 </div>
                             </div>
@@ -57,14 +63,13 @@
 
 
                     <div class="card-panel" style="padding: 7px; margin-bottom: 0px;">
-                        <a class="waves-effect waves-light btn center red" href="Notification.aspx" style="margin-bottom: 0px; width: 100%;" runat="server"><i class="material-icons left">info</i> ไม่มีการแจ้งเตือนใหม่</a>
-                        <a class="waves-effect waves-light btn center red lighten-2" href="CPE01.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">ตรวจสอบหัวข้อโครงงาน</a>
-                        <a class="waves-effect waves-light btn center red lighten-2" href="CPE02.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">ตรวจสอบบันทึกการดำเนินงาน</a>
-                        <a class="waves-effect waves-light btn center red lighten-2" href="CPE03.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">ตรวจสอบข้อเสนอโครงงาน</a>
-                        <a class="waves-effect waves-light btn center red lighten-2" href="CPE04.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">ประเมินข้อเสนอโครงงาน</a>
-                        <a class="waves-effect waves-light btn center red lighten-2" href="CPE05.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">ประเมินความก้าวหน้า</a>
-                        <a class="waves-effect waves-light btn center red lighten-2" href="CPE06.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">ตรวจสอบขอสอบโครงงาน</a>
-                        <a class="waves-effect waves-light btn center red lighten-2" href="CPE07.aspx" style="margin-bottom: -7px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">ประเมินโครงงาน</a>
+                        <a class="waves-effect waves-light btn center red lighten-2" href="under_construction.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">ตรวจสอบหัวข้อโครงงาน</a>
+                        <a class="waves-effect waves-light btn center red lighten-2" href="under_construction.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">ตรวจสอบบันทึกการดำเนินงาน</a>
+                        <a class="waves-effect waves-light btn center red lighten-2" href="under_construction.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">ตรวจสอบข้อเสนอโครงงาน</a>
+                        <a class="waves-effect waves-light btn center red lighten-2" href="under_construction.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">ประเมินข้อเสนอโครงงาน</a>
+                        <a class="waves-effect waves-light btn center red lighten-2" href="under_construction.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">ประเมินความก้าวหน้า</a>
+                        <a class="waves-effect waves-light btn center red lighten-2" href="under_construction.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">ตรวจสอบขอสอบโครงงาน</a>
+                        <a class="waves-effect waves-light btn center red lighten-2" href="under_construction.aspx" style="margin-bottom: -7px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">ประเมินโครงงาน</a>
                     </div>
                 </div>
                 <div class="col s9" style="margin-left: 0px; padding-left: 0px; padding: 0px;">

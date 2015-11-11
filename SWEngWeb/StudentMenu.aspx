@@ -26,6 +26,13 @@
 
                 <a class="center-align grey-text text-lighten-4 center" style="margin-left: 70px;"><span style="font-size: 21px;">ระบบประเมินและตรวจสอบโครงการคณะวิศวกรรมศาสตร์</span></a>
                 <a class="waves-effect waves-light btn right " href="Logout.aspx" style="margin-top: 12px; margin-bottom: 0px;">ออกจากระบบ</a>
+                <% 
+                    int notiCount = SWEngWeb.user.ontificationCount();
+                    string notiColor = "";
+                    if (notiCount != 0)
+                        notiColor = "red";
+                %>
+                <a class="waves-effect waves-light btn right <%: notiColor %>" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left:10px;">textsms</i> <%: notiCount %> </a>
 
             </div>
         </nav>
@@ -57,7 +64,6 @@
 
 
                     <div class="card-panel" style="padding: 7px; margin-bottom: 0px;">
-                        <a class="waves-effect waves-light btn center red" href="Notification.aspx" style="margin-bottom: 0px; width: 100%;" runat="server"><i class="material-icons left">info</i> ไม่มีการแจ้งเตือนใหม่</a>
                         <a class="waves-effect waves-light btn center red lighten-2" href="CPE01.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">แบบเสนอหัวข้อโครงงาน</a>
                         <a class="waves-effect waves-light btn center red lighten-2" href="CPE02.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">แบบบันทึกการดำเนินงาน</a>
                         <a class="waves-effect waves-light btn center red lighten-2" href="CPE03.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">แบบขอสอบข้อเสนอโครงงาน</a>
@@ -81,7 +87,7 @@
                                             <h2 class="center brown-text" style="margin-top:10px; margin-bottom:10px;"><i class="large material-icons">info</i></h2>
                                             <h5 class="center">สถานะล่าสุด</h5>
 
-                                            <p class="light center">ท่านยังไม่มีแบบเสนอหัวข้อโครงงาน</p>
+                                            <p class="light center">-</p>
                                         </div>
                                         </div>
                                     </div>
@@ -90,8 +96,13 @@
                                         <div class="icon-block">
                                             <h2 class="center brown-text" style="margin-top:10px; margin-bottom:10px;"><i class="large material-icons">web</i></h2>
                                             <h5 class="center">โครงงานของท่าน</h5>
-
-                                            <p class="light center">ท่านยังไม่มีโครงงาน</p>
+                                            <% string projectThaiName = SWEngWeb.user.thaiProjectName();
+                                                if(projectThaiName == "")
+                                                {
+                                                    projectThaiName = "ท่านยังไม่มีโครงงาน";
+                                                }
+                                                    %>
+                                            <p class="light center"><%: projectThaiName %></p>
                                         </div>
                                         </div>
                                     </div>
@@ -119,17 +130,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
-
-
-
-
-
-
 
                         <asp:GridView ID="GridView1" runat="server" class="striped centered">
                             <Columns>

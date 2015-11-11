@@ -17,11 +17,12 @@ namespace SWEngWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (user.position() == "student")
+            if (!user.isLogin())
             {
-
+                Response.Redirect("~/");
             }
-            else
+
+            if (!(user.position() == "student"))
             {
                 Response.Redirect("~/");
             }

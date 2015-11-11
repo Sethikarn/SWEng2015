@@ -13,6 +13,11 @@ namespace SWEngWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*//////////////////////////////--------------- Check is login ---------------///////////////////////////////
+            if not login continue
+                otherwise if login as student redirect to StudentMenu
+                          if login as teacher redirect to teacher
+            */
             if (user.isLogin())
             {
                 if (user.position() == "student")
@@ -27,6 +32,9 @@ namespace SWEngWeb
             }
         }
 
+
+        /*//////////////////////////////--------------- login on click ---------------///////////////////////////////
+        */
         protected void ButtonLogin_Click(object sender, EventArgs e)
         {
             if (user.login(String.Format("{0}", Request.Form["UserName"]), String.Format("{0}", Request.Form["PassWord"])))

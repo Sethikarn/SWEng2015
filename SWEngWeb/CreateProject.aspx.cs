@@ -319,7 +319,7 @@ namespace SWEngWeb
             else
             {
                 queryToDB();
-                Response.Redirect("Project.aspx");
+                Response.Redirect("CPE01.aspx");
             }
         }
         protected void createProject(object sender, EventArgs e)
@@ -596,7 +596,7 @@ namespace SWEngWeb
                 cmd = new SqlCommand("INSERT INTO position (personID, projectID , personStatusID) VALUES (@personID, @projectID , @personStatusID)");
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = connection;
-                cmd.Parameters.AddWithValue("@personID", globalVar.userID.ToString());
+                cmd.Parameters.AddWithValue("@personID", user.userID());
                 cmd.Parameters.AddWithValue("@projectID", projectIDCS.ToString());
                 cmd.Parameters.AddWithValue("@personStatusID", "1");
                 connection.Open();
@@ -616,7 +616,7 @@ namespace SWEngWeb
                             cmd.Connection = connection;
                             cmd.Parameters.AddWithValue("@actionID", "1");
                             cmd.Parameters.AddWithValue("@projectID", projectIDCS);
-                            cmd.Parameters.AddWithValue("@requesterID", globalVar.userID);
+                            cmd.Parameters.AddWithValue("@requesterID", user.userID());
                             cmd.Parameters.AddWithValue("@replyID", globalVar.memberID[i]);
                             cmd.Parameters.AddWithValue("@requestDateTime", myDateTime.ToString("yyyy-MM-dd HH:mm:ss"));
                             connection.Open();
@@ -634,7 +634,7 @@ namespace SWEngWeb
                     cmd.Connection = connection;
                     cmd.Parameters.AddWithValue("@actionID", "3");
                     cmd.Parameters.AddWithValue("@projectID", projectIDCS);
-                    cmd.Parameters.AddWithValue("@requesterID", globalVar.userID);
+                    cmd.Parameters.AddWithValue("@requesterID", user.userID());
                     cmd.Parameters.AddWithValue("@replyID", globalVar.teacherIDList[adviser.SelectedIndex]);
                     cmd.Parameters.AddWithValue("@requestDateTime", myDateTime.ToString("yyyy-MM-dd HH:mm:ss"));
                     connection.Open();
@@ -650,7 +650,7 @@ namespace SWEngWeb
                     cmd.Connection = connection;
                     cmd.Parameters.AddWithValue("@actionID", "4");
                     cmd.Parameters.AddWithValue("@projectID", projectIDCS);
-                    cmd.Parameters.AddWithValue("@requesterID", globalVar.userID);
+                    cmd.Parameters.AddWithValue("@requesterID", user.userID());
                     cmd.Parameters.AddWithValue("@replyID", globalVar.teacherIDList[coadviser.SelectedIndex]);
                     cmd.Parameters.AddWithValue("@requestDateTime", myDateTime.ToString("yyyy-MM-dd HH:mm:ss"));
                     connection.Open();
@@ -666,7 +666,7 @@ namespace SWEngWeb
                     cmd.Connection = connection;
                     cmd.Parameters.AddWithValue("@actionID", "5");
                     cmd.Parameters.AddWithValue("@projectID", projectIDCS);
-                    cmd.Parameters.AddWithValue("@requesterID", globalVar.userID);
+                    cmd.Parameters.AddWithValue("@requesterID", user.userID());
                     cmd.Parameters.AddWithValue("@replyID", globalVar.teacherIDList[committee.SelectedIndex]);
                     cmd.Parameters.AddWithValue("@requestDateTime", myDateTime.ToString("yyyy-MM-dd HH:mm:ss"));
                     connection.Open();
@@ -680,7 +680,7 @@ namespace SWEngWeb
                 cmd = new SqlCommand("INSERT INTO activityLog (personID, projectID , activityNameID, dateTime) VALUES (@personID, @projectID , @activityNameID, @dateTime)");
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = connection;
-                cmd.Parameters.AddWithValue("@personID", globalVar.userID);
+                cmd.Parameters.AddWithValue("@personID", user.userID());
                 cmd.Parameters.AddWithValue("@projectID", projectIDCS);
                 cmd.Parameters.AddWithValue("@activityNameID", "0");
                 cmd.Parameters.AddWithValue("@dateTime", myDateTime.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -691,7 +691,7 @@ namespace SWEngWeb
                 cmd = new SqlCommand("INSERT INTO activityLog (personID, projectID , activityNameID, dateTime) VALUES (@personID, @projectID , @activityNameID, @dateTime)");
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = connection;
-                cmd.Parameters.AddWithValue("@personID", globalVar.userID);
+                cmd.Parameters.AddWithValue("@personID", user.userID());
                 cmd.Parameters.AddWithValue("@projectID", projectIDCS);
                 cmd.Parameters.AddWithValue("@activityNameID", "50");
                 cmd.Parameters.AddWithValue("@dateTime", myDateTime.ToString("yyyy-MM-dd HH:mm:ss"));
