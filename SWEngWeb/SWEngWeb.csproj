@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,6 +62,7 @@
     <Content Include="About.aspx" />
     <Content Include="ApproveProject.aspx" />
     <Content Include="CPE01.aspx" />
+    <Content Include="CreateProject.aspx" />
     <Content Include="CPE02.aspx" />
     <Content Include="CPE04.aspx" />
     <Content Include="CPE05.aspx" />
@@ -98,6 +100,13 @@
     </Compile>
     <Compile Include="ApproveProject.aspx.designer.cs">
       <DependentUpon>ApproveProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CPE01.aspx.cs">
+      <DependentUpon>CPE01.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CPE01.aspx.designer.cs">
+      <DependentUpon>CPE01.aspx</DependentUpon>
     </Compile>
     <Compile Include="CPE04.aspx.cs">
       <DependentUpon>CPE04.aspx</DependentUpon>
@@ -163,12 +172,11 @@
       <DependentUpon>under_construction.aspx</DependentUpon>
     </Compile>
     <Compile Include="user.cs" />
-    <Compile Include="CPE01.aspx.cs">
-      <DependentUpon>CPE01.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="CreateProject.aspx.cs">
+      <DependentUpon>CreateProject.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CPE01.aspx.designer.cs">
-      <DependentUpon>CPE01.aspx</DependentUpon>
+    <Compile Include="CreateProject.aspx.designer.cs">
+      <DependentUpon>CreateProject.aspx</DependentUpon>
     </Compile>
     <Compile Include="CPE02.aspx.cs">
       <DependentUpon>CPE02.aspx</DependentUpon>

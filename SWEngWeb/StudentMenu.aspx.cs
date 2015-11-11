@@ -17,7 +17,7 @@ namespace SWEngWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (user.isLogin())
+            if (user.position() == "student")
             {
 
             }

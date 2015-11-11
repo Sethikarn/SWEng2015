@@ -13,7 +13,14 @@ namespace SWEngWeb
         {
             if (user.isLogin())
             {
+                if(user.position() == "teacher")
+                {
 
+                }
+                else
+                {
+                    Response.Redirect("~/");
+                }
             }
             else
             {
