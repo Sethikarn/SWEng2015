@@ -10,8 +10,11 @@ using System.Windows.Forms;
 
 namespace SWEngWeb
 {
+
     public static class user
     {
+        public static string connectionString = WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
+
         public static string name()
         {
             return HttpContext.Current.Session["name"].ToString();
@@ -20,9 +23,8 @@ namespace SWEngWeb
         public static int ontificationCount()
         {
             int count = 0;
-
-            string constr = WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
-            SqlConnection conn = new SqlConnection(constr);
+            
+            SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             String Checkuser = "select * from request where replyID =" + user.userID();
             SqlCommand com = new SqlCommand(Checkuser, conn);
@@ -35,12 +37,26 @@ namespace SWEngWeb
             return count;
         }
 
+        public static bool userHaveProject()
+        {
+            bool havePro = false;
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            String Checkuser = "select projectID from position where personID ='" + user.userID() + "'" + "and personStatusID = '1'";
+            SqlCommand com = new SqlCommand(Checkuser, conn);
+            var projectID = com.ExecuteScalar();
+            conn.Close();
+
+            if (projectID == null)
+                havePro = true;
+
+            return havePro;
+        }
+
         public static int projectID()
         {
             int projectID = 0;
-
-            string constr = WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
-            SqlConnection conn = new SqlConnection(constr);
+            SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             String Checkuser = "select projectID from position where personID =" + user.userID() + " and personStatusID = 1";
             SqlCommand com = new SqlCommand(Checkuser, conn);
@@ -54,8 +70,7 @@ namespace SWEngWeb
         public static string thaiProjectName()
         {
             string tName = "";
-            string constr = WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
-            SqlConnection conn = new SqlConnection(constr);
+            SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             String Checkuser = "select thaiName from project where projectID =" + projectID().ToString() ;
             SqlCommand com = new SqlCommand(Checkuser, conn);
@@ -88,8 +103,7 @@ namespace SWEngWeb
 
         public static bool login(string userName ,string password)
         {
-            string constr = WebConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
-            SqlConnection con = new SqlConnection(constr);
+            SqlConnection con = new SqlConnection(connectionString);
             con.Open();
             SqlCommand myCommand = new SqlCommand("SELECT password , title , firstName , lastName , position , personID FROM person where username = '" + userName + "'", con);
             SqlDataReader read = myCommand.ExecuteReader();

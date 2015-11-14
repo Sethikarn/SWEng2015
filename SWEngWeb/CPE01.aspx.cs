@@ -17,27 +17,14 @@ namespace SWEngWeb
             if not login redirect to login page 
                 otherwise continue
             */
-            if (!user.isLogin())
-            {
+            if ( ! user.isLogin())
                 Response.Redirect("~/");
-            }
 
             /*//////////////////////////////--------------- Check is user have project ---------------///////////////////////////////
-            connect to database by userID and get projectID
-
-            if user have projectID that mean user already have project continue
+            if user already have project continue
                 otherwise redirect to CreateProject
             */
-            Page.MaintainScrollPositionOnPostBack = true;
-            string constr = WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
-            SqlConnection conn = new SqlConnection(constr);
-            conn.Open();
-            String Checkuser = "select projectID from position where personID ='" + user.userID() + "'" + "and personStatusID = '1'";
-            SqlCommand com = new SqlCommand(Checkuser, conn);
-            var projectID = com.ExecuteScalar();
-            conn.Close();
-
-            if (projectID == null)
+            if ( ! user.userHaveProject())
                 Response.Redirect("CreateProject.aspx");
         }
     }
