@@ -150,6 +150,7 @@
     <Compile Include="Notification.aspx.designer.cs">
       <DependentUpon>Notification.aspx</DependentUpon>
     </Compile>
+    <Compile Include="process.cs" />
     <Compile Include="TeacherMenu.aspx.cs">
       <DependentUpon>TeacherMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -171,7 +172,7 @@
     <Compile Include="under_construction.aspx.designer.cs">
       <DependentUpon>under_construction.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GlobalVar.cs" />
+    <Compile Include="information.cs" />
     <Compile Include="user.cs" />
     <Compile Include="CreateProject.aspx.cs">
       <DependentUpon>CreateProject.aspx</DependentUpon>

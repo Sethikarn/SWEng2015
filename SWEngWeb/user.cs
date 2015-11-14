@@ -135,6 +135,8 @@ namespace SWEngWeb
 
         public static void logout()
         {
+            createProjectVar.clear();
+
             HttpContext.Current.Session["userName"] = null;
             HttpContext.Current.Session["name"] = null;
             HttpContext.Current.Session["position"] = null;

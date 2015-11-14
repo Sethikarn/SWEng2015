@@ -41,7 +41,7 @@
             </div>
         </nav>
 
-        <div <%= globalVar.displayNotHaveProjectMenu %> class="row" style="height: 620px;">
+        <div <%= createProjectVar.displayNotHaveProjectMenu %> class="row" style="height: 620px;">
             <div class="card-panel" style="padding: 7px; margin-bottom: 0px; height: 515px;">
                 <br />
                 <br />
@@ -62,7 +62,7 @@
             </div>
         </div>
 
-        <div class="container col s12 m9 offset-m2 l8 offset-l3" id="testt" <%= globalVar.displayCreateProject %>>
+        <div class="container col s12 m9 offset-m2 l8 offset-l3" id="testt" <%= createProjectVar.displayCreateProject %>>
             <div class="card-panel grey lighten-5 z-depth-1">
 
                 <!-- ชื่อform -->
@@ -112,9 +112,9 @@
                                     <div class="red lighten-5" style="margin-top: 5px; border-radius: 2px; padding: 5px; margin-top: 0px;">
 
                                         <select name="memberCountSelect" id="memberCountSelect" onchange="memberSelect();" class="red lighten-5">
-                                            <option value="1" <%= globalVar.displayMember[0]%>>1 คน</option>
-                                            <option value="2" <%= globalVar.displayMember[1]%>>2 คน</option>
-                                            <option value="3" <%= globalVar.displayMember[2]%>>3 คน</option>
+                                            <option value="1" <%= createProjectVar.displayMember[0]%>>1 คน</option>
+                                            <option value="2" <%= createProjectVar.displayMember[1]%>>2 คน</option>
+                                            <option value="3" <%= createProjectVar.displayMember[2]%>>3 คน</option>
                                         </select>
                                     </div>
                                 </div>
@@ -123,19 +123,19 @@
                         <div class="card-panel" style="padding-bottom: 5px;">
                             <div class="row" style="margin-bottom: 0px;">
                                 <div class="input-field col s2">
-                                    <input id="MemberID1" type="text" class="validate" value="<%= SWEngWeb.GlobalVar.userID() %>" disabled="disabled" />
+                                    <input id="MemberID1" type="text" class="validate" value="<%= SWEngWeb.user.userID() %>" disabled="disabled" />
                                     <label for="MemberID1">รหัสนิสิต</label>
                                 </div>
                                 <div class="input-field col s4">
-                                    <input id="MemberName1" type="text" class="validate" value="<%= globalVar.memberInforCS[0,0] + globalVar.memberInforCS[0,1] + globalVar.memberInforCS[0,2] %>" disabled="disabled" />
+                                    <input id="MemberName1" type="text" class="validate" value="<%= createProjectVar.memberInforCS[0,0] + createProjectVar.memberInforCS[0,1] + createProjectVar.memberInforCS[0,2] %>" disabled="disabled" />
                                     <label for="MemberName1">ชื่อ - สกุล</label>
                                 </div>
                                 <div class="input-field col s2">
-                                    <input id="MemberTel1" type="tel" class="validate" value="<%= globalVar.memberInforCS[0,3] %>" disabled="disabled" />
+                                    <input id="MemberTel1" type="tel" class="validate" value="<%= createProjectVar.memberInforCS[0,3] %>" disabled="disabled" />
                                     <label for="MemberTel1">เบอร์โทร</label>
                                 </div>
                                 <div class="input-field col s4">
-                                    <input id="MemberEmail1" type="email" class="validate" value="<%= globalVar.memberInforCS[0,4] %>" disabled="disabled" />
+                                    <input id="MemberEmail1" type="email" class="validate" value="<%= createProjectVar.memberInforCS[0,4] %>" disabled="disabled" />
                                     <label for="MemberEmail1">อีเมล์</label>
                                 </div>
                             </div>
@@ -147,15 +147,15 @@
                                     <label for="MemberID2">รหัสนิสิต</label>
                                 </div>
                                 <div class="input-field col s4">
-                                    <input name=" MemberName2" id=" MemberName2" type="text" class="validate" value="<%= globalVar.memberInforCS[1,0] + globalVar.memberInforCS[1,1] + globalVar.memberInforCS[1,2] %>" disabled="disabled" />
+                                    <input name=" MemberName2" id=" MemberName2" type="text" class="validate" value="<%= createProjectVar.memberInforCS[1,0] + createProjectVar.memberInforCS[1,1] + createProjectVar.memberInforCS[1,2] %>" disabled="disabled" />
                                     <label for="MemberName2">ชื่อ - สกุล</label>
                                 </div>
                                 <div class="input-field col s2">
-                                    <input id="MemberTel2" type="tel" class="validate" value="<%= globalVar.memberInforCS[1,3] %>" disabled="disabled" />
+                                    <input id="MemberTel2" type="tel" class="validate" value="<%= createProjectVar.memberInforCS[1,3] %>" disabled="disabled" />
                                     <label for="MemberTel2">เบอร์โทร</label>
                                 </div>
                                 <div class="input-field col s3">
-                                    <input id="MemberEmail2" type="email" class="validate" value="<%= globalVar.memberInforCS[1,4] %>" disabled="disabled" />
+                                    <input id="MemberEmail2" type="email" class="validate" value="<%= createProjectVar.memberInforCS[1,4] %>" disabled="disabled" />
                                     <label for="MemberEmail2">อีเมล์</label>
                                 </div>
                                 <div class="col s1">
@@ -170,15 +170,15 @@
                                     <label for="MemberID3">รหัสนิสิต</label>
                                 </div>
                                 <div class="input-field col s4">
-                                    <input name=" MemberName3" id=" MemberName3" type="text" class="validate" value="<%= globalVar.memberInforCS[2,0] + globalVar.memberInforCS[2,1] + globalVar.memberInforCS[2,2] %>" disabled="disabled" />
+                                    <input name=" MemberName3" id=" MemberName3" type="text" class="validate" value="<%= createProjectVar.memberInforCS[2,0] + createProjectVar.memberInforCS[2,1] + createProjectVar.memberInforCS[2,2] %>" disabled="disabled" />
                                     <label for="MemberName2">ชื่อ - สกุล</label>
                                 </div>
                                 <div class="input-field col s2">
-                                    <input id="MemberTel3" type="tel" class="validate" value="<%= globalVar.memberInforCS[2,3] %>" disabled="disabled" />
+                                    <input id="MemberTel3" type="tel" class="validate" value="<%= createProjectVar.memberInforCS[2,3] %>" disabled="disabled" />
                                     <label for="MemberTel2">เบอร์โทร</label>
                                 </div>
                                 <div class="input-field col s3">
-                                    <input id="MemberEmail3" type="email" class="validate" value="<%= globalVar.memberInforCS[2,4] %>" disabled="disabled" />
+                                    <input id="MemberEmail3" type="email" class="validate" value="<%= createProjectVar.memberInforCS[2,4] %>" disabled="disabled" />
                                     <label for="MemberEmail2">อีเมล์</label>
                                 </div>
                                 <div class="col s1">

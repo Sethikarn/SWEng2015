@@ -26,8 +26,8 @@
 
                 <a class="center-align grey-text text-lighten-4 center" style="margin-left: 70px;"><span style="font-size: 21px;">ระบบประเมินและตรวจสอบโครงการคณะวิศวกรรมศาสตร์</span></a>
                 <a class="waves-effect waves-light btn right " href="Logout.aspx" style="margin: 12px 0px 0px 0px; padding: 0px 10px 0px 10px;">ออกจากระบบ</a>
-                <a class="waves-effect waves-light btn right " href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left:10px;">textsms</i> 0 </a>
-                
+                <a class="waves-effect waves-light btn right " href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left: 10px;">textsms</i> 0 </a>
+
 
             </div>
         </nav>
@@ -65,11 +65,18 @@
                 </div>
                 <div class="col s9" style="margin-left: 0px; padding-left: 0px; padding: 0px;">
                     <div class="card-panel infor" style="padding: 15px; margin: 0px; min-height: 527px;">
-
                         <div class="col s12">
-                            <a href="http://www.eng.nu.ac.th" target="_blank">
-                <img src="pic/underconstruction.jpg" alt="" class="left circle responsive-img z-depth-1" style="margin:0px;" />
-            </a>
+
+                            <%
+                                List<string[]> memSta = new List<string[]>();
+                                memSta = SWEngWeb.information.studentInProject(SWEngWeb.user.projectID().ToString());
+                                Response.Write(memSta.Count.ToString());
+                                for (int i = 0; i < memSta.Count; i++)
+                                {
+                                    Response.Write(memSta[i][0] + memSta[i][1] + memSta[i][2] + memSta[i][3] + memSta[i][4] + "</br>");
+                                }
+                            %>
+
                         </div>
                     </div>
                 </div>

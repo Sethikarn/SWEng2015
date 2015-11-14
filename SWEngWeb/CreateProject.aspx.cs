@@ -11,11 +11,9 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
-static public class globalVar
+static public class createProjectVar
 {
     static public bool creating = false;
-    static public string userID;
-    static public string userStatus;
     static public string showPage;
     static public string displayNotHaveProjectMenu = "style=\"display: none;\"";
     static public string displayCreateProject = "style=\"display: none;\"";
@@ -33,14 +31,10 @@ static public class globalVar
     public static void clear()
     {
         creating = false;
-        userID = "";
-        userStatus = "";
         showPage = "";
         displayNotHaveProjectMenu = "style=\"display: none;\"";
         displayCreateProject = "style=\"display: none;\"";
-
-
-        //CPE01 var
+        
         thaiName = "";
         englishName = "";
         memberCount = "1";
@@ -59,14 +53,9 @@ namespace SWEngWeb
         {
             Page.MaintainScrollPositionOnPostBack = true;
 
-            if ( ! user.isLogin())
+            if (!user.isLogin())
             {
                 Response.Redirect("~/");
-            }
-
-            if (globalVar.userID != user.userID())
-            {
-                globalVar.clear();
             }
 
             if (user.userHaveProject())
@@ -75,126 +64,108 @@ namespace SWEngWeb
             }
             else
             {
-                if (!globalVar.creating)
+                if (!createProjectVar.creating)
                 {
-                    globalVar.displayNotHaveProjectMenu = "style=\"display: block;\"";
-                    globalVar.displayCreateProject = "style=\"display: none;\"";
+                    createProjectVar.displayNotHaveProjectMenu = "style=\"display: block;\"";
+                    createProjectVar.displayCreateProject = "style=\"display: none;\"";
                 }
                 else
                 {
-                    globalVar.displayNotHaveProjectMenu = "style=\"display: none;\"";
-                    globalVar.displayCreateProject = "style=\"display: block;\"";
+                    createProjectVar.displayNotHaveProjectMenu = "style=\"display: none;\"";
+                    createProjectVar.displayCreateProject = "style=\"display: block;\"";
 
                     if (Request.Form["memberCountSelect"] != null)
                     {
-                        globalVar.memberCount = Request.Form["memberCountSelect"];
+                        createProjectVar.memberCount = Request.Form["memberCountSelect"];
                     }
                     else
                     {
-                        globalVar.memberCount = "1";
+                        createProjectVar.memberCount = "1";
 
-                        globalVar.memberID[0] = "";
-                        globalVar.memberInforCS[1, 0] = "";
-                        globalVar.memberInforCS[1, 1] = "";
-                        globalVar.memberInforCS[1, 2] = "";
-                        globalVar.memberInforCS[1, 3] = "";
-                        globalVar.memberInforCS[1, 4] = "";
+                        createProjectVar.memberID[0] = "";
+                        createProjectVar.memberInforCS[1, 0] = "";
+                        createProjectVar.memberInforCS[1, 1] = "";
+                        createProjectVar.memberInforCS[1, 2] = "";
+                        createProjectVar.memberInforCS[1, 3] = "";
+                        createProjectVar.memberInforCS[1, 4] = "";
                         MemberID2.Text = "";
                         personOp.InnerText = "เพิ่ม";
 
-                        globalVar.memberID[1] = "";
-                        globalVar.memberInforCS[2, 0] = "";
-                        globalVar.memberInforCS[2, 1] = "";
-                        globalVar.memberInforCS[2, 2] = "";
-                        globalVar.memberInforCS[2, 3] = "";
-                        globalVar.memberInforCS[2, 4] = "";
+                        createProjectVar.memberID[1] = "";
+                        createProjectVar.memberInforCS[2, 0] = "";
+                        createProjectVar.memberInforCS[2, 1] = "";
+                        createProjectVar.memberInforCS[2, 2] = "";
+                        createProjectVar.memberInforCS[2, 3] = "";
+                        createProjectVar.memberInforCS[2, 4] = "";
                         MemberID3.Text = "";
                         personOp2.InnerText = "เพิ่ม";
                     }
 
-                    if (globalVar.memberCount == "2")
-                    {
-                        globalVar.displayMember = new string[3] { "", "selected=\"selected\"", "" };
-                        globalVar.memberID[1] = "";
-                        globalVar.memberInforCS[2, 0] = "";
-                        globalVar.memberInforCS[2, 1] = "";
-                        globalVar.memberInforCS[2, 2] = "";
-                        globalVar.memberInforCS[2, 3] = "";
-                        globalVar.memberInforCS[2, 4] = "";
-                        MemberID3.Text = "";
-                        personOp2.InnerText = "เพิ่ม";
-                    }
-                    else if (globalVar.memberCount == "3")
-                    {
-                        globalVar.displayMember = new string[3] { "", "", "selected=\"selected\"" };
-                    }
-                    else
-                    {
-                        globalVar.displayMember = new string[3] { "selected=\"selected\"", "", "" };
 
-                        globalVar.memberID[0] = "";
-                        globalVar.memberInforCS[1, 0] = "";
-                        globalVar.memberInforCS[1, 1] = "";
-                        globalVar.memberInforCS[1, 2] = "";
-                        globalVar.memberInforCS[1, 3] = "";
-                        globalVar.memberInforCS[1, 4] = "";
+                    if (createProjectVar.memberCount == "1")
+                    {
+                        createProjectVar.displayMember = new string[3] { "selected=\"selected\"", "", "" };
+
+                        createProjectVar.memberID[0] = "";
+                        createProjectVar.memberInforCS[1, 0] = "";
+                        createProjectVar.memberInforCS[1, 1] = "";
+                        createProjectVar.memberInforCS[1, 2] = "";
+                        createProjectVar.memberInforCS[1, 3] = "";
+                        createProjectVar.memberInforCS[1, 4] = "";
                         MemberID2.Text = "";
                         personOp.InnerText = "เพิ่ม";
 
-                        globalVar.memberID[1] = "";
-                        globalVar.memberInforCS[2, 0] = "";
-                        globalVar.memberInforCS[2, 1] = "";
-                        globalVar.memberInforCS[2, 2] = "";
-                        globalVar.memberInforCS[2, 3] = "";
-                        globalVar.memberInforCS[2, 4] = "";
+                        createProjectVar.memberID[1] = "";
+                        createProjectVar.memberInforCS[2, 0] = "";
+                        createProjectVar.memberInforCS[2, 1] = "";
+                        createProjectVar.memberInforCS[2, 2] = "";
+                        createProjectVar.memberInforCS[2, 3] = "";
+                        createProjectVar.memberInforCS[2, 4] = "";
                         MemberID3.Text = "";
                         personOp2.InnerText = "เพิ่ม";
+                    }
+                    else if (createProjectVar.memberCount == "2")
+                    {
+                        createProjectVar.displayMember = new string[3] { "", "selected=\"selected\"", "" };
+                        createProjectVar.memberID[1] = "";
+                        createProjectVar.memberInforCS[2, 0] = "";
+                        createProjectVar.memberInforCS[2, 1] = "";
+                        createProjectVar.memberInforCS[2, 2] = "";
+                        createProjectVar.memberInforCS[2, 3] = "";
+                        createProjectVar.memberInforCS[2, 4] = "";
+                        MemberID3.Text = "";
+                        personOp2.InnerText = "เพิ่ม";
+                    }
+                    else if (createProjectVar.memberCount == "3")
+                    {
+                        createProjectVar.displayMember = new string[3] { "", "", "selected=\"selected\"" };
                     }
                 }
 
 
                 if (!IsPostBack)
                 {
-                    string connectionString = WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
-                    SqlConnection conn = new SqlConnection(connectionString);
-                    conn.Open();
-                    String Checkuser = "select projectID from position where personID ='" + user.userID() + "'" + "and personStatusID = '1'";
-                    SqlCommand com = new SqlCommand(Checkuser, conn);
-                    var projectID = com.ExecuteScalar();
-                    conn.Close();
-                    conn.Open();
-                    String allTeacher = "select title , firstName , lastName , personID from person where position ='" + "T" + "'";
-                    com = new SqlCommand(allTeacher, conn);
-                    SqlDataReader TeacherInfor = com.ExecuteReader();
-                    try
+                    List<string[]> TeacherInfor = new List<string[]>();
+                    TeacherInfor = information.allTeacher();
+                    for (int i = 0; i < TeacherInfor.Count; i++)
                     {
-                        while (TeacherInfor.Read())
-                        {
-                            adviser.Items.Add(TeacherInfor[0].ToString() + TeacherInfor[1].ToString() + " " + TeacherInfor[2].ToString());
-                            coadviser.Items.Add(TeacherInfor[0].ToString() + TeacherInfor[1].ToString() + " " + TeacherInfor[2].ToString());
-                            committee.Items.Add(TeacherInfor[0].ToString() + TeacherInfor[1].ToString() + " " + TeacherInfor[2].ToString());
-                            globalVar.teacherIDList.Add(TeacherInfor[3].ToString());
-                        }
+                        createProjectVar.teacherIDList.Add(TeacherInfor[i][0]);
+                        adviser.Items.Add(TeacherInfor[i][1] + TeacherInfor[i][2] + " " + TeacherInfor[i][3]);
+                        coadviser.Items.Add(TeacherInfor[i][1] + TeacherInfor[i][2] + " " + TeacherInfor[i][3]);
+                        committee.Items.Add(TeacherInfor[i][1] + TeacherInfor[i][2] + " " + TeacherInfor[i][3]);
                     }
-                    catch
-                    {
-
-                    }
-                    conn.Close();
                 }
-
-
-
             }
         }
+
         protected void memberClear(int index)
         {
-            globalVar.memberID[index - 1] = "";
-            globalVar.memberInforCS[index, 0] = "";
-            globalVar.memberInforCS[index, 1] = "";
-            globalVar.memberInforCS[index, 2] = "";
-            globalVar.memberInforCS[index, 3] = "";
-            globalVar.memberInforCS[index, 4] = "";
+            createProjectVar.memberID[index - 1] = "";
+            createProjectVar.memberInforCS[index, 0] = "";
+            createProjectVar.memberInforCS[index, 1] = "";
+            createProjectVar.memberInforCS[index, 2] = "";
+            createProjectVar.memberInforCS[index, 3] = "";
+            createProjectVar.memberInforCS[index, 4] = "";
 
             if (index == 2)
                 MemberID3.Text = "";
@@ -204,9 +175,9 @@ namespace SWEngWeb
         }
         protected void cancleCreate(object sender, EventArgs e)
         {
-            globalVar.clear();
-            globalVar.userID = user.userID();
-            Response.Redirect(Request.RawUrl);
+            createProjectVar.clear();
+            //Response.Redirect(Request.RawUrl);
+            Response.Redirect("~/");
         }
         protected void create(object sender, EventArgs e)
         {
@@ -216,36 +187,36 @@ namespace SWEngWeb
 
             if (thaiNameInput.Text != "") //สรวจสอบชื่อไทย
             {
-                globalVar.thaiName = thaiNameInput.Text;
+                createProjectVar.thaiName = thaiNameInput.Text;
                 if (englishNameInput.Text != "") //สรวจสอบชื่ออังกฤษ
                 {
-                    globalVar.englishName = englishNameInput.Text;
+                    createProjectVar.englishName = englishNameInput.Text;
 
                     memCount = 1;  //ตัวเทียบนับจำนวนสมาชิก
-                    if (globalVar.memberInforCS[1, 1] != "") //นับจากจำนวนชื่อ
+                    if (createProjectVar.memberInforCS[1, 1] != "") //นับจากจำนวนชื่อ
                         memCount++;
-                    if (globalVar.memberInforCS[2, 1] != "")
+                    if (createProjectVar.memberInforCS[2, 1] != "")
                         memCount++;
 
                     if (Request.Form["memberCountSelect"] != null)  //ถ้าตัวเลือกจำนวนสมาชิกไม่เป็นเนา
                     {
-                        globalVar.memberCount = Request.Form["memberCountSelect"];
+                        createProjectVar.memberCount = Request.Form["memberCountSelect"];
                     }
                     else
                     {
-                        globalVar.memberCount = "1";
+                        createProjectVar.memberCount = "1";
                     }
-                    if (globalVar.memberCount == "1")
+                    if (createProjectVar.memberCount == "1")
                     {
                         memberClear(1);
                         memberClear(2);
                     }
-                    if (globalVar.memberCount == "2")
+                    if (createProjectVar.memberCount == "2")
                     {
                         memberClear(2);
                     }
 
-                    if (globalVar.memberCount == memCount.ToString()) //ถ้ามีสมาชิกตากจำนวนที่กำหนด
+                    if (createProjectVar.memberCount == memCount.ToString()) //ถ้ามีสมาชิกตากจำนวนที่กำหนด
                     {
                         if (adviser.SelectedIndex == 0 && coadviser.SelectedIndex == 0 && committee.SelectedIndex == 0)//ไม่เลือก
                         {
@@ -314,52 +285,53 @@ namespace SWEngWeb
         }
         protected void createProject(object sender, EventArgs e)
         {
-            globalVar.displayNotHaveProjectMenu = "style=\"display: none;\"";
-            globalVar.displayCreateProject = "style=\"display: block;\"";
-            globalVar.creating = true;
+            createProjectVar.displayNotHaveProjectMenu = "style=\"display: none;\"";
+            createProjectVar.displayCreateProject = "style=\"display: block;\"";
+            createProjectVar.creating = true;
             string constr = WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
             SqlConnection conn = new SqlConnection(constr);
 
-            String getInfor = "select title , firstName , lastName , phoneNumber , email from person where personID ='" + globalVar.userID + "'";
+            String getInfor = "select title , firstName , lastName , phoneNumber , email from person where personID ='" + user.userID() + "'";
             conn.Open();
             SqlCommand com = new SqlCommand(getInfor, conn);
             SqlDataReader infor = com.ExecuteReader();
             infor.Read();
-            globalVar.memberInforCS[0, 0] = infor.GetString(0);
-            globalVar.memberInforCS[0, 1] = infor.GetString(1) + "  ";
-            globalVar.memberInforCS[0, 2] = infor.GetString(2);
-            globalVar.memberInforCS[0, 3] = infor.GetString(3);
-            globalVar.memberInforCS[0, 4] = infor.GetString(4);
+            createProjectVar.memberInforCS[0, 0] = infor.GetString(0);
+            createProjectVar.memberInforCS[0, 1] = infor.GetString(1) + "  ";
+            createProjectVar.memberInforCS[0, 2] = infor.GetString(2);
+            createProjectVar.memberInforCS[0, 3] = infor.GetString(3);
+            createProjectVar.memberInforCS[0, 4] = infor.GetString(4);
             conn.Close();
         }
-        protected void CPE01_Click(object sender, EventArgs e)
-        {
-            globalVar.thaiName = String.Format("{0}", Request.Form["thaiNameInput"]);
-            globalVar.englishName = String.Format("{0}", Request.Form["englishNameInput"]);
 
-            //globalVar.memberCount = memberCountSelect.Value;
-            //memberCountSelect.SelectedIndex = Convert.ToInt32(globalVar.memberCount);
+        /* protected void CPE01_Click(object sender, EventArgs e)
+        {
+            createProjectVar.thaiName = String.Format("{0}", Request.Form["thaiNameInput"]);
+            createProjectVar.englishName = String.Format("{0}", Request.Form["englishNameInput"]);
+
+            //createProjectVar.memberCount = memberCountSelect.Value;
+            //memberCountSelect.SelectedIndex = Convert.ToInt32(createProjectVar.memberCount);
             //for student only!
             string constr = WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
             SqlConnection conn = new SqlConnection(constr);
             conn.Open();
-            String Checkuser = "select projectID from position where personID ='" + globalVar.userID + "'";
+            String Checkuser = "select projectID from position where personID ='" + user.userID() + "'";
             SqlCommand com = new SqlCommand(Checkuser, conn);
             var projectID = com.ExecuteScalar();
             conn.Close();
 
             if (projectID == null) //student not have project
             {
-                String getInfor = "select title , firstName , lastName , phoneNumber , email from person where personID ='" + globalVar.userID + "'";
+                String getInfor = "select title , firstName , lastName , phoneNumber , email from person where personID ='" + user.userID() + "'";
                 conn.Open();
                 com = new SqlCommand(getInfor, conn);
                 SqlDataReader infor = com.ExecuteReader();
                 infor.Read();
-                globalVar.memberInforCS[0, 0] = infor.GetString(0);
-                globalVar.memberInforCS[0, 1] = infor.GetString(1) + "  ";
-                globalVar.memberInforCS[0, 2] = infor.GetString(2);
-                globalVar.memberInforCS[0, 3] = infor.GetString(3);
-                globalVar.memberInforCS[0, 4] = infor.GetString(4);
+                createProjectVar.memberInforCS[0, 0] = infor.GetString(0);
+                createProjectVar.memberInforCS[0, 1] = infor.GetString(1) + "  ";
+                createProjectVar.memberInforCS[0, 2] = infor.GetString(2);
+                createProjectVar.memberInforCS[0, 3] = infor.GetString(3);
+                createProjectVar.memberInforCS[0, 4] = infor.GetString(4);
                 conn.Close();
             }
             else //student have project
@@ -367,50 +339,13 @@ namespace SWEngWeb
                 string script = "alert(\"ไม่สามารถเพิ่มสมาชิกที่ระบุได้เนื่องจากมีรายชื่อในโครงงานอื่นแล้ว\");";
                 ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", script, true);
             }
-        }
+        } */
+
         protected void memberCountChange(object sender, EventArgs e)
         {
 
         }
-        protected string[] queryStudent(string studentID)
-        {
-            string[] studentInfor = new string[5];
-            string constr = WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
-            SqlConnection conn = new SqlConnection(constr);
-            conn.Open();
-            String Checkuser = "select projectID from position where personID ='" + studentID + "'";
-            SqlCommand com = new SqlCommand(Checkuser, conn);
-            var projectID = com.ExecuteScalar();
-            conn.Close();
 
-            if (projectID == null) //student not have project
-            {
-                String getInfor = "select title , firstName , lastName , phoneNumber , email from person where personID ='" + studentID + "'";
-                conn.Open();
-                com = new SqlCommand(getInfor, conn);
-                SqlDataReader infor = com.ExecuteReader();
-                try
-                {
-                    infor.Read();
-                    studentInfor[0] = infor.GetString(0);
-                    studentInfor[1] = infor.GetString(1) + "  ";
-                    studentInfor[2] = infor.GetString(2);
-                    studentInfor[3] = infor.GetString(3);
-                    studentInfor[4] = infor.GetString(4);
-                }
-                catch
-                {
-
-                }
-                conn.Close();
-            }
-            else //student have project
-            {
-
-            }
-
-            return studentInfor;
-        }
         protected void addMember2Click(object sender, EventArgs e)
         {
             int temp;
@@ -422,20 +357,30 @@ namespace SWEngWeb
 
                 if (int.TryParse(input, out temp) && input.Length == 8)
                 {
-                    if (input != globalVar.userID && input != globalVar.memberID[1])
+                    if (input != user.userID() && input != createProjectVar.memberID[1])
                     {
-                        string[] studentInfor = queryStudent(input);
-                        if (studentInfor[1] != null)
+                        string[] studentInfor = information.student(input);
+                        if (studentInfor[0] != null)
                         {
-                            globalVar.memberID[0] = input;
-                            globalVar.memberInforCS[1, 0] = studentInfor[0];
-                            globalVar.memberInforCS[1, 1] = studentInfor[1];
-                            globalVar.memberInforCS[1, 2] = studentInfor[2];
-                            globalVar.memberInforCS[1, 3] = studentInfor[3];
-                            globalVar.memberInforCS[1, 4] = studentInfor[4];
-                            MemberID2.Text = input;
-                            personOp.InnerText = "ลบ";
-                            MemberID2.Enabled = false;
+                            if (!information.studentHaveProject(input))
+                            {
+                                createProjectVar.memberID[0] = input;
+                                createProjectVar.memberInforCS[1, 0] = studentInfor[0];
+                                createProjectVar.memberInforCS[1, 1] = studentInfor[1];
+                                createProjectVar.memberInforCS[1, 2] = studentInfor[2];
+                                createProjectVar.memberInforCS[1, 3] = studentInfor[3];
+                                createProjectVar.memberInforCS[1, 4] = studentInfor[4];
+                                MemberID2.Text = input;
+                                personOp.InnerText = "ลบ";
+                                MemberID2.Enabled = false;
+                            }
+                            else
+                            {
+                                string error00 = "alert(\"นิสิตที่ระบุมีโครงานแล้ว\");";
+                                ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", error00, true);
+                                personOp2.InnerText = "เพิ่ม";
+                                MemberID3.Enabled = true;
+                            }
                         }
                         else
                         {
@@ -465,25 +410,25 @@ namespace SWEngWeb
             {
                 if (Request.Form["memberCountSelect"] != null)
                 {
-                    globalVar.memberCount = Request.Form["memberCountSelect"];
+                    createProjectVar.memberCount = Request.Form["memberCountSelect"];
                 }
                 else
                 {
-                    globalVar.memberCount = "1";
+                    createProjectVar.memberCount = "1";
                 }
 
                 /////////////////////////////////////////////////////////////////////
 
-                if (globalVar.memberCount == "3")
+                if (createProjectVar.memberCount == "3")
                 {
-                    if (globalVar.memberID[1] != "")
+                    if (createProjectVar.memberID[1] != "")
                     {
-                        globalVar.memberID[0] = globalVar.memberID[1];
-                        globalVar.memberInforCS[1, 0] = globalVar.memberInforCS[2, 0];
-                        globalVar.memberInforCS[1, 1] = globalVar.memberInforCS[2, 1];
-                        globalVar.memberInforCS[1, 2] = globalVar.memberInforCS[2, 2];
-                        globalVar.memberInforCS[1, 3] = globalVar.memberInforCS[2, 3];
-                        globalVar.memberInforCS[1, 4] = globalVar.memberInforCS[2, 4];
+                        createProjectVar.memberID[0] = createProjectVar.memberID[1];
+                        createProjectVar.memberInforCS[1, 0] = createProjectVar.memberInforCS[2, 0];
+                        createProjectVar.memberInforCS[1, 1] = createProjectVar.memberInforCS[2, 1];
+                        createProjectVar.memberInforCS[1, 2] = createProjectVar.memberInforCS[2, 2];
+                        createProjectVar.memberInforCS[1, 3] = createProjectVar.memberInforCS[2, 3];
+                        createProjectVar.memberInforCS[1, 4] = createProjectVar.memberInforCS[2, 4];
                         MemberID2.Text = MemberID3.Text;
                         personOp.InnerText = "ลบ";
                         MemberID2.Enabled = false;
@@ -519,22 +464,34 @@ namespace SWEngWeb
                 memberClear(2);
                 if (int.TryParse(input, out temp) && input.Length == 8)
                 {
-                    if (input != globalVar.userID && input != globalVar.memberID[0])
+                    if (input != user.userID() && input != createProjectVar.memberID[0])
                     {
-                        string[] studentInfor = queryStudent(input);
-                        if (studentInfor[1] != null)
+                        string[] studentInfor = information.student(input);
+                        if (studentInfor[0] != null)
                         {
-                            globalVar.memberID[1] = input;
-                            globalVar.memberInforCS[2, 0] = studentInfor[0];
-                            globalVar.memberInforCS[2, 1] = studentInfor[1];
-                            globalVar.memberInforCS[2, 2] = studentInfor[2];
-                            globalVar.memberInforCS[2, 3] = studentInfor[3];
-                            globalVar.memberInforCS[2, 4] = studentInfor[4];
-                            MemberID3.Text = input;
-                            personOp2.InnerText = "ลบ";
-                            globalVar.memberCheck[1] = true;
-                            isValid = true;
-                            MemberID3.Enabled = false;
+                            if (!information.studentHaveProject(input))
+                            {
+
+                                createProjectVar.memberID[1] = input;
+                                createProjectVar.memberInforCS[2, 0] = studentInfor[0];
+                                createProjectVar.memberInforCS[2, 1] = studentInfor[1];
+                                createProjectVar.memberInforCS[2, 2] = studentInfor[2];
+                                createProjectVar.memberInforCS[2, 3] = studentInfor[3];
+                                createProjectVar.memberInforCS[2, 4] = studentInfor[4];
+                                MemberID3.Text = input;
+                                personOp2.InnerText = "ลบ";
+                                createProjectVar.memberCheck[1] = true;
+                                isValid = true;
+                                MemberID3.Enabled = false;
+
+                            }
+                            else
+                            {
+                                string error00 = "alert(\"นิสิตที่ระบุมีโครงานแล้ว\");";
+                                ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", error00, true);
+                                personOp2.InnerText = "เพิ่ม";
+                                MemberID3.Enabled = true;
+                            }
                         }
                         else
                         {
@@ -559,7 +516,7 @@ namespace SWEngWeb
             if (!isValid)
             {
                 personOp2.InnerText = "เพิ่ม";
-                globalVar.memberCheck[1] = false;
+                createProjectVar.memberCheck[1] = false;
                 ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", errorMem3, true);
                 MemberID3.Enabled = true;
             }
@@ -572,9 +529,9 @@ namespace SWEngWeb
                 SqlCommand cmd = new SqlCommand("INSERT INTO project (thaiName, englishName , memberCount, lastStatus ,lastUpdate) OUTPUT INSERTED.projectID VALUES (@thaiName, @englishName , @memberCount, @lastStatus , @lastUpdate)");
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = connection;
-                cmd.Parameters.AddWithValue("@thaiName", globalVar.thaiName);
-                cmd.Parameters.AddWithValue("@englishName", globalVar.englishName);
-                cmd.Parameters.AddWithValue("@memberCount", globalVar.memberCount);
+                cmd.Parameters.AddWithValue("@thaiName", createProjectVar.thaiName);
+                cmd.Parameters.AddWithValue("@englishName", createProjectVar.englishName);
+                cmd.Parameters.AddWithValue("@memberCount", createProjectVar.memberCount);
                 cmd.Parameters.AddWithValue("@lastStatus", "0");
                 DateTime myDateTime = DateTime.Now;
                 cmd.Parameters.AddWithValue("@lastUpdate", myDateTime.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -582,7 +539,11 @@ namespace SWEngWeb
                 var projectIDCS = cmd.ExecuteScalar();
                 connection.Close();
 
-                //into position
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                process.setStatus(user.userID(), projectIDCS.ToString(), "1");
+
+                /*/into position
                 cmd = new SqlCommand("INSERT INTO position (personID, projectID , personStatusID) VALUES (@personID, @projectID , @personStatusID)");
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = connection;
@@ -593,21 +554,25 @@ namespace SWEngWeb
                 cmd.ExecuteNonQuery();
                 connection.Close();
 
+                *///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
                 //into request student
-                if (globalVar.memberCount != "1")
+                if (createProjectVar.memberCount != "1")
                 {
-                    int loop = Convert.ToInt32(globalVar.memberCount);
+                    int loop = Convert.ToInt32(createProjectVar.memberCount);
                     for (int i = 0; i < loop - 1; i++)
                     {
-                        if (globalVar.memberInforCS[i + 1, 1] != "")
+                        if (createProjectVar.memberInforCS[i + 1, 1] != "")
                         {
+                            process.setStatus(createProjectVar.memberID[i], projectIDCS.ToString(), "11");
+
                             cmd = new SqlCommand("INSERT INTO request (actionID, projectID , requesterID, replyID ,requestDateTime) VALUES (@actionID, @projectID , @requesterID, @replyID ,@requestDateTime)");
                             cmd.CommandType = CommandType.Text;
                             cmd.Connection = connection;
                             cmd.Parameters.AddWithValue("@actionID", "1");
                             cmd.Parameters.AddWithValue("@projectID", projectIDCS);
                             cmd.Parameters.AddWithValue("@requesterID", user.userID());
-                            cmd.Parameters.AddWithValue("@replyID", globalVar.memberID[i]);
+                            cmd.Parameters.AddWithValue("@replyID", createProjectVar.memberID[i]);
                             cmd.Parameters.AddWithValue("@requestDateTime", myDateTime.ToString("yyyy-MM-dd HH:mm:ss"));
                             connection.Open();
                             cmd.ExecuteNonQuery();
@@ -625,7 +590,7 @@ namespace SWEngWeb
                     cmd.Parameters.AddWithValue("@actionID", "3");
                     cmd.Parameters.AddWithValue("@projectID", projectIDCS);
                     cmd.Parameters.AddWithValue("@requesterID", user.userID());
-                    cmd.Parameters.AddWithValue("@replyID", globalVar.teacherIDList[adviser.SelectedIndex]);
+                    cmd.Parameters.AddWithValue("@replyID", createProjectVar.teacherIDList[adviser.SelectedIndex]);
                     cmd.Parameters.AddWithValue("@requestDateTime", myDateTime.ToString("yyyy-MM-dd HH:mm:ss"));
                     connection.Open();
                     cmd.ExecuteNonQuery();
@@ -641,13 +606,13 @@ namespace SWEngWeb
                     cmd.Parameters.AddWithValue("@actionID", "4");
                     cmd.Parameters.AddWithValue("@projectID", projectIDCS);
                     cmd.Parameters.AddWithValue("@requesterID", user.userID());
-                    cmd.Parameters.AddWithValue("@replyID", globalVar.teacherIDList[coadviser.SelectedIndex]);
+                    cmd.Parameters.AddWithValue("@replyID", createProjectVar.teacherIDList[coadviser.SelectedIndex]);
                     cmd.Parameters.AddWithValue("@requestDateTime", myDateTime.ToString("yyyy-MM-dd HH:mm:ss"));
                     connection.Open();
                     cmd.ExecuteNonQuery();
                     connection.Close();
                 }
-                
+
                 //into request committee
                 if (committee.SelectedIndex != 0)
                 {
@@ -657,13 +622,13 @@ namespace SWEngWeb
                     cmd.Parameters.AddWithValue("@actionID", "5");
                     cmd.Parameters.AddWithValue("@projectID", projectIDCS);
                     cmd.Parameters.AddWithValue("@requesterID", user.userID());
-                    cmd.Parameters.AddWithValue("@replyID", globalVar.teacherIDList[committee.SelectedIndex]);
+                    cmd.Parameters.AddWithValue("@replyID", createProjectVar.teacherIDList[committee.SelectedIndex]);
                     cmd.Parameters.AddWithValue("@requestDateTime", myDateTime.ToString("yyyy-MM-dd HH:mm:ss"));
                     connection.Open();
                     cmd.ExecuteNonQuery();
                     connection.Close();
 
-                    
+
                 }
 
                 Response.Redirect("CPE01.aspx");
