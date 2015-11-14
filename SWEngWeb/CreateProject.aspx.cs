@@ -155,6 +155,13 @@ namespace SWEngWeb
 
                 if (!IsPostBack)
                 {
+                    string connectionString = WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
+                    SqlConnection conn = new SqlConnection(connectionString);
+                    conn.Open();
+                    String Checkuser = "select projectID from position where personID ='" + user.userID() + "'" + "and personStatusID = '1'";
+                    SqlCommand com = new SqlCommand(Checkuser, conn);
+                    var projectID = com.ExecuteScalar();
+                    conn.Close();
                     conn.Open();
                     String allTeacher = "select title , firstName , lastName , personID from person where position ='" + "T" + "'";
                     com = new SqlCommand(allTeacher, conn);

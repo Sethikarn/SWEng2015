@@ -47,7 +47,7 @@ namespace SWEngWeb
             var projectID = com.ExecuteScalar();
             conn.Close();
 
-            if (projectID == null)
+            if (projectID != null)
                 havePro = true;
 
             return havePro;
