@@ -171,6 +171,7 @@
     <Compile Include="under_construction.aspx.designer.cs">
       <DependentUpon>under_construction.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GlobalVar.cs" />
     <Compile Include="user.cs" />
     <Compile Include="CreateProject.aspx.cs">
       <DependentUpon>CreateProject.aspx</DependentUpon>

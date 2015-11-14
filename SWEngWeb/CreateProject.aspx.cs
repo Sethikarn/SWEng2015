@@ -657,7 +657,7 @@ namespace SWEngWeb
                     cmd.ExecuteNonQuery();
                     connection.Close();
                 }
-
+                
                 //into request committee
                 if (committee.SelectedIndex != 0)
                 {
@@ -673,10 +673,12 @@ namespace SWEngWeb
                     cmd.ExecuteNonQuery();
                     connection.Close();
 
-                    Response.Redirect("project.aspx");
+                    
                 }
 
-                //into activityLog
+                Response.Redirect("CPE01.aspx");
+
+                /*/into activityLog
                 cmd = new SqlCommand("INSERT INTO activityLog (personID, projectID , activityNameID, dateTime) VALUES (@personID, @projectID , @activityNameID, @dateTime)");
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = connection;
@@ -698,17 +700,9 @@ namespace SWEngWeb
                 connection.Open();
                 cmd.ExecuteNonQuery();
                 connection.Close();
+
+                */
             }
         }
-        //UserN = String.Format("{0}", Request.Form["UserName"]);
-        //PassW = String.Format("{0}", Request.Form["PassWord"]);
-        //protected void addMember(object sender, EventArgs e)
-        //{
-        //    if(globalVar.memberCount == "1")
-        //    {
-
-        //    }
-        //}
-
     }
 }

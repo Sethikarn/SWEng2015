@@ -123,7 +123,7 @@
                         <div class="card-panel" style="padding-bottom: 5px;">
                             <div class="row" style="margin-bottom: 0px;">
                                 <div class="input-field col s2">
-                                    <input id="MemberID1" type="text" class="validate" value="<%= globalVar.userID %>" disabled="disabled" />
+                                    <input id="MemberID1" type="text" class="validate" value="<%= SWEngWeb.GlobalVar.userID() %>" disabled="disabled" />
                                     <label for="MemberID1">รหัสนิสิต</label>
                                 </div>
                                 <div class="input-field col s4">

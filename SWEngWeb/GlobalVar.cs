@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -10,11 +11,35 @@ using System.Windows.Forms;
 
 namespace SWEngWeb
 {
-    public static class user
+    public static class GlobalVar
     {
+        /****************************************** -- user data -- ****************************************************/
+        /****************************************** -- user data -- ****************************************************/
+        /****************************************** -- user data -- ****************************************************/
+
         public static string name()
         {
             return HttpContext.Current.Session["name"].ToString();
+        }
+
+        public static string userName()
+        {
+            return HttpContext.Current.Session["userName"].ToString();
+        }
+
+        public static string position()
+        {
+
+            if (HttpContext.Current.Session["position"].ToString() == "S")
+            {
+                return "student";
+            }
+            return "teacher";
+        }
+
+        public static string userID()
+        {
+            return HttpContext.Current.Session["userID"].ToString();
         }
 
         public static int ontificationCount()
@@ -46,8 +71,8 @@ namespace SWEngWeb
             SqlCommand com = new SqlCommand(Checkuser, conn);
             var reader = com.ExecuteScalar();
             conn.Close();
-            if(reader != null)
-               projectID = int.Parse(reader.ToString());
+            if (reader != null)
+                projectID = int.Parse(reader.ToString());
             return projectID;
         }
 
@@ -57,34 +82,18 @@ namespace SWEngWeb
             string constr = WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
             SqlConnection conn = new SqlConnection(constr);
             conn.Open();
-            String Checkuser = "select thaiName from project where projectID =" + projectID().ToString() ;
+            String Checkuser = "select thaiName from project where projectID =" + projectID().ToString();
             SqlCommand com = new SqlCommand(Checkuser, conn);
             var reader = com.ExecuteScalar();
-            if(reader != null)
-               tName = reader.ToString();
+            if (reader != null)
+                tName = reader.ToString();
             conn.Close();
             return tName;
         }
 
-        public static string userName()
-        {
-            return HttpContext.Current.Session["userName"].ToString();
-        }
-
-        public static string position()
-        {
-
-            if (HttpContext.Current.Session["position"].ToString() == "S")
-            {
-                return "student";
-            }
-            return "teacher";
-        }
-
-        public static string userID()
-        {
-            return HttpContext.Current.Session["userID"].ToString();
-        }
+        /****************************************** -- user action -- ****************************************************/
+        /****************************************** -- user action -- ****************************************************/
+        /****************************************** -- user action -- ****************************************************/
 
         public static bool login(string userName ,string password)
         {
@@ -131,6 +140,47 @@ namespace SWEngWeb
             HttpContext.Current.Session.RemoveAll();
 
             HttpContext.Current.Response.Redirect("~/");
+        }
+
+        /****************************************** -- page data -- ****************************************************/
+        /****************************************** -- page data -- ****************************************************/
+        /****************************************** -- page data -- ****************************************************/
+
+        public static bool creating = false;
+        public static string userIDs;
+        public static string userStatus;
+        public static string showPage;
+        public static string displayNotHaveProjectMenu = "style=\"display: none;\"";
+        public static string displayCreateProject = "style=\"display: none;\"";
+
+        //CPE01 var
+        public static string thaiName;
+        public static string englishName;
+        public static string memberCount = "1";
+        public static string[] memberID = new string[2];
+        public static string[,] memberInforCS = new string[3, 5]; // 3person 5data{title , firstName , lastName , phoneNumber , email}
+        public static string[] displayMember = new string[3] { "selected=\"selected\"", "", "" };
+        public static ArrayList teacherIDList = new ArrayList();
+        public static bool[] memberCheck = new bool[2];
+
+        public static void clear()
+        {
+            creating = false;
+            userIDs = "";
+            userStatus = "";
+            showPage = "";
+            displayNotHaveProjectMenu = "style=\"display: none;\"";
+            displayCreateProject = "style=\"display: none;\"";
+
+
+            //CPE01 var
+            thaiName = "";
+            englishName = "";
+            memberCount = "1";
+            memberID = new string[2];
+            memberInforCS = new string[3, 5]; // 3person 5data{title , firstName , lastName , phoneNumber , email}
+            displayMember = new string[3] { "selected=\"selected\"", "", "" };
+            memberCheck = new bool[2];
         }
     }
 }
