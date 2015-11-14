@@ -57,37 +57,20 @@ namespace SWEngWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (user.isLogin())
-            {
+            Page.MaintainScrollPositionOnPostBack = true;
 
-            }
-            else
+            if ( ! user.isLogin())
             {
                 Response.Redirect("~/");
             }
-
-            Page.MaintainScrollPositionOnPostBack = true;
-            // check is login ?
 
             if (globalVar.userID != user.userID())
             {
                 globalVar.clear();
             }
-            //for user only!
-            globalVar.userID = user.userID();
-            string constr = WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
-            SqlConnection conn = new SqlConnection(constr);
-            conn.Open();
-            String Checkuser = "select projectID from position where personID ='" + globalVar.userID + "'" + "and personStatusID = '1'";
-            SqlCommand com = new SqlCommand(Checkuser, conn);
-            var projectID = com.ExecuteScalar();
-            conn.Close();
 
-            if (projectID != null)
+            if (user.userHaveProject())
             {
-                //Session["userProjectID"] = projectID.ToString();
-                globalVar.displayNotHaveProjectMenu = "style=\"display: none;\"";
-                globalVar.displayCreateProject = "style=\"display: none;\"";
                 Response.Redirect("CPE01.aspx");
             }
             else
