@@ -20,6 +20,30 @@ namespace SWEngWeb
             return HttpContext.Current.Session["name"].ToString();
         }
 
+        public static string email()
+        {
+            string email = "";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            String Checkuser = "select email from person where personID =" + user.userID();
+            SqlCommand com = new SqlCommand(Checkuser, conn);
+            email = com.ExecuteScalar().ToString();
+            conn.Close();
+            return email;
+        }
+
+        public static string phone()
+        {
+            string phone = "";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            String Checkuser = "select phoneNumber from person where personID =" + user.userID();
+            SqlCommand com = new SqlCommand(Checkuser, conn);
+            phone = com.ExecuteScalar().ToString();
+            conn.Close();
+            return phone;
+        }
+
         public static int ontificationCount()
         {
             int count = 0;
@@ -81,6 +105,20 @@ namespace SWEngWeb
             return tName;
         }
 
+        public static string engProjectName()
+        {
+            string eName = "";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            String Checkuser = "select englishName from project where projectID =" + projectID().ToString();
+            SqlCommand com = new SqlCommand(Checkuser, conn);
+            var reader = com.ExecuteScalar();
+            if (reader != null)
+                eName = reader.ToString();
+            conn.Close();
+            return eName;
+        }
+
         public static string userName()
         {
             return HttpContext.Current.Session["userName"].ToString();
@@ -135,7 +173,7 @@ namespace SWEngWeb
 
         public static void logout()
         {
-            createProjectVar.clear();
+            CPE01Var.clear();
 
             HttpContext.Current.Session["userName"] = null;
             HttpContext.Current.Session["name"] = null;

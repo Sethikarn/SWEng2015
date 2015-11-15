@@ -111,6 +111,7 @@ namespace SWEngWeb
                     studentInfor = new string[2];
                     studentInfor[0] = memberSta[0].ToString();
                     studentInfor[1] = memberSta[1].ToString();
+                    if(memberSta[1].ToString() == "1" || memberSta[1].ToString() == "11")
                     studentStatusList.Add(studentInfor);
                 }
             }
@@ -169,6 +170,234 @@ namespace SWEngWeb
             }
 
             return student;
+        }
+
+        public static string[] adviserInProject(string projectID)
+        {
+            string[] studentStatus = new string[2];
+
+            string[] studentInfor1 = new string[5];
+            string[] studentInfor = new string[4];
+
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            conn.Open();
+            String studentSta = "select personID , personStatusID from position where projectID ='" + projectID + "'";
+            SqlCommand com = new SqlCommand(studentSta, conn);
+            SqlDataReader memberSta = com.ExecuteReader();
+            try
+            {
+                while (memberSta.Read())
+                {
+                    
+                    if (memberSta[1].ToString() == "2" || memberSta[1].ToString() == "12")
+                    {
+                        studentInfor = new string[2];
+                        studentInfor[0] = memberSta[0].ToString();
+                        studentInfor[1] = memberSta[1].ToString();
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+            conn.Close();
+            
+                conn.Open();
+                String allstudent = "select personStatus from personStatus where personStatusID ='" + studentInfor[1] + "'";
+                com = new SqlCommand(allstudent, conn);
+                SqlDataReader inPorInfor = com.ExecuteReader();
+                try
+                {
+                    while (inPorInfor.Read())
+                    {
+                        string sta = "";
+                        sta = inPorInfor[0].ToString();
+                        studentInfor[1] = sta;
+                    }
+                }
+                catch
+                {
+
+                }
+                conn.Close();
+        
+                conn.Open();
+                allstudent = "select personID , title , firstName , lastName from person where personID ='" + studentInfor[0] + "'";
+                com = new SqlCommand(allstudent, conn);
+                inPorInfor = com.ExecuteReader();
+                try
+                {
+                    while (inPorInfor.Read())
+                    {
+                        studentInfor1 = new string[5];
+                        studentInfor1[0] = inPorInfor[0].ToString();
+                        studentInfor1[1] = inPorInfor[1].ToString();
+                        studentInfor1[2] = inPorInfor[2].ToString();
+                        studentInfor1[3] = inPorInfor[3].ToString();
+                        studentInfor1[4] = studentInfor[1];
+                    }
+                }
+                catch
+                {
+
+                }
+                conn.Close();
+
+            return studentInfor1;
+        }
+
+        public static string[] coadviserInProject(string projectID)
+        {
+            string[] studentStatus = new string[2];
+
+            string[] studentInfor1 = new string[5];
+            string[] studentInfor = new string[4];
+
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            conn.Open();
+            String studentSta = "select personID , personStatusID from position where projectID ='" + projectID + "'";
+            SqlCommand com = new SqlCommand(studentSta, conn);
+            SqlDataReader memberSta = com.ExecuteReader();
+            try
+            {
+                while (memberSta.Read())
+                {
+
+                    if (memberSta[1].ToString() == "3" || memberSta[1].ToString() == "13")
+                    {
+                        studentInfor = new string[2];
+                        studentInfor[0] = memberSta[0].ToString();
+                        studentInfor[1] = memberSta[1].ToString();
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+            conn.Close();
+
+            conn.Open();
+            String allstudent = "select personStatus from personStatus where personStatusID ='" + studentInfor[1] + "'";
+            com = new SqlCommand(allstudent, conn);
+            SqlDataReader inPorInfor = com.ExecuteReader();
+            try
+            {
+                while (inPorInfor.Read())
+                {
+                    string sta = "";
+                    sta = inPorInfor[0].ToString();
+                    studentInfor[1] = sta;
+                }
+            }
+            catch
+            {
+
+            }
+            conn.Close();
+
+            conn.Open();
+            allstudent = "select personID , title , firstName , lastName from person where personID ='" + studentInfor[0] + "'";
+            com = new SqlCommand(allstudent, conn);
+            inPorInfor = com.ExecuteReader();
+            try
+            {
+                while (inPorInfor.Read())
+                {
+                    studentInfor1 = new string[5];
+                    studentInfor1[0] = inPorInfor[0].ToString();
+                    studentInfor1[1] = inPorInfor[1].ToString();
+                    studentInfor1[2] = inPorInfor[2].ToString();
+                    studentInfor1[3] = inPorInfor[3].ToString();
+                    studentInfor1[4] = studentInfor[1];
+                }
+            }
+            catch
+            {
+
+            }
+            conn.Close();
+
+            return studentInfor1;
+        }
+
+        public static string[] committeeInProject(string projectID)
+        {
+            string[] studentStatus = new string[2];
+
+            string[] studentInfor1 = new string[5];
+            string[] studentInfor = new string[4];
+
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            conn.Open();
+            String studentSta = "select personID , personStatusID from position where projectID ='" + projectID + "'";
+            SqlCommand com = new SqlCommand(studentSta, conn);
+            SqlDataReader memberSta = com.ExecuteReader();
+            try
+            {
+                while (memberSta.Read())
+                {
+
+                    if (memberSta[1].ToString() == "4" || memberSta[1].ToString() == "14")
+                    {
+                        studentInfor = new string[2];
+                        studentInfor[0] = memberSta[0].ToString();
+                        studentInfor[1] = memberSta[1].ToString();
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+            conn.Close();
+
+            conn.Open();
+            String allstudent = "select personStatus from personStatus where personStatusID ='" + studentInfor[1] + "'";
+            com = new SqlCommand(allstudent, conn);
+            SqlDataReader inPorInfor = com.ExecuteReader();
+            try
+            {
+                while (inPorInfor.Read())
+                {
+                    string sta = "";
+                    sta = inPorInfor[0].ToString();
+                    studentInfor[1] = sta;
+                }
+            }
+            catch
+            {
+
+            }
+            conn.Close();
+
+            conn.Open();
+            allstudent = "select personID , title , firstName , lastName from person where personID ='" + studentInfor[0] + "'";
+            com = new SqlCommand(allstudent, conn);
+            inPorInfor = com.ExecuteReader();
+            try
+            {
+                while (inPorInfor.Read())
+                {
+                    studentInfor1 = new string[5];
+                    studentInfor1[0] = inPorInfor[0].ToString();
+                    studentInfor1[1] = inPorInfor[1].ToString();
+                    studentInfor1[2] = inPorInfor[2].ToString();
+                    studentInfor1[3] = inPorInfor[3].ToString();
+                    studentInfor1[4] = studentInfor[1];
+                }
+            }
+            catch
+            {
+
+            }
+            conn.Close();
+
+            return studentInfor1;
         }
     }
 }

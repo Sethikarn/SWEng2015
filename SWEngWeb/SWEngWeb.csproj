@@ -62,7 +62,6 @@
     <Content Include="About.aspx" />
     <Content Include="ApproveProject.aspx" />
     <Content Include="CPE01.aspx" />
-    <Content Include="CreateProject.aspx" />
     <Content Include="CPE02.aspx" />
     <Content Include="CPE04.aspx" />
     <Content Include="CPE05.aspx" />
@@ -108,6 +107,7 @@
     <Compile Include="CPE01.aspx.designer.cs">
       <DependentUpon>CPE01.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CPE01Var.cs" />
     <Compile Include="CPE04.aspx.cs">
       <DependentUpon>CPE04.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -174,12 +174,6 @@
     </Compile>
     <Compile Include="information.cs" />
     <Compile Include="user.cs" />
-    <Compile Include="CreateProject.aspx.cs">
-      <DependentUpon>CreateProject.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CreateProject.aspx.designer.cs">
-      <DependentUpon>CreateProject.aspx</DependentUpon>
-    </Compile>
     <Compile Include="CPE02.aspx.cs">
       <DependentUpon>CPE02.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
