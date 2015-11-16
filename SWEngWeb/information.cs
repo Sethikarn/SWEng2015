@@ -146,19 +146,22 @@ namespace SWEngWeb
             for (int i = 0; i < studentStatusList.Count; i++)
             {
                 conn.Open();
-                String allstudent = "select personID , title , firstName , lastName from person where personID ='" + studentStatusList[i][0] + "'";
+                String allstudent = "select personID , title , firstName , lastName , email , phoneNumber from person where personID ='" + studentStatusList[i][0] + "'";
                 com = new SqlCommand(allstudent, conn);
                 SqlDataReader inPorInfor = com.ExecuteReader();
                 try
                 {
                     while (inPorInfor.Read())
                     {
-                        studentInfor = new string[5];
+                        studentInfor = new string[7];
                         studentInfor[0] = inPorInfor[0].ToString();
                         studentInfor[1] = inPorInfor[1].ToString();
                         studentInfor[2] = inPorInfor[2].ToString();
                         studentInfor[3] = inPorInfor[3].ToString();
-                        studentInfor[4] = studentStatusList[i][1];
+                        studentInfor[4] = inPorInfor[4].ToString();
+                        studentInfor[5] = inPorInfor[5].ToString();
+                        studentInfor[6] = studentStatusList[i][1];
+
                         student.Add(studentInfor);
                     }
                 }
@@ -398,6 +401,20 @@ namespace SWEngWeb
             conn.Close();
 
             return studentInfor1;
+        }
+
+        public static int memberCount(string projectID)
+        {
+            int mem = 1;
+
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            String cmd = "select memberCount from project where projectID ='" + projectID + "'";
+            SqlCommand com = new SqlCommand(cmd, conn);
+            mem = int.Parse(com.ExecuteScalar().ToString());
+            conn.Close();
+
+            return mem;
         }
     }
 }

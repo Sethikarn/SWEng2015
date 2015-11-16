@@ -26,16 +26,8 @@ namespace SWEngWeb
             if user already have project continue
                 otherwise redirect to CreateProject
             */
-            if (user.userHaveProject())
+            if (!user.userHaveProject())
             {
-                CPE01Var.displayNotHaveProject = "style=\"display: none;\"";
-                CPE01Var.displayHaveProject = "style=\"display: block;\""; 
-            }
-            else
-            {
-                CPE01Var.displayNotHaveProject = "style=\"display: block;\"";
-                CPE01Var.displayHaveProject = "style=\"display: none;\""; 
-
                 if (Request.Form["memberCountSelect"] != null)
                     {
                         CPE01Var.memberCount = Request.Form["memberCountSelect"];

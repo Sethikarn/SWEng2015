@@ -8,9 +8,6 @@ namespace SWEngWeb
 {
     static public class CPE01Var
     {
-
-        static public string displayNotHaveProject = "style=\"display: none;\"";
-        static public string displayHaveProject = "style=\"display: none;\"";
         //CPE01 var
         static public string thaiName;
         static public string englishName;
@@ -23,9 +20,6 @@ namespace SWEngWeb
 
         public static void clear()
         {
-            displayNotHaveProject = "style=\"display: none;\"";
-            displayHaveProject = "style=\"display: none;\"";
-
             thaiName = "";
             englishName = "";
             memberCount = "1";
