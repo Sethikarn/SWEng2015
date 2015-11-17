@@ -69,7 +69,7 @@
 
                     <div class="card-panel" style="padding: 7px; margin-bottom: 0px;">
                         <a class="waves-effect waves-light btn center red lighten-2" href="StudentMenu.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">เมนูหลัก</a>
-                        <a class="waves-effect waves-light btn center red lighten-2" href="Notification.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">แก้ไข</a>
+                        <a class="waves-effect waves-light btn center red lighten-2" href="under_construction.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">แก้ไข</a>
                     </div>
                 </div>
                 <div class="col s9" style="margin-left: 0px; padding-left: 0px; padding: 0px;">

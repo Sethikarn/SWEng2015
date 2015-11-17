@@ -31,12 +31,13 @@
                     if (notiCount != 0)
                     {
                 %>
-                        <a class="waves-effect waves-light btn right red" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left:10px;">textsms</i> <%: notiCount %> </a>
+                <a class="waves-effect waves-light btn right red" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left: 10px;">textsms</i> <%: notiCount %> </a>
                 <%
-                    }else
+                    }
+                    else
                     {
                 %>
-                        <a class="waves-effect waves-light btn right" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left:10px;">textsms</i>0</a>
+                <a class="waves-effect waves-light btn right" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left: 10px;">textsms</i>0</a>
                 <%
                     }
                 %>
@@ -83,62 +84,62 @@
                     <div class="card-panel infor" style="padding: 15px; margin: 0px; min-height: 527px;">
 
                         <div class="col s12">
-                            <div class="card-panel red lighten-4" style="margin:0px;">
-                            <div class="grey-text text-darken-4 col s12" style="margin-top: -12px;">
-                                <%
-                                    if (SWEngWeb.user.userHaveProject())
-                                    {
-                                     %>
+                            <div class="card-panel red lighten-4" style="margin: 0px 0px 10px 0px;">
+                                <div class="grey-text text-darken-4 col s12" style="margin-top: -12px;">
+                                    <%
+                                        if (SWEngWeb.user.userHaveProject())
+                                        {
+                                    %>
 
+                                            <h5 style="margin: 0px;">โครงงาน  <%= SWEngWeb.user.thaiProjectName() + " : " + SWEngWeb.user.engProjectName() %></h5>
 
+                                    <% 
+                                        }
+                                        else
+                                        {
+                                    %>
 
-                                      <h5 style="margin: 0px;">โครงงานของท่าน</h5>
+                                            <h5 style="margin: 0px;">ท่านยังไม่มีโครงงาน <a href="CPE01.aspx">สร้างโครงงาน !</a></h5>
 
-                                <% }
-                                    else
-                                    {
-                                        %>
-
-                                <h5 style="margin: 0px;">ท่านยังไม่มีโครงงาน <a href="CPE01.aspx">สร้างโครงงาน</a></h5>
-                                <%
-                                    }
-                                     %>
+                                    <%
+                                        }
+                                    %>
+                                </div>
                             </div>
-                        </div>
 
 
                             <!-- <div class="section" style="margin-bottom: -20px;"> -->
                             <div class="row" style="margin-bottom: 0px;">
-                                
-                                <div class="col s6">
-                                    <div class="row" style="margin:0px;">
-                                    <div class="information card-panel light" style="height: 225px;">
-                                        <div class="icon-block">
-                                            <h2 class="center brown-text" style="margin-top:10px; margin-bottom:10px;"><i class="large material-icons">info</i></h2>
-                                            <h5 class="center">สถานะล่าสุด</h5>
 
-                                            <p class="light center">-</p>
-                                        </div>
+                                <div class="col s6">
+                                    <div class="row" style="margin: 0px;">
+                                        <div class="information card-panel light" style="height: 225px;">
+                                            <div class="icon-block">
+                                                <h2 class="center brown-text" style="margin-top: 10px; margin-bottom: 10px;"><i class="large material-icons">info</i></h2>
+                                                <h5 class="center">สถานะล่าสุด</h5>
+
+                                                <p class="light center">-</p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="row" style="margin:0px;">
-                                    <div class="information card-panel light" style="height: 225px;">
-                                        <div class="icon-block">
-                                            <h2 class="center brown-text" style="margin-top:10px; margin-bottom:10px;"><i class="large material-icons">web</i></h2>
-                                            <h5 class="center">โครงงานของท่าน</h5>
-                                            <% string projectThaiName = SWEngWeb.user.thaiProjectName();
-                                                if(projectThaiName == "")
-                                                {
-                                                    projectThaiName = "ท่านยังไม่มีโครงงาน";
-                                                }
-                                                    %>
-                                            <p class="light center"><%: projectThaiName %></p>
-                                        </div>
+                                    <div class="row" style="margin: 0px;">
+                                        <div class="information card-panel light" style="height: 225px;">
+                                            <div class="icon-block">
+                                                <h2 class="center brown-text" style="margin-top: 10px; margin-bottom: 10px;"><i class="large material-icons">web</i></h2>
+                                                <h5 class="center">โครงงานของท่าน</h5>
+                                                <% string projectThaiName = SWEngWeb.user.thaiProjectName();
+                                                    if (projectThaiName == "")
+                                                    {
+                                                        projectThaiName = "ท่านยังไม่มีโครงงาน";
+                                                    }
+                                                %>
+                                                <p class="light center"><%: projectThaiName %></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                
+
+
 
                                 <div class="col s6">
                                     <div class="information card-panel light">
@@ -149,8 +150,8 @@
                                             <div>
                                                 <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบเสนอหัวข้อโครงงาน</a>
                                                 <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบบันทึกการดำเนินงาน</a>
-                                                <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบขอสอบข้อเสนอโครงงาน</a>
-                                                <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบประเมินข้อเสนอโครงงาน</a>
+                                                <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่ได้ขอสอบข้อเสนอโครงงาน</a>
+                                                <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านไม่มีแบบประเมินข้อเสนอโครงงาน</a>
                                                 <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบประเมินความก้าวหน้า</a>
                                                 <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบขอสอบโครงงาน</a>
                                                 <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบประเมินโครงงาน</a>
