@@ -458,22 +458,22 @@ namespace SWEngWeb
                 //into request avviser
                 if (adviser.SelectedIndex != 0)
                 {
-                    process.makeRequest("3", projectIDCS, CPE01Var.teacherIDList[adviser.SelectedIndex].ToString());
-                    process.setStatus(CPE01Var.teacherIDList[adviser.SelectedIndex].ToString(), projectIDCS, "12");
+                    process.makeRequest("3", projectIDCS, CPE01Var.teacherIDList[adviser.SelectedIndex - 1].ToString());
+                    process.setStatus(CPE01Var.teacherIDList[adviser.SelectedIndex - 1].ToString(), projectIDCS, "12");
                 }
 
                 //into request coadviser
                 if (coadviser.SelectedIndex != 0)
                 {
-                    process.makeRequest("4", projectIDCS, CPE01Var.teacherIDList[coadviser.SelectedIndex].ToString());
-                    process.setStatus(CPE01Var.teacherIDList[coadviser.SelectedIndex].ToString(), projectIDCS, "13");
+                    process.makeRequest("4", projectIDCS, CPE01Var.teacherIDList[coadviser.SelectedIndex - 1].ToString());
+                    process.setStatus(CPE01Var.teacherIDList[coadviser.SelectedIndex - 1].ToString(), projectIDCS, "13");
                 }
 
                 //into request committee
                 if (committee.SelectedIndex != 0)
                 {
-                    process.makeRequest("5", projectIDCS, CPE01Var.teacherIDList[committee.SelectedIndex].ToString());
-                    process.setStatus(CPE01Var.teacherIDList[committee.SelectedIndex].ToString(), projectIDCS, "14");
+                    process.makeRequest("5", projectIDCS, CPE01Var.teacherIDList[committee.SelectedIndex - 1].ToString());
+                    process.setStatus(CPE01Var.teacherIDList[committee.SelectedIndex - 1].ToString(), projectIDCS, "14");
                 }
 
                 Response.Redirect("CPE01.aspx");

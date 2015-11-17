@@ -84,30 +84,17 @@
                     <div class="card-panel infor" style="padding: 15px; margin: 0px; min-height: 527px;">
 
                         <div class="col s12">
+
+
+                            <%
+                                if (SWEngWeb.user.userHaveProject())
+                                {
+                            %>
                             <div class="card-panel red lighten-4" style="margin: 0px 0px 10px 0px;">
                                 <div class="grey-text text-darken-4 col s12" style="margin-top: -12px;">
-                                    <%
-                                        if (SWEngWeb.user.userHaveProject())
-                                        {
-                                    %>
-
-                                            <h5 style="margin: 0px;">โครงงาน  <%= SWEngWeb.user.thaiProjectName() + " : " + SWEngWeb.user.engProjectName() %></h5>
-
-                                    <% 
-                                        }
-                                        else
-                                        {
-                                    %>
-
-                                            <h5 style="margin: 0px;">ท่านยังไม่มีโครงงาน <a href="CPE01.aspx">สร้างโครงงาน !</a></h5>
-
-                                    <%
-                                        }
-                                    %>
+                                    <h5 style="margin: 0px;">โครงงาน  <%= SWEngWeb.user.thaiProjectName() + " : " + SWEngWeb.user.engProjectName() %></h5>
                                 </div>
                             </div>
-
-
                             <!-- <div class="section" style="margin-bottom: -20px;"> -->
                             <div class="row" style="margin-bottom: 0px;">
 
@@ -160,16 +147,34 @@
                                     </div>
                                 </div>
                             </div>
+                            <% 
+                                }
+                                else
+                                {
+                            %>
+                            <div class="card-panel red lighten-4" style="margin: 0px 0px 10px 0px;">
+                                <div class="grey-text text-darken-4 col s12" style="margin-top: -12px;">
+                                    <h5 style="margin: 0px;">ท่านยังไม่มีโครงงาน</h5>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom: 0px; margin-top: -10px;">
+                                <div class="col s12 center">
+                                    <div class="information card-panel light" style="margin-top: 0px;">
+                                        <a class="waves-effect waves-light btn center red lighten-2" href="CPE01.aspx" style="margin-top: 200px; margin-bottom: 200px; margin-right: 5px;">เริ่มสร้างโครงงาน</a>
+                                        <%--<a href="http://www.eng.nu.ac.th" target="_blank">
+                                                <img src="pic/doc_forbidden.png" alt="" class="center responsive-img z-depth-1" style="margin: 0px;" />
+                                            </a>--%>
+                                    </div>
+                                </div>
+                            </div>
+                            <%
+                                }
+                            %>
                         </div>
-
-                        <asp:GridView ID="GridView1" runat="server" class="striped centered">
-                            <Columns>
-                                <asp:ButtonField Text="Accept" CommandName="a" />
-                            </Columns>
-                        </asp:GridView>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
 
         <footer class="page-footer red lighten-1" style="padding-top: 0px;">

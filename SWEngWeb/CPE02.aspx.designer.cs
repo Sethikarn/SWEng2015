@@ -40,24 +40,6 @@ namespace SWEngWeb {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menubar;
         
         /// <summary>
-        /// thaiNameInput control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox thaiNameInput;
-        
-        /// <summary>
-        /// englishNameInput control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox englishNameInput;
-        
-        /// <summary>
         /// submit control.
         /// </summary>
         /// <remarks>

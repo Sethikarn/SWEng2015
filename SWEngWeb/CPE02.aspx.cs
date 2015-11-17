@@ -18,7 +18,14 @@ namespace SWEngWeb
         {
             if (user.isLogin())
             {
-               // Response.Redirect("~/under_construction.aspx");
+                if (user.userHaveProject())
+                {
+                    
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "redirect", "alert('l004 : ท่านยังไม่ผ่านแบบเสนอหัวข้อโครงงาน'); window.location='" + Request.ApplicationPath + "';", true);
+                }
             }
             else
             {

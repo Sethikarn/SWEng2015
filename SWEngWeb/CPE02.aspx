@@ -88,11 +88,11 @@
                         <div class="card-panel" style="padding-bottom: 5px; margin-top: -14px;">
                             <div class="row" style="margin-bottom: 0px;">
                                 <div class="input-field col s6">
-                                    <asp:TextBox ID="thaiNameInput" names="thaiNameInput" runat="server" ReadOnly="true"></asp:TextBox>
-                                    <label for="thaiNameInput">ชื่อไทย</label>
+                                    <input value="<%= SWEngWeb.user.thaiProjectName() %>" id="thaiNameInput2" type="text" class="validate" disabled="disabled" />
+                                    <label for="thaiNameInput2">ชื่อไทย</label>
                                 </div>
                                 <div class="input-field col s6">
-                                    <asp:TextBox ID="englishNameInput" name="englishNameInput" runat="server" ReadOnly="true"></asp:TextBox>
+                                    <input value="<%= SWEngWeb.user.engProjectName() %>" id="englishNameInput2" type="text" class="validate" disabled="disabled" />
                                     <label for="englishNameInput">ชื่ออังกฤษ</label>
                                 </div>
 
