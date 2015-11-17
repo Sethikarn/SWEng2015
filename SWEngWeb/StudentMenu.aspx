@@ -28,12 +28,18 @@
                 <a class="waves-effect waves-light btn right " href="Logout.aspx" style="margin-top: 12px; margin-bottom: 0px;">ออกจากระบบ</a>
                 <% 
                     int notiCount = SWEngWeb.user.ontificationCount();
-                    string notiColor = "";
                     if (notiCount != 0)
-                        notiColor = "red";
+                    {
                 %>
-                <a class="waves-effect waves-light btn right <%: notiColor %>" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left:10px;">textsms</i> <%: notiCount %> </a>
-
+                        <a class="waves-effect waves-light btn right red" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left:10px;">textsms</i> <%: notiCount %> </a>
+                <%
+                    }else
+                    {
+                %>
+                        <a class="waves-effect waves-light btn right" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left:10px;">textsms</i>0</a>
+                <%
+                    }
+                %>
             </div>
         </nav>
 
@@ -48,7 +54,7 @@
                     </div>
 
                     <%string UName = SWEngWeb.user.name(); %>
-                    <div class="row" style="margin: 0px 0px; -6px 0px;">
+                    <div class="row" style="margin: 0px 0px;">
                         <div class="card-panel red lighten-4 z-depth-1" style="margin: 0px 0px 0px 0px; padding: 0px 3px 0px 3px; height: 40px;">
                             <div class="row valign-wrapper" style="margin-bottom: 0px;">
                                 <div class="col s1" style="margin: 0px 10px 0px 0px;">
@@ -77,6 +83,30 @@
                     <div class="card-panel infor" style="padding: 15px; margin: 0px; min-height: 527px;">
 
                         <div class="col s12">
+                            <div class="card-panel red lighten-4" style="margin:0px;">
+                            <div class="grey-text text-darken-4 col s12" style="margin-top: -12px;">
+                                <%
+                                    if (SWEngWeb.user.userHaveProject())
+                                    {
+                                     %>
+
+
+
+                                      <h5 style="margin: 0px;">โครงงานของท่าน</h5>
+
+                                <% }
+                                    else
+                                    {
+                                        %>
+
+                                <h5 style="margin: 0px;">ท่านยังไม่มีโครงงาน <a href="CPE01.aspx">สร้างโครงงาน</a></h5>
+                                <%
+                                    }
+                                     %>
+                            </div>
+                        </div>
+
+
                             <!-- <div class="section" style="margin-bottom: -20px;"> -->
                             <div class="row" style="margin-bottom: 0px;">
                                 
@@ -169,16 +199,17 @@
                 var minPageWidth = 860;
 
                 $(".infor").css("min-height", function () {
-                    H = H - 147;
-                    if (H < 650 - 147) {
-                        H = 650 - 147;
+                    H = H - 139;
+                    if (H < 520) {
+                        H = 520;
                     }
                     return H;
                 });
-
+                /*
                 $(".infor").css("max-height", function () {
                     return H;
                 });
+                */
             }
 
             homePageResposive();

@@ -136,16 +136,17 @@
                 var minPageWidth = 860;
 
                 $(".infor").css("min-height", function () {
-                    H = H - 147;
-                    if (H < 650 - 147) {
-                        H = 650 - 147;
+                    H = H - 139;
+                    if (H < 520) {
+                        H = 520;
                     }
                     return H;
                 });
-
+                /*
                 $(".infor").css("max-height", function () {
                     return H;
                 });
+                */
             }
 
             homePageResposive();
