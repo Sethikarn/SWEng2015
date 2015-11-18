@@ -71,6 +71,7 @@
     <Content Include="CPE03.aspx" />
     <Content Include="CPE3forPr.aspx" />
     <Content Include="default.aspx" />
+    <Content Include="reqAction.aspx" />
     <Content Include="StudentMenu.aspx" />
     <Content Include="HomeForProfessor.aspx" />
     <Content Include="Logout.aspx" />
@@ -151,6 +152,13 @@
       <DependentUpon>Notification.aspx</DependentUpon>
     </Compile>
     <Compile Include="process.cs" />
+    <Compile Include="reqAction.aspx.cs">
+      <DependentUpon>reqAction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reqAction.aspx.designer.cs">
+      <DependentUpon>reqAction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TeacherMenu.aspx.cs">
       <DependentUpon>TeacherMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

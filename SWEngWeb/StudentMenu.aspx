@@ -100,27 +100,21 @@
 
                                 <div class="col s6">
                                     <div class="row" style="margin: 0px;">
-                                        <div class="information card-panel light" style="height: 225px;">
+                                        <div class="information card-panel light" style="height: 225px; padding:10px;">
                                             <div class="icon-block">
-                                                <h2 class="center brown-text" style="margin-top: 10px; margin-bottom: 10px;"><i class="large material-icons">info</i></h2>
+                                                <h2 class="center brown-text" style="margin-top: 0px; margin-bottom: 0px;"><i class="large material-icons">info</i></h2>
                                                 <h5 class="center">สถานะล่าสุด</h5>
 
-                                                <p class="light center">-</p>
+                                                <p class="light center"><%= SWEngWeb.information.projectLastStatus(SWEngWeb.user.projectID().ToString()) %></p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row" style="margin: 0px;">
-                                        <div class="information card-panel light" style="height: 225px;">
+                                        <div class="information card-panel light" style="height: 225px; padding:10px;">
                                             <div class="icon-block">
-                                                <h2 class="center brown-text" style="margin-top: 10px; margin-bottom: 10px;"><i class="large material-icons">web</i></h2>
-                                                <h5 class="center">โครงงานของท่าน</h5>
-                                                <% string projectThaiName = SWEngWeb.user.thaiProjectName();
-                                                    if (projectThaiName == "")
-                                                    {
-                                                        projectThaiName = "ท่านยังไม่มีโครงงาน";
-                                                    }
-                                                %>
-                                                <p class="light center"><%: projectThaiName %></p>
+                                                <h2 class="center brown-text" style="margin-top: 0px; margin-bottom: 0px;"><i class="large material-icons">web</i></h2>
+                                                <h5 class="center">Under construction</h5>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -131,10 +125,11 @@
                                 <div class="col s6">
                                     <div class="information card-panel light">
                                         <div class="icon-block" style="padding: 0px;">
-                                            <h2 class="center brown-text"><i class="large material-icons">assessment</i></h2>
-                                            <h5 class="center">ภาพรวม</h5>
+                                            <h2 class="center brown-text" style="margin-top: 0px; margin-bottom: 0px;"><i class="large material-icons">assessment</i></h2>
+                                            <h5 class="center" style="margin-bottom:0px;">ภาพรวม</h5>
                                             <br />
                                             <div>
+                                                <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> under construction</a>
                                                 <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบเสนอหัวข้อโครงงาน</a>
                                                 <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบบันทึกการดำเนินงาน</a>
                                                 <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่ได้ขอสอบข้อเสนอโครงงาน</a>

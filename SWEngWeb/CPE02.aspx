@@ -27,7 +27,21 @@
 
                 <a class="center-align grey-text text-lighten-4 center" style="margin-left: 70px;"><span style="font-size: 21px;">ระบบประเมินและตรวจสอบโครงการคณะวิศวกรรมศาสตร์</span></a>
                 <a class="waves-effect waves-light btn right " href="Logout.aspx" style="margin: 12px 0px 0px 0px; padding: 0px 10px 0px 10px;">ออกจากระบบ</a>
-                <a class="waves-effect waves-light btn right " href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left: 10px;">textsms</i> 0 </a>
+                <% 
+                    int notiCount = SWEngWeb.user.ontificationCount();
+                    if (notiCount != 0)
+                    {
+                %>
+                <a class="waves-effect waves-light btn right red" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left: 10px;">textsms</i> <%: notiCount %> </a>
+                <%
+                    }
+                    else
+                    {
+                %>
+                <a class="waves-effect waves-light btn right" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left: 10px;">textsms</i>0</a>
+                <%
+                    }
+                %>
 
 
             </div>
@@ -72,7 +86,7 @@
 
                         <div class="card-panel red lighten-4 center">
                             <div class="grey-text text-darken-4 col s12 center" style="margin-top: -10px;">
-                                <h5 style="margin: 0px;" class="center">แบบบันทึกการดำเนินงาน (CPE02)</h5>
+                                <h5 style="margin: 0px;" class="center">แบบบันทึกการดำเนินงาน (CPE02) * Under Construction</h5>
                             </div>
                         </div>
 

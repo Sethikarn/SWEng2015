@@ -416,5 +416,88 @@ namespace SWEngWeb
 
             return mem;
         }
+
+        public static string projectLastStatus(string projectID)
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            string staID = "";
+            string lastSta = "";
+
+
+            conn.Open();
+            String cmd = "select lastStatus from project where projectID ='" + projectID + "'";
+            SqlCommand com = new SqlCommand(cmd, conn);
+            SqlDataReader memberSta = com.ExecuteReader();
+            try
+            {
+                staID = com.ExecuteScalar().ToString();
+            }
+            catch
+            {
+
+            }
+            conn.Close();
+
+            conn.Open();
+            cmd = "select projectStatusName from projectStatus where projectStatusID ='" + staID + "'";
+            com = new SqlCommand(cmd, conn);
+            
+            try
+            {
+                lastSta = com.ExecuteScalar().ToString();
+            }
+            catch
+            {
+
+            }
+            conn.Close();
+
+            return lastSta;
+        }
+
+        public static string getNamebyID(string personID)
+        {
+            string name = "";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            String Checkuser = "select title , firstName , lastName from person where personID =" + personID;
+            SqlCommand com = new SqlCommand(Checkuser, conn);
+            var reader = com.ExecuteReader();
+            if (reader != null)
+                reader.Read();
+
+            name += reader[0].ToString() + reader[1].ToString() + " " + reader[2].ToString();
+            conn.Close();
+            return name;
+        }
+
+        public static string thaiProjectName(string projectID)
+        {
+            string tName = "";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            String Checkuser = "select thaiName from project where projectID =" + projectID;
+            SqlCommand com = new SqlCommand(Checkuser, conn);
+            var reader = com.ExecuteScalar();
+            if (reader != null)
+                tName = reader.ToString();
+            conn.Close();
+            return tName;
+        }
+
+        public static string engProjectName(string projectID)
+        {
+            string eName = "";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            String Checkuser = "select englishName from project where projectID =" + projectID;
+            SqlCommand com = new SqlCommand(Checkuser, conn);
+            var reader = com.ExecuteScalar();
+            if (reader != null)
+                eName = reader.ToString();
+            conn.Close();
+            return eName;
+        }
     }
 }

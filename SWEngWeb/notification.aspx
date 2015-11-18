@@ -62,30 +62,150 @@
                 <div class="col s9" style="margin-left: 0px; padding-left: 0px; padding: 0px;">
                     <div class="card-panel infor" style="padding: 15px; margin: 0px; min-height: 527px;">
 
-                        
-                        <div class="card-panel red lighten-4" style="margin:0px;">
+
+
+                        <%int nocount = SWEngWeb.user.ontificationCount();
+                            if (!(nocount > 0))
+                            {
+                        %>
+                        <div class="card-panel red lighten-4" style="margin: 0px;">
                             <div class="grey-text text-darken-4 col s12" style="margin-top: -10px;">
-                                <%int nocount = SWEngWeb.user.ontificationCount();
-                                    if (! (nocount > 0))
-                                    {
-                                %>
-                                      <h5 style="margin: 0px;">ไม่มีการแจ้งเตือน</h5>
-                                <%
-                                    }
-                                    else
-                                    {
-                                %>
-                                      <h5 style="margin: 0px;">ท่านมี <%= nocount %> การแจ้งเตือน</h5>
-                                <%
-                                    }
-                                %>
+                                <h5 style="margin: 0px;">ไม่มีการแจ้งเตือน</h5>
+                            </div>
+                        </div>
+                        <%
+                            }
+                            else
+                            {
+                        %>
+                        <div class="card-panel red lighten-4" style="margin: 0px;">
+                            <div class="grey-text text-darken-4 col s12" style="margin-top: -10px;">
+                                <h5 style="margin: 0px;">ท่านมี <%= nocount %> การแจ้งเตือน</h5>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 0px; margin-top: 0px;">
+                            <div class="col s12 center">
+                                <div class="information card-panel light" style="margin-top: 0px; padding-top:5px;">
+                                    <%
+                                        List<string[]> req = getReq();
+                                        for (int i = 0; i < req.Count; i++)
+                                        {
+                                            if (req[i][1] == "1")
+                                            {
+                                                string linkOk = "href=\"reqAction.aspx?acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=yes\"";
+                                                string linkNot = "href=\"reqAction.aspx?acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=no\"";
+                                    %>
+                                    <div class="row" style="margin-bottom:0px;">
+                                        <div class="card-panel grey lighten-4" style="padding-bottom: 8px; margin-bottom:0px;">
+                                            <div class="row">
+                                            <div class="grey-text text-darken-3 col s4 right">
+                                                เมื่อ <%= req[i][4] %> 
+                                            </div>
+                                            </div>
+                                            <div class="grey-text text-darken-4 row">
+                                                <%= SWEngWeb.information.getNamebyID(req[i][3]) %> ชวนคุณเข้าเป็นสมาชิกโครงการ <%= SWEngWeb.information.thaiProjectName(req[i][2]) %> : <%= SWEngWeb.information.engProjectName(req[i][2]) %>
+
+                                            </div>
+                                            <div class="row" style="margin-bottom: 0px;">
+                                                <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 0px 0px 0px;" <%= linkNot %>>ยกเลิก</a>
+                                                <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 5px 0px 0px;" <%= linkOk %>>ตกลง</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <%
+                                            }
+
+
+
+                                            if (req[i][1] == "3")
+                                            {
+                                                string linkOk = "href=\"reqAction.aspx?acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=yes\"";
+                                                string linkNot = "href=\"reqAction.aspx?acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=no\"";
+                                    %>
+                                    <div class="row" style="margin-bottom:0px;">
+                                        <div class="card-panel grey lighten-4" style="padding-bottom: 8px; margin-bottom:0px;">
+                                            <div class="row">
+                                            <div class="grey-text text-darken-3 col s4 right">
+                                                เมื่อ <%= req[i][4] %> 
+                                            </div>
+                                            </div>
+                                            <div class="grey-text text-darken-4 row">
+                                                <%= SWEngWeb.information.getNamebyID(req[i][3]) %> เชิญคุณเป็นอาจารย์ที่ปรึกษา โครงการ<%= SWEngWeb.information.thaiProjectName(req[i][2]) %> : <%= SWEngWeb.information.engProjectName(req[i][2]) %>
+
+                                            </div>
+                                            <div class="row" style="margin-bottom: 0px;">
+                                                <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 0px 0px 0px;" <%= linkNot %>>ยกเลิก</a>
+                                                <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 5px 0px 0px;" <%= linkOk %>>ตกลง</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <%
+                                            }
+
+
+
+                                            if (req[i][1] == "4")
+                                            {
+                                                string linkOk = "href=\"reqAction.aspx?acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=yes\"";
+                                                string linkNot = "href=\"reqAction.aspx?acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=no\"";
+                                    %>
+                                    <div class="row" style="margin-bottom:0px;">
+                                        <div class="card-panel grey lighten-4" style="padding-bottom: 8px; margin-bottom:0px;">
+                                            <div class="row">
+                                            <div class="grey-text text-darken-3 col s4 right">
+                                                เมื่อ <%= req[i][4] %> 
+                                            </div>
+                                            </div>
+                                            <div class="grey-text text-darken-4 row">
+                                                <%= SWEngWeb.information.getNamebyID(req[i][3]) %> เชิญคุณเป็นอาจารย์ที่ปรึกษาร่วม โครงการ<%= SWEngWeb.information.thaiProjectName(req[i][2]) %> : <%= SWEngWeb.information.engProjectName(req[i][2]) %>
+
+                                            </div>
+                                            <div class="row" style="margin-bottom: 0px;">
+                                                <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 0px 0px 0px;" <%= linkNot %>>ยกเลิก</a>
+                                                <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 5px 0px 0px;" <%= linkOk %>>ตกลง</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <%
+                                            }
+
+
+
+                                            if (req[i][1] == "5")
+                                            {
+                                                string linkOk = "href=\"reqAction.aspx?acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=yes\"";
+                                                string linkNot = "href=\"reqAction.aspx?acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=no\"";
+                                    %>
+                                    <div class="row" style="margin-bottom:0px;">
+                                        <div class="card-panel grey lighten-4" style="padding-bottom: 8px; margin-bottom:0px;">
+                                            <div class="row">
+                                            <div class="grey-text text-darken-3 col s4 right">
+                                                เมื่อ <%= req[i][4] %> 
+                                            </div>
+                                            </div>
+                                            <div class="grey-text text-darken-4 row">
+                                                <%= SWEngWeb.information.getNamebyID(req[i][3]) %> เชิญคุณเป็นกรรมการ โครงการ<%= SWEngWeb.information.thaiProjectName(req[i][2]) %> : <%= SWEngWeb.information.engProjectName(req[i][2]) %>
+
+                                            </div>
+                                            <div class="row" style="margin-bottom: 0px;">
+                                                <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 0px 0px 0px;" <%= linkNot %>>ยกเลิก</a>
+                                                <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 5px 0px 0px;" <%= linkOk %>>ตกลง</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <%
+                                            }
+
+
+                                        }
+                                    %>
+                                </div>
                             </div>
                         </div>
 
-
-
-
-
+                        <%
+                            }
+                        %>
                     </div>
                 </div>
             </div>

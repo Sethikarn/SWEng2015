@@ -12,7 +12,7 @@
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
-<body style="min-width:860px;">
+<body style="min-width: 860px;">
     <form id="form1" runat="server">
         <nav class="red lighten-2 z-depth-2" role="navigation">
             <div class="container">
@@ -28,18 +28,25 @@
                 <a class="waves-effect waves-light btn right " href="Logout.aspx" style="margin-top: 12px; margin-bottom: 0px;">ออกจากระบบ</a>
                 <% 
                     int notiCount = SWEngWeb.user.ontificationCount();
-                    string notiColor = "";
                     if (notiCount != 0)
-                        notiColor = "red";
+                    {
                 %>
-                <a class="waves-effect waves-light btn right <%: notiColor %>" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left:10px;">textsms</i> <%: notiCount %> </a>
-
+                <a class="waves-effect waves-light btn right red" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left: 10px;">textsms</i> <%: notiCount %> </a>
+                <%
+                    }
+                    else
+                    {
+                %>
+                <a class="waves-effect waves-light btn right" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left: 10px;">textsms</i>0</a>
+                <%
+                    }
+                %>
             </div>
         </nav>
 
         <div class="container">
             <div class="row" style="margin-bottom: 5px;">
-                <div id="menubar" class="col s3 left" style="margin-right: 0px; min-height: 538px; padding-right:5px; padding-left:5px;" runat="server">
+                <div id="menubar" class="col s3 left" style="margin-right: 0px; min-height: 538px; padding-right: 5px; padding-left: 5px;" runat="server">
 
                     <div class="row red lighten-5" style="margin: 0px;">
                         <a href="http://www.eng.nu.ac.th" target="_blank">
@@ -73,26 +80,53 @@
                     </div>
                 </div>
                 <div class="col s9" style="margin-left: 0px; padding-left: 0px; padding: 0px;">
-                    <div class="card-panel infor" style="padding: 15px; margin:0px; min-height:527px;">
+                    <div class="card-panel infor" style="padding: 15px; margin: 0px; min-height: 527px;">
 
                         <div class="col s12">
                             <!-- <div class="section" style="margin-bottom: -20px;"> -->
                             <div class="row" style="margin-bottom: 0px;">
-                                
-                                <div class="col s12">
-                                    <div class="row" style="margin:0px;">
-                                    <div class="information card-panel light" style="height: 470px;">
-                                        <div class="icon-block">
-                                            <h2 class="center brown-text" style="margin-top:10px; margin-bottom:10px;"><i class="large material-icons">recent_actors</i></h2>
-                                            <h5 class="center">โครงงานในความดูแลของท่าน</h5>
 
-                                            <p class="light center">ท่านยังไม่มีโครงงานที่อยู่ในการดูแล</p>
-                                        </div>
+                                <div class="col s12">
+                                    <div class="row" style="margin: 0px;">
+                                        <div class="information card-panel light" style="height: 470px;">
+                                            <div class="icon-block">
+                                                <h2 class="center brown-text" style="margin-top: 10px; margin-bottom: 10px;"><i class="large material-icons">recent_actors</i></h2>
+                                                <h5 class="center">โครงงานในความดูแลของท่าน</h5>
+                                                <% List<string[]> ctrl = SWEngWeb.user.CTRLprojectID();
+                                                    if (ctrl != null && ctrl.Count != 0)
+                                                    {
+                                                        for (int i = 0; i < ctrl.Count; i++)
+                                                        {
+                                                %>
+                                                <div class="row" style="margin-bottom: 0px;">
+                                                    <div class="card-panel grey lighten-4" style="padding-bottom: 8px; margin-bottom: 0px;">
+                                                        <div class="row">
+                                                            <div class="grey-text text-darken-3 col s3 right">
+                                                                
+                                                                <%= ctrl[i][1] %>
+                                                            </div>
+                                                        </div>
+                                                        <div class="grey-text text-darken-4 row">
+                                                            <%= SWEngWeb.information.thaiProjectName(ctrl[i][0]) %> : <%= SWEngWeb.information.engProjectName(ctrl[i][0]) %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <%
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                %>
+                                                <p class="light center">ท่านยังไม่มีโครงงานที่อยู่ในการดูแล</p>
+                                                <%
+                                                    }
+                                                %>
+                                            </div>
                                         </div>
                                     </div>
-         
+
                                 </div>
-                                
+
 
                             </div>
                         </div>

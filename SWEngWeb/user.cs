@@ -186,5 +186,71 @@ namespace SWEngWeb
 
             HttpContext.Current.Response.Redirect("~/");
         }
+
+        public static List<string[]> CTRLprojectID()
+        {
+            List<string[]> prolist = new List<string[]>();
+            string[] projectID = new string[2];
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            String Checkuser = "select projectID from position where personID =" + user.userID() + " and personStatusID = 2";
+            SqlCommand com = new SqlCommand(Checkuser, conn);
+            var reader = com.ExecuteReader();
+            try {
+                while (reader.Read())
+                {
+                    projectID = new string[2];
+                    projectID[0] = reader[0].ToString();
+                    projectID[1] = "อาจารย์ที่ปรึกษา";
+                    prolist.Add(projectID);
+                }
+            }
+            catch
+            {
+
+            }
+            conn.Close();
+
+            conn.Open();
+            Checkuser = "select projectID from position where personID =" + user.userID() + " and personStatusID = 3";
+            com = new SqlCommand(Checkuser, conn);
+            reader = com.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    projectID = new string[2];
+                    projectID[0] = reader[0].ToString();
+                    projectID[1] = "อาจารย์ที่ปรึกษาร่วม";
+                    prolist.Add(projectID);
+                }
+            }
+            catch
+            {
+
+            }
+            conn.Close();
+
+            conn.Open();
+            Checkuser = "select projectID from position where personID =" + user.userID() + " and personStatusID = 4";
+            com = new SqlCommand(Checkuser, conn);
+            reader = com.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    projectID = new string[2];
+                    projectID[0] = reader[0].ToString();
+                    projectID[1] = "กรรมการ";
+                    prolist.Add(projectID);
+                }
+            }
+            catch
+            {
+
+            }
+            conn.Close();
+            return prolist;
+        }
     }
 }
