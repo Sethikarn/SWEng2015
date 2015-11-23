@@ -379,24 +379,24 @@
                                         </div>
                                     </div>
                                     <div class="col s12">
-                                        <div class="col s4 right">
-                                            <p class="center">
+                                        <div class="col s2 right">
+                                            <p >
                                                 <input class="with-gap" id="sumN" type="radio" name="C8" />
                                                 <label for="sumN">ไม่ผ่าน</label>
                                             </p>
                                         </div>
-                                        <div class="col s4 right">
-                                            <p class="center col s12">
+                                        <div class="col s6 right">
+                                            <p class="col s12">
                                                 <input class="with-gap" id="sumEY" type="radio" name="C8" <%--checked="checked"--%> />
                                                 <label for="sumEY">สมควรแก้ไข - สอบใหม่</label>
                                             </p>
-                                            <p class="center col s12">
+                                            <p class=" col s12">
                                                 <input class="with-gap" id="sumEN" type="radio" name="C8" <%--checked="checked"--%> />
                                                 <label for="sumEN">สมควรแก้ไข - ไม่ต้องสอบใหม่</label>
                                             </p>
                                         </div>
                                         <div class="col s4 right">
-                                            <p class="center">
+                                            <p >
                                                 <input class="with-gap" id="sumY" type="radio" name="C8" />
                                                 <label for="sumY">ผ่าน</label>
                                             </p>
