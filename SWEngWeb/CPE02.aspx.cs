@@ -18,7 +18,7 @@ namespace SWEngWeb
         {
             if (user.isLogin())
             {
-                if (user.userHaveProject())
+                if (user.userHaveProject() || user.position() == "teacher")
                 {
                     
                 }

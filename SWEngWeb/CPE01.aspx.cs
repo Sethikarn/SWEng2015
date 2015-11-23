@@ -1,19 +1,67 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace SWEngWeb
 {
     public partial class CPE01 : System.Web.UI.Page
     {
+
+        //CPE01 var
+        static public string pid = null;
+        static public string acID = null;
+        static public string ac = null;
+        static public string thaiName;
+        static public string englishName;
+        static public string memberCount = "1";
+        static public string[] memberID = new string[2];
+        static public string[,] memberInforCS = new string[3, 5]; // 3person 5data{title , firstName , lastName , phoneNumber , email}
+        static public string[] displayMember = new string[3] { "selected=\"selected\"", "", "" };
+        static public ArrayList teacherIDList = new ArrayList();
+        static public bool[] memberCheck = new bool[2];
+
+        public static void clear()
+        {
+            pid = null;
+            acID = null;
+            ac = null;
+            thaiName = "";
+            englishName = "";
+            memberCount = "1";
+            memberID = new string[2];
+            memberInforCS = new string[3, 5]; // 3person 5data{title , firstName , lastName , phoneNumber , email}
+            displayMember = new string[3] { "selected=\"selected\"", "", "" };
+            memberCheck = new bool[2];
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.MaintainScrollPositionOnPostBack = true;
+            try
+            {
+                pid = Request.QueryString["pid"];
+                acID = Request.QueryString["acID"];
+                ac = Request.QueryString["ac"];
+            }
+            catch
+            {
+                if (user.userHaveProject())
+                {
+                    pid = user.projectID();
+                }
+                else
+                {
+                    pid = null;
+                }
+            }
+
+            if (user.userHaveProject())
+            {
+                pid = user.projectID();
+            }
 
             /*//////////////////////////////--------------- Check is login ---------------///////////////////////////////
             if not login redirect to login page 
@@ -26,98 +74,101 @@ namespace SWEngWeb
             if user already have project continue
                 otherwise redirect to CreateProject
             */
-            if (!user.userHaveProject())
+            if (user.position() == "student")
             {
-                if (Request.Form["memberCountSelect"] != null)
+                if (!user.userHaveProject())
+                {
+                    if (Request.Form["memberCountSelect"] != null)
                     {
-                        CPE01Var.memberCount = Request.Form["memberCountSelect"];
+                        memberCount = Request.Form["memberCountSelect"];
                     }
                     else
                     {
-                        CPE01Var.memberCount = "1";
+                        memberCount = "1";
 
-                        CPE01Var.memberID[0] = "";
-                        CPE01Var.memberInforCS[1, 0] = "";
-                        CPE01Var.memberInforCS[1, 1] = "";
-                        CPE01Var.memberInforCS[1, 2] = "";
-                        CPE01Var.memberInforCS[1, 3] = "";
-                        CPE01Var.memberInforCS[1, 4] = "";
+                        memberID[0] = "";
+                        memberInforCS[1, 0] = "";
+                        memberInforCS[1, 1] = "";
+                        memberInforCS[1, 2] = "";
+                        memberInforCS[1, 3] = "";
+                        memberInforCS[1, 4] = "";
                         MemberID2.Text = "";
                         personOp.InnerText = "เพิ่ม";
 
-                        CPE01Var.memberID[1] = "";
-                        CPE01Var.memberInforCS[2, 0] = "";
-                        CPE01Var.memberInforCS[2, 1] = "";
-                        CPE01Var.memberInforCS[2, 2] = "";
-                        CPE01Var.memberInforCS[2, 3] = "";
-                        CPE01Var.memberInforCS[2, 4] = "";
+                        memberID[1] = "";
+                        memberInforCS[2, 0] = "";
+                        memberInforCS[2, 1] = "";
+                        memberInforCS[2, 2] = "";
+                        memberInforCS[2, 3] = "";
+                        memberInforCS[2, 4] = "";
                         MemberID3.Text = "";
                         personOp2.InnerText = "เพิ่ม";
                     }
 
 
-                    if (CPE01Var.memberCount == "1")
+                    if (memberCount == "1")
                     {
-                        CPE01Var.displayMember = new string[3] { "selected=\"selected\"", "", "" };
+                        displayMember = new string[3] { "selected=\"selected\"", "", "" };
 
-                        CPE01Var.memberID[0] = "";
-                        CPE01Var.memberInforCS[1, 0] = "";
-                        CPE01Var.memberInforCS[1, 1] = "";
-                        CPE01Var.memberInforCS[1, 2] = "";
-                        CPE01Var.memberInforCS[1, 3] = "";
-                        CPE01Var.memberInforCS[1, 4] = "";
+                        memberID[0] = "";
+                        memberInforCS[1, 0] = "";
+                        memberInforCS[1, 1] = "";
+                        memberInforCS[1, 2] = "";
+                        memberInforCS[1, 3] = "";
+                        memberInforCS[1, 4] = "";
                         MemberID2.Text = "";
                         personOp.InnerText = "เพิ่ม";
 
-                        CPE01Var.memberID[1] = "";
-                        CPE01Var.memberInforCS[2, 0] = "";
-                        CPE01Var.memberInforCS[2, 1] = "";
-                        CPE01Var.memberInforCS[2, 2] = "";
-                        CPE01Var.memberInforCS[2, 3] = "";
-                        CPE01Var.memberInforCS[2, 4] = "";
+                        memberID[1] = "";
+                        memberInforCS[2, 0] = "";
+                        memberInforCS[2, 1] = "";
+                        memberInforCS[2, 2] = "";
+                        memberInforCS[2, 3] = "";
+                        memberInforCS[2, 4] = "";
                         MemberID3.Text = "";
                         personOp2.InnerText = "เพิ่ม";
                     }
-                    else if (CPE01Var.memberCount == "2")
+                    else if (memberCount == "2")
                     {
-                        CPE01Var.displayMember = new string[3] { "", "selected=\"selected\"", "" };
-                        CPE01Var.memberID[1] = "";
-                        CPE01Var.memberInforCS[2, 0] = "";
-                        CPE01Var.memberInforCS[2, 1] = "";
-                        CPE01Var.memberInforCS[2, 2] = "";
-                        CPE01Var.memberInforCS[2, 3] = "";
-                        CPE01Var.memberInforCS[2, 4] = "";
+                        displayMember = new string[3] { "", "selected=\"selected\"", "" };
+                        memberID[1] = "";
+                        memberInforCS[2, 0] = "";
+                        memberInforCS[2, 1] = "";
+                        memberInforCS[2, 2] = "";
+                        memberInforCS[2, 3] = "";
+                        memberInforCS[2, 4] = "";
                         MemberID3.Text = "";
                         personOp2.InnerText = "เพิ่ม";
                     }
-                    else if (CPE01Var.memberCount == "3")
+                    else if (memberCount == "3")
                     {
-                        CPE01Var.displayMember = new string[3] { "", "", "selected=\"selected\"" };
+                        displayMember = new string[3] { "", "", "selected=\"selected\"" };
                     }
 
 
-                if (!IsPostBack)
-                {
-                    List<string[]> TeacherInfor = new List<string[]>();
-                    TeacherInfor = information.allTeacher();
-                    for (int i = 0; i < TeacherInfor.Count; i++)
+                    if (!IsPostBack)
                     {
-                        CPE01Var.teacherIDList.Add(TeacherInfor[i][0]);
-                        adviser.Items.Add(TeacherInfor[i][1] + TeacherInfor[i][2] + " " + TeacherInfor[i][3]);
-                        coadviser.Items.Add(TeacherInfor[i][1] + TeacherInfor[i][2] + " " + TeacherInfor[i][3]);
-                        committee.Items.Add(TeacherInfor[i][1] + TeacherInfor[i][2] + " " + TeacherInfor[i][3]);
+                        List<string[]> TeacherInfor = new List<string[]>();
+                        TeacherInfor = information.allTeacher();
+                        for (int i = 0; i < TeacherInfor.Count; i++)
+                        {
+                            teacherIDList.Add(TeacherInfor[i][0]);
+                            adviser.Items.Add(TeacherInfor[i][1] + TeacherInfor[i][2] + " " + TeacherInfor[i][3]);
+                            coadviser.Items.Add(TeacherInfor[i][1] + TeacherInfor[i][2] + " " + TeacherInfor[i][3]);
+                            committee.Items.Add(TeacherInfor[i][1] + TeacherInfor[i][2] + " " + TeacherInfor[i][3]);
+                        }
                     }
                 }
             }
         }
         protected void memberClear(int index)
         {
-            CPE01Var.memberID[index - 1] = "";
-            CPE01Var.memberInforCS[index, 0] = "";
-            CPE01Var.memberInforCS[index, 1] = "";
-            CPE01Var.memberInforCS[index, 2] = "";
-            CPE01Var.memberInforCS[index, 3] = "";
-            CPE01Var.memberInforCS[index, 4] = "";
+            memberID[index - 1] = "";
+            memberInforCS[index, 0] = "";
+            memberInforCS[index, 1] = "";
+            memberInforCS[index, 2] = "";
+            memberInforCS[index, 3] = "";
+            memberInforCS[index, 4] = "";
 
             if (index == 2)
                 MemberID3.Text = "";
@@ -127,7 +178,7 @@ namespace SWEngWeb
         }
         protected void cancleCreate(object sender, EventArgs e)
         {
-            CPE01Var.clear();
+            clear();
             //Response.Redirect(Request.RawUrl);
             Response.Redirect("~/");
         }
@@ -139,36 +190,36 @@ namespace SWEngWeb
 
             if (thaiNameInput.Text != "") //สรวจสอบชื่อไทย
             {
-                CPE01Var.thaiName = thaiNameInput.Text;
+                thaiName = thaiNameInput.Text;
                 if (englishNameInput.Text != "") //สรวจสอบชื่ออังกฤษ
                 {
-                    CPE01Var.englishName = englishNameInput.Text;
+                    englishName = englishNameInput.Text;
 
                     memCount = 1;  //ตัวเทียบนับจำนวนสมาชิก
-                    if (CPE01Var.memberInforCS[1, 1] != "") //นับจากจำนวนชื่อ
+                    if (memberInforCS[1, 1] != "") //นับจากจำนวนชื่อ
                         memCount++;
-                    if (CPE01Var.memberInforCS[2, 1] != "")
+                    if (memberInforCS[2, 1] != "")
                         memCount++;
 
                     if (Request.Form["memberCountSelect"] != null)  //ถ้าตัวเลือกจำนวนสมาชิกไม่เป็นเนา
                     {
-                        CPE01Var.memberCount = Request.Form["memberCountSelect"];
+                        memberCount = Request.Form["memberCountSelect"];
                     }
                     else
                     {
-                        CPE01Var.memberCount = "1";
+                        memberCount = "1";
                     }
-                    if (CPE01Var.memberCount == "1")
+                    if (memberCount == "1")
                     {
                         memberClear(1);
                         memberClear(2);
                     }
-                    if (CPE01Var.memberCount == "2")
+                    if (memberCount == "2")
                     {
                         memberClear(2);
                     }
 
-                    if (CPE01Var.memberCount == memCount.ToString()) //ถ้ามีสมาชิกตากจำนวนที่กำหนด
+                    if (memberCount == memCount.ToString()) //ถ้ามีสมาชิกตากจำนวนที่กำหนด
                     {
                         if (adviser.SelectedIndex == 0 && coadviser.SelectedIndex == 0 && committee.SelectedIndex == 0)//ไม่เลือก
                         {
@@ -245,16 +296,12 @@ namespace SWEngWeb
             SqlCommand com = new SqlCommand(getInfor, conn);
             SqlDataReader infor = com.ExecuteReader();
             infor.Read();
-            CPE01Var.memberInforCS[0, 0] = infor.GetString(0);
-            CPE01Var.memberInforCS[0, 1] = infor.GetString(1) + "  ";
-            CPE01Var.memberInforCS[0, 2] = infor.GetString(2);
-            CPE01Var.memberInforCS[0, 3] = infor.GetString(3);
-            CPE01Var.memberInforCS[0, 4] = infor.GetString(4);
+            memberInforCS[0, 0] = infor.GetString(0);
+            memberInforCS[0, 1] = infor.GetString(1) + "  ";
+            memberInforCS[0, 2] = infor.GetString(2);
+            memberInforCS[0, 3] = infor.GetString(3);
+            memberInforCS[0, 4] = infor.GetString(4);
             conn.Close();
-        }
-        protected void memberCountChange(object sender, EventArgs e)
-        {
-
         }
         protected void addMember2Click(object sender, EventArgs e)
         {
@@ -267,19 +314,19 @@ namespace SWEngWeb
 
                 if (int.TryParse(input, out temp) && input.Length == 8)
                 {
-                    if (input != user.userID() && input != CPE01Var.memberID[1])
+                    if (input != user.userID() && input != memberID[1])
                     {
                         string[] studentInfor = information.student(input);
                         if (studentInfor[0] != null)
                         {
                             if (!information.studentHaveProject(input))
                             {
-                                CPE01Var.memberID[0] = input;
-                                CPE01Var.memberInforCS[1, 0] = studentInfor[0];
-                                CPE01Var.memberInforCS[1, 1] = studentInfor[1];
-                                CPE01Var.memberInforCS[1, 2] = studentInfor[2];
-                                CPE01Var.memberInforCS[1, 3] = studentInfor[3];
-                                CPE01Var.memberInforCS[1, 4] = studentInfor[4];
+                                memberID[0] = input;
+                                memberInforCS[1, 0] = studentInfor[0];
+                                memberInforCS[1, 1] = studentInfor[1];
+                                memberInforCS[1, 2] = studentInfor[2];
+                                memberInforCS[1, 3] = studentInfor[3];
+                                memberInforCS[1, 4] = studentInfor[4];
                                 MemberID2.Text = input;
                                 personOp.InnerText = "ลบ";
                                 MemberID2.Enabled = false;
@@ -320,25 +367,25 @@ namespace SWEngWeb
             {
                 if (Request.Form["memberCountSelect"] != null)
                 {
-                    CPE01Var.memberCount = Request.Form["memberCountSelect"];
+                    memberCount = Request.Form["memberCountSelect"];
                 }
                 else
                 {
-                    CPE01Var.memberCount = "1";
+                    memberCount = "1";
                 }
 
                 /////////////////////////////////////////////////////////////////////
 
-                if (CPE01Var.memberCount == "3")
+                if (memberCount == "3")
                 {
-                    if (CPE01Var.memberID[1] != "")
+                    if (memberID[1] != "")
                     {
-                        CPE01Var.memberID[0] = CPE01Var.memberID[1];
-                        CPE01Var.memberInforCS[1, 0] = CPE01Var.memberInforCS[2, 0];
-                        CPE01Var.memberInforCS[1, 1] = CPE01Var.memberInforCS[2, 1];
-                        CPE01Var.memberInforCS[1, 2] = CPE01Var.memberInforCS[2, 2];
-                        CPE01Var.memberInforCS[1, 3] = CPE01Var.memberInforCS[2, 3];
-                        CPE01Var.memberInforCS[1, 4] = CPE01Var.memberInforCS[2, 4];
+                        memberID[0] = memberID[1];
+                        memberInforCS[1, 0] = memberInforCS[2, 0];
+                        memberInforCS[1, 1] = memberInforCS[2, 1];
+                        memberInforCS[1, 2] = memberInforCS[2, 2];
+                        memberInforCS[1, 3] = memberInforCS[2, 3];
+                        memberInforCS[1, 4] = memberInforCS[2, 4];
                         MemberID2.Text = MemberID3.Text;
                         personOp.InnerText = "ลบ";
                         MemberID2.Enabled = false;
@@ -374,7 +421,7 @@ namespace SWEngWeb
                 memberClear(2);
                 if (int.TryParse(input, out temp) && input.Length == 8)
                 {
-                    if (input != user.userID() && input != CPE01Var.memberID[0])
+                    if (input != user.userID() && input != memberID[0])
                     {
                         string[] studentInfor = information.student(input);
                         if (studentInfor[0] != null)
@@ -382,15 +429,15 @@ namespace SWEngWeb
                             if (!information.studentHaveProject(input))
                             {
 
-                                CPE01Var.memberID[1] = input;
-                                CPE01Var.memberInforCS[2, 0] = studentInfor[0];
-                                CPE01Var.memberInforCS[2, 1] = studentInfor[1];
-                                CPE01Var.memberInforCS[2, 2] = studentInfor[2];
-                                CPE01Var.memberInforCS[2, 3] = studentInfor[3];
-                                CPE01Var.memberInforCS[2, 4] = studentInfor[4];
+                                memberID[1] = input;
+                                memberInforCS[2, 0] = studentInfor[0];
+                                memberInforCS[2, 1] = studentInfor[1];
+                                memberInforCS[2, 2] = studentInfor[2];
+                                memberInforCS[2, 3] = studentInfor[3];
+                                memberInforCS[2, 4] = studentInfor[4];
                                 MemberID3.Text = input;
                                 personOp2.InnerText = "ลบ";
-                                CPE01Var.memberCheck[1] = true;
+                                memberCheck[1] = true;
                                 isValid = true;
                                 MemberID3.Enabled = false;
 
@@ -426,7 +473,7 @@ namespace SWEngWeb
             if (!isValid)
             {
                 personOp2.InnerText = "เพิ่ม";
-                CPE01Var.memberCheck[1] = false;
+                memberCheck[1] = false;
                 ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", errorMem3, true);
                 MemberID3.Enabled = true;
             }
@@ -436,21 +483,21 @@ namespace SWEngWeb
             using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString))
             {
                 // into project table
-                string projectIDCS = process.createProject(CPE01Var.thaiName, CPE01Var.englishName, CPE01Var.memberCount);
+                string projectIDCS = process.createProject(thaiName, englishName, memberCount);
 
                 //into position
                 process.setStatus(user.userID(), projectIDCS, "1");
 
                 //into request student
-                if (CPE01Var.memberCount != "1")
+                if (memberCount != "1")
                 {
-                    int loop = Convert.ToInt32(CPE01Var.memberCount);
+                    int loop = Convert.ToInt32(memberCount);
                     for (int i = 0; i < loop - 1; i++)
                     {
-                        if (CPE01Var.memberInforCS[i + 1, 1] != "")
+                        if (memberInforCS[i + 1, 1] != "")
                         {
-                            process.makeRequest("1", projectIDCS, CPE01Var.memberID[i]);
-                            process.setStatus(CPE01Var.memberID[i], projectIDCS, "11");
+                            process.makeRequest("1", projectIDCS, memberID[i]);
+                            process.setStatus(memberID[i], projectIDCS, "11");
                         }
                     }
                 }
@@ -458,22 +505,22 @@ namespace SWEngWeb
                 //into request avviser
                 if (adviser.SelectedIndex != 0)
                 {
-                    process.makeRequest("3", projectIDCS, CPE01Var.teacherIDList[adviser.SelectedIndex - 1].ToString());
-                    process.setStatus(CPE01Var.teacherIDList[adviser.SelectedIndex - 1].ToString(), projectIDCS, "12");
+                    process.makeRequest("3", projectIDCS, teacherIDList[adviser.SelectedIndex - 1].ToString());
+                    process.setStatus(teacherIDList[adviser.SelectedIndex - 1].ToString(), projectIDCS, "12");
                 }
 
                 //into request coadviser
                 if (coadviser.SelectedIndex != 0)
                 {
-                    process.makeRequest("4", projectIDCS, CPE01Var.teacherIDList[coadviser.SelectedIndex - 1].ToString());
-                    process.setStatus(CPE01Var.teacherIDList[coadviser.SelectedIndex - 1].ToString(), projectIDCS, "13");
+                    process.makeRequest("4", projectIDCS, teacherIDList[coadviser.SelectedIndex - 1].ToString());
+                    process.setStatus(teacherIDList[coadviser.SelectedIndex - 1].ToString(), projectIDCS, "13");
                 }
 
                 //into request committee
                 if (committee.SelectedIndex != 0)
                 {
-                    process.makeRequest("5", projectIDCS, CPE01Var.teacherIDList[committee.SelectedIndex - 1].ToString());
-                    process.setStatus(CPE01Var.teacherIDList[committee.SelectedIndex - 1].ToString(), projectIDCS, "14");
+                    process.makeRequest("5", projectIDCS, teacherIDList[committee.SelectedIndex - 1].ToString());
+                    process.setStatus(teacherIDList[committee.SelectedIndex - 1].ToString(), projectIDCS, "14");
                 }
 
                 Response.Redirect("CPE01.aspx");

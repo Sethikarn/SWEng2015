@@ -9,15 +9,41 @@ namespace SWEngWeb
 {
     public partial class CPE05 : System.Web.UI.Page
     {
+
+        public string pid = null;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (user.isLogin())
             {
-                Response.Redirect("~/under_construction.aspx");
+
             }
             else
             {
                 Response.Redirect("~/");
+            }
+
+            Page.MaintainScrollPositionOnPostBack = true;
+
+            try
+            {
+                pid = Request.QueryString["pid"];
+            }
+            catch
+            {
+                if (user.userHaveProject())
+                {
+                    pid = user.projectID();
+                }
+                else
+                {
+                    pid = null;
+                }
+            }
+
+            if (user.userHaveProject())
+            {
+                pid = user.projectID();
             }
         }
     }

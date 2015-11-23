@@ -4,326 +4,415 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title></title>
-    <style>
-        body {
-            width: 1000px;
-            margin: 0 auto;
-        }
-
-        #header{
-            background-color: #6F0023;
-            width: 1000px;
-            float: initial;
-            height: 145px;
-        }
-
-        #tab {
-            background-color: #f3c5ee ;
-            width: 50px;
-            height: 600px;
-            float: left;
-        }
-      
-        #tab2 {
-            background-color: #FFFFFF;
-            width: 900px;
-            height: 600px;
-            float: left;
-        }
-        #tab3 {
-            background-color: #f3c5ee ;
-            width: 50px;
-            height: 600px;
-            float:left;
-        }
-
-        .auto-style1 {
-            width: 100%;
-        }
-
-        .auto-style7 {
-            background-color : #fff;
-            text-align: center;
-            }
-                
-        .auto-style13 {
-            width: 1001px;
-            height: 139px;
-        }
-
-        .auto-style19 {
-            height: 23px;
-            text-align: left;
-        }
-        .auto-style20 {
-            text-align: right;
-            height: 23px;
-        }
-        .auto-style21 {
-            height: 23px;
-        }
-        
-
-        .auto-style22 {
-            text-align: right;
-            height: 23px;
-            width: 381px;
-        }
-        
-
-        .auto-style23 {
-            text-align: right;
-            width: 411px;
-        }
-        .auto-style24 {
-            width: 411px;
-        }
-        .auto-style25 {
-            text-align: right;
-            width: 411px;
-            height: 23px;
-        }
-        .auto-style26 {
-            text-align: left;
-        }
-        .auto-style27 {
-            color: #FFFFFF;
-            background-color: #CC0000;
-        }
-        .auto-style29 {
-            text-align: left;
-            background-color: #CC0000;
-            height: 11px;
-        }
-        .auto-style30 {
-            color: #FFFFFF;
-        }
-        
-
-        .auto-style31 {
-            background-color: #CC0000;
-        }
-        .auto-style32 {
-            text-align: left;
-            background-color: #CC0000;
-        }
-        .auto-style33 {
-            height: 31px;
-            text-align: center;
-        }
-        
-
-        .auto-style34 {
-            color: #FFFFFF;
-            background-color: #00CC00;
-        }
-        .auto-style35 {
-            background-color: #FFFF99;
-        }
-        
-
-        </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>ระบบประเมินและตรวจสอบโครงการ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร</title>
+    <!-- CSS  -->
+    <!-- CSS  -->
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
-
-
-
-
-
-<body>
+<body style="min-width: 860px;">
     <form id="form1" runat="server">
-    <div id="header">
-        <img alt="" class="auto-style13" src="banner.jpg" /></div>
+        <nav class="red lighten-2 z-depth-2" role="navigation">
+            <div class="container">
 
-        <div id="tab" >
-            
+                <a href="http://www.nu.ac.th" target="_blank">
+                    <img src="pic/NU_LOGO1.png" alt="" class="left circle responsive-img z-depth-1" />
+                </a>
+                <a href="http://www.eng.nu.ac.th" target="_blank">
+                    <img src="pic/logoEng.png" alt="" class="left circle responsive-img z-depth-1" style="margin-left: 4px;" />
+                </a>
 
+                <a class="center-align grey-text text-lighten-4 center" style="margin-left: 70px;"><span style="font-size: 21px;">ระบบประเมินและตรวจสอบโครงการคณะวิศวกรรมศาสตร์</span></a>
+                <a class="waves-effect waves-light btn right " href="Logout.aspx" style="margin: 12px 0px 0px 0px; padding: 0px 10px 0px 10px;">ออกจากระบบ</a>
+                <% 
+                    int notiCount = SWEngWeb.user.ontificationCount();
+                    if (notiCount != 0)
+                    {
+                %>
+                <a class="waves-effect waves-light btn right red" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left: 10px;">textsms</i> <%: notiCount %> </a>
+                <%
+                    }
+                    else
+                    {
+                %>
+                <a class="waves-effect waves-light btn right" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left: 10px;">textsms</i>0</a>
+                <%
+                    }
+                %>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row" style="margin-bottom: 5px;">
+                <div id="menubar" class="col s3 left" style="margin-right: 0px; min-height: 538px; padding-right: 5px; padding-left: 5px;" runat="server">
+
+                    <div class="row red lighten-5" style="margin: 0px;">
+                        <a href="http://www.eng.nu.ac.th" target="_blank">
+                            <img src="pic/imageedit_6_2524784814.png" alt="" class="responsive-img center" />
+                        </a>
+                    </div>
+
+                    <%string UName = SWEngWeb.user.name(); %>
+                    <div class="row" style="margin: 0px 0px;">
+                        <div class="card-panel red lighten-4 z-depth-1" style="margin: 0px 0px 0px 0px; padding: 0px 3px 0px 3px; height: 40px;">
+                            <div class="row valign-wrapper" style="margin-bottom: 0px;">
+                                <div class="col s1" style="margin: 0px 10px 0px 0px;">
+                                    <i class="material-icons prefix" style="margin-left: 5px; margin-right: 2px; margin-top: 8px;">person_pin</i>
+                                </div>
+                                <div class="col s11" style="margin-left: 0px; line-height: 40px;">
+                                    <span class="black-text center">สวัสดี <%: UName %>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card-panel" style="padding: 7px; margin-bottom: 0px;">
+                        <a class="waves-effect waves-light btn center red lighten-2" href="StudentMenu.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">เมนูหลัก</a>
+                        <%--<a class="waves-effect waves-light btn center red lighten-2" href="Notification.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">แก้ไข</a>--%>
+                    </div>
+                </div>
+                <div class="col s9" style="margin-left: 0px; padding-left: 0px; padding: 0px;">
+                    <div class="card-panel infor" style="padding: 15px; margin: 0px; min-height: 527px;">
+
+
+                        <!-- ชื่อform -->
+
+                        <div class="card-panel red lighten-4 center">
+                            <div class="grey-text text-darken-4 col s12 center" style="margin-top: -10px;">
+                                <h5 style="margin: 0px;" class="center">แบบประเมินข้อเสนอโครงงานวิศวกรรมคอมพิวเตอร์ (CPE04)</h5>
+                            </div>
+                        </div>
+
+                        <!-- ชื่อโครงงาน -->
+
+                        <div class="card-panel red lighten-4" style="padding: 5px;">
+                            <div class="row" style="margin-bottom: 0px;">
+                                <div class="grey-text text-darken-4 col" style="margin-left: 5px; margin-top: 5px;">
+                                    <h5>ชื่อโครงงาน</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-panel" style="padding-bottom: 5px; margin-top: -14px;">
+                            <div class="row" style="margin-bottom: 0px;">
+                                <div class="input-field col s6">
+                                    <input value="<%= SWEngWeb.information.thaiProjectName(pid) %>" id="thaiNameInput2" type="text" class="validate" disabled="disabled" />
+                                    <label for="thaiNameInput2">ชื่อไทย</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input value="<%= SWEngWeb.information.engProjectName(pid) %>" id="englishNameInput2" type="text" class="validate" disabled="disabled" />
+                                    <label for="englishNameInput">ชื่ออังกฤษ</label>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- รายชื่อนิสิต -->
+                        <%
+                            int memCount = SWEngWeb.information.memberCount(pid);
+                        %>
+                        <% 
+                            List<string[]> memSta = new List<string[]>();
+                            memSta = SWEngWeb.information.studentInProject(pid);
+                            string[] ad = SWEngWeb.information.adviserInProject(pid);
+                            string[] coad = SWEngWeb.information.coadviserInProject(pid);
+                            string[] com = SWEngWeb.information.committeeInProject(pid);
+                        %>
+                        <div id="my_own_textbox" style="margin: 2px 2px 2px 2px;">
+                            <div class="card-panel grey lighten-2" style="padding: 5px;">
+                                <div class="row" style="margin-bottom: 0px;">
+                                    <div class="grey-text text-darken-4 col" style="margin-left: 5px; margin-top: 5px;">
+                                        <h5>รายชื่อนิสิตผู้ทำโครงงาน จำนวน <%= memCount.ToString() + " คน" %></h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a class="waves-effect waves-light btn-flat right grey lighten-2" style="margin: -14px 0px -15px 0px;"><%= memSta[0][6] %></a>
+                            <div class="card-panel" style="padding-bottom: 5px; margin-top: -14px;">
+                                <div class="row" style="margin-bottom: 0px;">
+                                    <div class="input-field col s2">
+                                        <input id="MemberID1" type="text" class="validate" value="<%= memSta[0][0] %>" disabled="disabled" />
+                                        <label for="MemberID1">รหัสนิสิต</label>
+                                    </div>
+                                    <div class="input-field col s4">
+                                        <input id="MemberName1" type="text" class="validate" value="<%= memSta[0][1] + memSta[0][2] + " " + memSta[0][3] %>" disabled="disabled" />
+                                        <label for="MemberName1">ชื่อ - สกุล</label>
+                                    </div>
+                                    <div class="input-field col s2">
+                                        <input id="MemberTel1" type="tel" class="validate" value="<%= memSta[0][5] %>" disabled="disabled" />
+                                        <label for="MemberTel1">เบอร์โทร</label>
+                                    </div>
+                                    <div class="input-field col s4">
+                                        <input id="MemberEmail1" type="email" class="validate" value="<%= memSta[0][4] %>" disabled="disabled" />
+                                        <label for="MemberEmail1">อีเมล์</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <%
+                                if (memCount > 1)
+                                {
+                            %>
+
+                            <a class="waves-effect waves-light btn-flat right grey lighten-2" style="margin: -14px 0px -15px 0px;"><%= memSta[1][6] %></a>
+                            <div class="card-panel" id="my_own_textbox1" style="padding-bottom: 5px; margin-top: -14px;">
+                                <div class="row" style="margin-bottom: 0px;">
+                                    <div class="input-field col s2">
+                                        <input id="MemberID1" type="text" class="validate" value="<%= memSta[1][0] %>" disabled="disabled" />
+                                        <label for="MemberID1">รหัสนิสิต</label>
+                                    </div>
+                                    <div class="input-field col s4">
+                                        <input id="MemberName1" type="text" class="validate" value="<%= memSta[1][1] + memSta[1][2] + " " + memSta[1][3] %>" disabled="disabled" />
+                                        <label for="MemberName1">ชื่อ - สกุล</label>
+                                    </div>
+                                    <div class="input-field col s2">
+                                        <input id="MemberTel1" type="tel" class="validate" value="<%= memSta[1][5] %>" disabled="disabled" />
+                                        <label for="MemberTel1">เบอร์โทร</label>
+                                    </div>
+                                    <div class="input-field col s4">
+                                        <input id="MemberEmail1" type="email" class="validate" value="<%= memSta[1][4] %>" disabled="disabled" />
+                                        <label for="MemberEmail1">อีเมล์</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <%
+                                }
+                            %>
+
+                            <%
+                                if (memCount > 2)
+                                {
+                            %>
+
+                            <a class="waves-effect waves-light btn-flat right grey lighten-2" style="margin: -14px 0px -15px 0px;"><%= memSta[2][6] %></a>
+                            <div class="card-panel" id="my_own_textbox2" style="padding-bottom: 0px; margin-top: -14px;">
+                                <div class="row" style="margin-bottom: 0px;">
+                                    <div class="input-field col s2">
+                                        <input id="MemberID1" type="text" class="validate" value="<%= memSta[2][0] %>" disabled="disabled" />
+                                        <label for="MemberID1">รหัสนิสิต</label>
+                                    </div>
+                                    <div class="input-field col s4">
+                                        <input id="MemberName1" type="text" class="validate" value="<%= memSta[2][1] + memSta[2][2] + " " + memSta[2][3] %>" disabled="disabled" />
+                                        <label for="MemberName1">ชื่อ - สกุล</label>
+                                    </div>
+                                    <div class="input-field col s2">
+                                        <input id="MemberTel1" type="tel" class="validate" value="<%= memSta[2][5] %>" disabled="disabled" />
+                                        <label for="MemberTel1">เบอร์โทร</label>
+                                    </div>
+                                    <div class="input-field col s4">
+                                        <input id="MemberEmail1" type="email" class="validate" value="<%= memSta[2][4] %>" disabled="disabled" />
+                                        <label for="MemberEmail1">อีเมล์</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <%
+                                }
+                            %>
+                        </div>
+
+                        <!-- การประเมิน -->
+
+                        <div class="card-panel red lighten-4" style="padding: 5px;">
+                            <div class="row" style="margin-bottom: 0px;">
+                                <div class="grey-text text-darken-4 col" style="margin-left: 5px; margin-top: 5px;">
+                                    <h5>ประเด็นปัญหาและขอบเขตุโครงงานโดยย่อ</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-panel" style="padding: 10px 10px 0px 10px; margin-top: -14px; margin-bottom: 0px;">
+                            <div class="row" style="margin-bottom: 0px;">
+                                <div class="col s12">
+                                    <div class="col s12" style="margin: 20px 0px 0px 0px;">
+                                        <div class="input-field col s12" style="margin: 5px 0px 5px 0px">
+                                            <textarea id="textarea1" class="materialize-textarea" placeholder="กรุณากรอกประเด็นปัญหาและขอบเขตุโครงงานโดยย่อ" style="padding: 0px;"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-panel red lighten-4" style="padding: 5px;">
+                            <div class="row" style="margin-bottom: 0px;">
+                                <div class="grey-text text-darken-4 col" style="margin-left: 5px; margin-top: 5px;">
+                                    <h5>ผลการตรวจสอบโดยกรรมการสอบโครงงาน</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-panel" style="padding: 10px 10px 10px 10px; margin-top: -14px;">
+                            <div class="row" style="margin-bottom: 0px;">
+                                <div class="col s12">
+
+                                    <div class="col s12 grey lighten-4">
+                                        <div class="col s4">
+                                            <div class="col s12 right">
+                                                <p style="margin-top: 7px; margin-bottom: 7px;" class="center">
+                                                    อาจารย์ที่ปรึกษา
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col s4 right">
+                                            <p class="center">
+                                                <input class="with-gap" id="opinionN" type="radio" name="C7" />
+                                                <label for="opinionN">ยังไม่ตรวจสอบ</label>
+                                            </p>
+                                        </div>
+                                        <div class="col s4 right">
+                                            <p class="center">
+                                                <input class="with-gap" id="opinionY" type="radio" name="C7" />
+                                                <label for="opinionY">ตรวจสอบแล้ว</label>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col s12">
+                                        <div class="col s4">
+                                            <div class="col s12 right">
+                                                <p style="margin-top: 7px; margin-bottom: 7px;" class="center">
+                                                    อาจารย์ที่ปรึกษาร่วม / กรรมการ
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col s4 right">
+                                            <p class="center">
+                                                <input class="with-gap" id="opinionN" type="radio" name="C7" />
+                                                <label for="opinionN">ยังไม่ตรวจสอบ</label>
+                                            </p>
+                                        </div>
+                                        <div class="col s4 right">
+                                            <p class="center">
+                                                <input class="with-gap" id="opinionY" type="radio" name="C7" />
+                                                <label for="opinionY">ตรวจสอบแล้ว</label>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col s12 grey lighten-4">
+                                        <div class="col s4">
+                                            <div class="col s12 right">
+                                                <p style="margin-top: 7px; margin-bottom: 7px;" class="center">
+                                                    กรรมการ
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col s4 right">
+                                            <p class="center">
+                                                <input class="with-gap" id="opinionN" type="radio" name="C7" />
+                                                <label for="opinionN">ยังไม่ตรวจสอบ</label>
+                                            </p>
+                                        </div>
+                                        <div class="col s4 right">
+                                            <p class="center">
+                                                <input class="with-gap" id="opinionY" type="radio" name="C7" />
+                                                <label for="opinionY">ตรวจสอบแล้ว</label>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- บันทึก/ยกเลิก -->
+
+                        <div class="row" style="margin-bottom: 0px;">
+                            <a runat="server" class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">ยกเลิก</a>
+                            <a id="submit" runat="server" class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">บันทึก</a>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
         </div>
 
-        <div id="tab2">
+        <footer class="page-footer red lighten-1" style="padding-top: 0px;">
+            <div>
+                <p class="center-align grey-text text-lighten-4" style="margin: 0px;">เว็บไซต์นี้ถูกสร้างขึ้นเพื่อเป็นระบบประเมินและตรวจสอบโครงการของนิสิตคณะวิศวกรรมศาสตร์ สาขาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยนเรศวร</p>
+            </div>
+            <div class="footer-copyright" style="height: 40px; line-height: 40px;">
+                <div class="container center-align">
+                    © 2014 <a class=" grey-text text-lighten-4" href="About.aspx">BagaJN</a> | © 2015 <a class=" grey-text text-lighten-4" href="About.aspx">หัวหลิม</a> | Powered by <a class=" grey-text text-lighten-4" href="http://materializecss.com" target="_blank">Materialize</a><a class="right grey-text text-lighten-1">P03</a><a class="waves-effect waves-light btn right " href="About.aspx" style="margin-top: 2px; margin-bottom: 0px; margin-right: 5px;">เกี่ยวกับ</a>
+                </div>
+            </div>
+        </footer>
 
-            <table class="auto-style1">
-                <tr>
-                    <td class="auto-style7
-                        " colspan="4"><table class="auto-style1">
-                            <tr>
-                                <td class="auto-style19" style="text-align: right" colspan="6">
-                                    
-                              User :&nbsp;&nbsp;<asp:Label ID="username" runat="server" Text="55366637"></asp:Label>
-&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center" class="auto-style21">
-                                    &nbsp;</td>
-                                <td class="auto-style19">
-                                    <asp:LinkButton ID="HomeButton" runat="server" ForeColor="#CC0000" OnClick="HomeButton_Click">เลือกแบบฟอร์ม</asp:LinkButton>
-                                    
-                                </td>
-                                <td style="text-align: center" class="auto-style21">
-                                    </td>
-                                <td class="auto-style22">
-                                    &nbsp;</td>
-                                <td class="auto-style20">
-                                    <asp:LinkButton ID="about" runat="server" ForeColor="#CC0000" OnClick="about_Click">เกี่ยวกับ</asp:LinkButton>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <asp:LinkButton ID="logout" runat="server" ForeColor="Red" OnClick="logout_Click">ออกจากระบบ</asp:LinkButton>
-                                    
-                                </td>
-                                <td class="auto-style20">
-                                    &nbsp;</td>
-                            </tr>
-                        </table>
-                                
-                    </td>
-                   </tr>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
 
+        <script type="text/javascript">
 
-                <tr>
-                    <td class="auto-style7
-                        " colspan="4">&nbsp;</td>
-                   </tr>
+            function homePageResposive() {
+                var DisplayHeight = document.documentElement.clientHeight;
+                var H = DisplayHeight;
+                var minPageHeight = 650;
+                var currentHight;
 
+                var DisplayWidth = document.documentElement.clientWidth;
+                var minPageWidth = 860;
 
-                <tr>
-                    <td class="auto-style7
-                        " colspan="4">
-                        <h3>CPE03-แบบขอสอบข้อเสนอโครงงาน</h3>
-                                
-                    </td>
-                   </tr>
+                $(".infor").css("min-height", function () {
+                    H = H - 147;
+                    if (H < 650 - 147) {
+                        H = 650 - 147;
+                    }
+                    return H;
+                });
+            }
 
+            homePageResposive();
 
-                <tr>
-                    <td class="auto-style7
-                        " colspan="4">&nbsp;</td>
-                   </tr>
+            window.onresize = function () {
+                homePageResposive();
+            }
+        </script>
 
+        <script>
+            function memberSelect() {
+                if (document.getElementById('memberCountSelect').value == 1) {
+                    document.getElementById('my_own_textbox1').style.display = 'none';
+                    document.getElementById('my_own_textbox2').style.display = 'none';
 
-                <tr>
-                    <td class="auto-style27" colspan="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; รายละเอียดโครงงาน</td>
-                   </tr>
+                }
+                else if (document.getElementById('memberCountSelect').value == 2) {
+                    document.getElementById('my_own_textbox1').style.display = 'block';
+                    document.getElementById('my_own_textbox2').style.display = 'none';
 
+                }
+                else if (document.getElementById('memberCountSelect').value == 3) {
+                    document.getElementById('my_own_textbox1').style.display = 'block';
+                    document.getElementById('my_own_textbox2').style.display = 'block';
+                }
+            }
 
-                <tr>
-                    <td class="auto-style7
-                        " colspan="4">
-                        <table class="auto-style1">
-                            <tr>
-                                <td class="auto-style23">รหัสโครงงาน : </td>
-                                <td class="auto-style26">
-                                    <asp:Label ID="idp" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style23">ชื่อโครงงานภาษาไทย : </td>
-                                <td class="auto-style26">
-                                    <asp:Label ID="namethp" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style25">ชื่อโครงงานภาษาอังกฤษ : </td>
-                                <td class="auto-style19">
-                                    <asp:Label ID="nameengp" runat="server"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style24">&nbsp;</td>
-                                <td>&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style29" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style30">&nbsp;รายชื่อนิสิตที่ทำโครงงาน</span></td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style24">&nbsp;</td>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </table>
-                                
-                    </td>
-                   </tr>
+        </script>
 
+        <script>
+            $(document).ready(function () {
+                $('.collapsible').collapsible({
+                    accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+                });
+            });
+        </script>
 
-                <tr>
-                    <td class="auto-style7
-                        ">
-                        &nbsp;</td>
-                    <td class="auto-style7
-                        ">
-                        &nbsp;</td>
-                    <td class="auto-style7
-                        ">
-                        <asp:GridView ID="GVstdDetail" runat="server" AutoGenerateColumns="false" Width="643px">
-                            <Columns>
-                                <asp:BoundField DataField="s_id" HeaderText=" รหัสนิสิต " />
-                                <asp:BoundField DataField="s_name" HeaderText=" ชื่อ " />
-                                <asp:BoundField DataField="s_lastname" HeaderText=" นามสกุล " />
-                                <asp:BoundField DataField="s_tel" HeaderText=" เบอร์โทรศัพท์ " />
-                                <asp:BoundField DataField="s_email" HeaderText=" อีเมลล์ " />
-                            </Columns>
-                        </asp:GridView>
-                                
-                    </td>
-                    <td class="auto-style7
-                        ">
-                        &nbsp;</td>
-                   </tr>
+        <script>
+            $(document).ready(function () {
+                $('select').material_select();
+            });
+        </script>
 
+        <script type="text/javascript">
+            $('.datepicker').pickadate({
+                format: 'yyyy-mm-dd'
+            });
+        </script>
 
-                <tr>
-                    <td class="auto-style7
-                        " colspan="4">&nbsp;</td>
-                   </tr>
-
-
-                <tr>
-                    <td class="auto-style32" colspan="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style31">&nbsp;&nbsp;&nbsp; </span> <span class="auto-style27">&nbsp;ประเด็นปัญหาและขอบเขตโครงงานโดยย่อ</span></td>
-                   </tr>
-
-
-                <tr>
-                    <td class="auto-style7
-                        " colspan="4">&nbsp;</td>
-                   </tr>
-
-
-                <tr>
-                    <td class="auto-style33" colspan="4">
-                        <asp:TextBox ID="tbissue" runat="server" Height="21px" Width="770px" CssClass="auto-style35"></asp:TextBox>
-                    </td>
-                   </tr>
-
-
-                <tr>
-                    <td class="auto-style21" colspan="4"></td>
-                   </tr>
-
-
-                <tr>
-                    <td class="auto-style7
-                        " colspan="4">
-                        <asp:Button ID="tbsave" runat="server" CssClass="auto-style34" OnClick="tbsave_Click" Text="บันทึก" />
-                    </td>
-                   </tr>
-
-
-                <tr>
-                    <td class="auto-style7
-                        " colspan="4">&nbsp;</td>
-                   </tr>
-
-
-                <tr>
-                    <td class="auto-style7
-                        " colspan="4">&nbsp;</td>
-                   </tr>
-
-
-                </table>
-
-        </div>
-        <div id="tab3">
-
-        </div>
     </form>
 </body>
 </html>

@@ -50,8 +50,6 @@
                 <%
                     }
                 %>
-
-
             </div>
         </nav>
 
@@ -83,24 +81,21 @@
 
                     <div class="card-panel" style="padding: 7px; margin-bottom: 0px;">
                         <a class="waves-effect waves-light btn center red lighten-2" href="StudentMenu.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">เมนูหลัก</a>
-                        <% 
+                        <%--<% 
                             if (SWEngWeb.user.userHaveProject())
                             {
                         %>
                         <a class="waves-effect waves-light btn center red lighten-2" href="under_construction.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">แก้ไข</a>
                         <%
                             }
-                        %>
+                        %>--%>
                     </div>
                 </div>
                 <div class="col s9" style="margin-left: 0px; padding-left: 0px; padding: 0px;">
                     <div class="card-panel infor" style="padding: 15px; margin: 0px; min-height: 527px;">
 
-
-
-
                         <% 
-                            if (!SWEngWeb.user.userHaveProject())
+                            if ((!SWEngWeb.user.userHaveProject()) && SWEngWeb.user.position() == "student" && pid == null)
                             {
                         %>
                         <!-- ชื่อform -->
@@ -145,9 +140,9 @@
                                     <div class="col s2 left" style="margin-bottom: 0px; margin-top: 0px; padding-top: 0px;">
                                         <div class="red lighten-5" style="margin-top: 5px; border-radius: 2px; padding: 5px; margin-top: 0px;">
                                             <select name="memberCountSelect" id="memberCountSelect" onchange="memberSelect();" class="red lighten-5">
-                                                <option value="1" <%= SWEngWeb.CPE01Var.displayMember[0]%>>1 คน</option>
-                                                <option value="2" <%= SWEngWeb.CPE01Var.displayMember[1]%>>2 คน</option>
-                                                <option value="3" <%= SWEngWeb.CPE01Var.displayMember[2]%>>3 คน</option>
+                                                <option value="1" <%= displayMember[0]%>>1 คน</option>
+                                                <option value="2" <%= displayMember[1]%>>2 คน</option>
+                                                <option value="3" <%= displayMember[2]%>>3 คน</option>
                                             </select>
                                         </div>
                                     </div>
@@ -180,15 +175,15 @@
                                         <label for="MemberID2">รหัสนิสิต</label>
                                     </div>
                                     <div class="input-field col s4">
-                                        <input name=" MemberName2" id=" MemberName2" type="text" class="validate" value="<%= SWEngWeb.CPE01Var.memberInforCS[1, 0] + SWEngWeb.CPE01Var.memberInforCS[1, 1] + " " + SWEngWeb.CPE01Var.memberInforCS[1, 2] %>" disabled="disabled" />
+                                        <input name=" MemberName2" id=" MemberName2" type="text" class="validate" value="<%= memberInforCS[1, 0] + memberInforCS[1, 1] + " " + memberInforCS[1, 2] %>" disabled="disabled" />
                                         <label for="MemberName2">ชื่อ - สกุล</label>
                                     </div>
                                     <div class="input-field col s2">
-                                        <input id="MemberTel2" type="tel" class="validate" value="<%= SWEngWeb.CPE01Var.memberInforCS[1, 3] %>" disabled="disabled" />
+                                        <input id="MemberTel2" type="tel" class="validate" value="<%= memberInforCS[1, 3] %>" disabled="disabled" />
                                         <label for="MemberTel2">เบอร์โทร</label>
                                     </div>
                                     <div class="input-field col s3">
-                                        <input id="MemberEmail2" type="email" class="validate" value="<%= SWEngWeb.CPE01Var.memberInforCS[1, 4] %>" disabled="disabled" />
+                                        <input id="MemberEmail2" type="email" class="validate" value="<%= memberInforCS[1, 4] %>" disabled="disabled" />
                                         <label for="MemberEmail2">อีเมล์</label>
                                     </div>
                                     <div class="col s1">
@@ -203,15 +198,15 @@
                                         <label for="MemberID3">รหัสนิสิต</label>
                                     </div>
                                     <div class="input-field col s4">
-                                        <input name=" MemberName3" id=" MemberName3" type="text" class="validate" value="<%= SWEngWeb.CPE01Var.memberInforCS[2, 0] + SWEngWeb.CPE01Var.memberInforCS[2, 1] + " " + SWEngWeb.CPE01Var.memberInforCS[2, 2] %>" disabled="disabled" />
+                                        <input name=" MemberName3" id=" MemberName3" type="text" class="validate" value="<%= memberInforCS[2, 0] + memberInforCS[2, 1] + " " + memberInforCS[2, 2] %>" disabled="disabled" />
                                         <label for="MemberName2">ชื่อ - สกุล</label>
                                     </div>
                                     <div class="input-field col s2">
-                                        <input id="MemberTel3" type="tel" class="validate" value="<%= SWEngWeb.CPE01Var.memberInforCS[2, 3] %>" disabled="disabled" />
+                                        <input id="MemberTel3" type="tel" class="validate" value="<%= memberInforCS[2, 3] %>" disabled="disabled" />
                                         <label for="MemberTel2">เบอร์โทร</label>
                                     </div>
                                     <div class="input-field col s3">
-                                        <input id="MemberEmail3" type="email" class="validate" value="<%= SWEngWeb.CPE01Var.memberInforCS[2, 4] %>" disabled="disabled" />
+                                        <input id="MemberEmail3" type="email" class="validate" value="<%= memberInforCS[2, 4] %>" disabled="disabled" />
                                         <label for="MemberEmail2">อีเมล์</label>
                                     </div>
                                     <div class="col s1">
@@ -281,32 +276,13 @@
                             {
                         %>
 
-                        <div class="center">
-
-                            <% 
-                                List<string[]> memSta = new List<string[]>();
-                                memSta = SWEngWeb.information.studentInProject(SWEngWeb.user.projectID().ToString());
-                                /* for (int i = 0; i < memSta.Count; i++)
-                                 {
-                                     Response.Write(
-                                         "<div class=\"card\" >"
-                                         + " " + memSta[i][0] + " " + memSta[i][1] + " " + memSta[i][2] + " " + memSta[i][3] +
-                                         "<a class=\"right\">" + memSta[i][4] + "</a>" +
-                                         "</div>"
-                                         );
-                                 }*/
-
-                                string[] ad = SWEngWeb.information.adviserInProject(SWEngWeb.user.projectID().ToString());
-                                string[] coad = SWEngWeb.information.coadviserInProject(SWEngWeb.user.projectID().ToString());
-                                string[] com = SWEngWeb.information.committeeInProject(SWEngWeb.user.projectID().ToString());
-
-                                //Response.Write(ad[1] + " " + ad[2] + " " + ad[3] + " " + ad[4] + "</br>");
-                                //Response.Write(coad[1] + " " + coad[2] + " " + coad[3] + " " + coad[4] + "</br>");
-                                //Response.Write(com[1] + " " + com[2] + " " + com[3] + " " + com[4] + "</br>");
-                            %>
-                        </div>
-
-
+                        <% 
+                            List<string[]> memSta = new List<string[]>();
+                            memSta = SWEngWeb.information.studentInProject(pid);
+                            string[] ad = SWEngWeb.information.adviserInProject(pid);
+                            string[] coad = SWEngWeb.information.coadviserInProject(pid);
+                            string[] com = SWEngWeb.information.committeeInProject(pid);
+                        %>
 
                         <!-- ชื่อform -->
 
@@ -330,11 +306,11 @@
                         <div class="card-panel" style="padding-bottom: 5px; margin-top: -14px;">
                             <div class="row" style="margin-bottom: 0px;">
                                 <div class="input-field col s6">
-                                    <input value="<%= SWEngWeb.user.thaiProjectName() %>" id="thaiNameInput2" type="text" class="validate" disabled="disabled" />
+                                    <input value="<%= SWEngWeb.information.thaiProjectName(pid) %>" id="thaiNameInput2" type="text" class="validate" disabled="disabled" />
                                     <label for="thaiNameInput2">ชื่อไทย</label>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input value="<%= SWEngWeb.user.engProjectName() %>" id="englishNameInput2" type="text" class="validate" disabled="disabled" />
+                                    <input value="<%= SWEngWeb.information.engProjectName(pid) %>" id="englishNameInput2" type="text" class="validate" disabled="disabled" />
                                     <label for="englishNameInput">ชื่ออังกฤษ</label>
                                 </div>
                             </div>
@@ -342,7 +318,7 @@
 
                         <!-- รายชื่อนิสิต -->
                         <%
-                            int memCount = SWEngWeb.information.memberCount(SWEngWeb.user.projectID().ToString());
+                            int memCount = SWEngWeb.information.memberCount(pid);
                         %>
                         <div id="my_own_textbox" style="margin: 2px 2px 2px 2px;">
                             <div class="card-panel grey lighten-2" style="padding: 5px;">
@@ -479,6 +455,14 @@
 
 
                         </div>
+
+                        <%if (acID != null)
+                            { %>
+                        <div class="row" style="margin-bottom: 0px;">
+                            <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 12px 0px 0px;" href="reqAction.aspx?acID=<%=acID%>&ac=<%=ac%>&pid=<%=pid%>&rep=no">ยกเลิก</a>
+                            <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 5px 0px 0px;" href="reqAction.aspx?acID=<%=acID%>&ac=<%=ac%>&pid=<%=pid%>&rep=yes">ตกลง</a>
+                        </div>
+                        <%} %>
 
 
                         <% } %>

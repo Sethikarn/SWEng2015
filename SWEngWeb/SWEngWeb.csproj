@@ -108,7 +108,6 @@
     <Compile Include="CPE01.aspx.designer.cs">
       <DependentUpon>CPE01.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CPE01Var.cs" />
     <Compile Include="CPE04.aspx.cs">
       <DependentUpon>CPE04.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

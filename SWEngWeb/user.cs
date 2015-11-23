@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Web;
 using System.Web.Configuration;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Windows.Forms;
 
 namespace SWEngWeb
 {
 
     public static class user
     {
+        public static string test()
+        {
+            return "<div class='card - panel' style='padding: 7px; margin - bottom: 0px; '></div>";
+        }
+
         public static string connectionString = WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
 
         public static string name()
@@ -77,9 +78,9 @@ namespace SWEngWeb
             return havePro;
         }
 
-        public static int projectID()
+        public static string projectID()
         {
-            int projectID = 0;
+            string projectID = "";
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             String Checkuser = "select projectID from position where personID =" + user.userID() + " and personStatusID = 1";
@@ -87,7 +88,7 @@ namespace SWEngWeb
             var reader = com.ExecuteScalar();
             conn.Close();
             if(reader != null)
-               projectID = int.Parse(reader.ToString());
+               projectID = reader.ToString();
             return projectID;
         }
 
@@ -126,12 +127,11 @@ namespace SWEngWeb
 
         public static string position()
         {
-
-            if (HttpContext.Current.Session["position"].ToString() == "S")
-            {
-                return "student";
-            }
-            return "teacher";
+                if (HttpContext.Current.Session["position"].ToString() == "S")
+                {
+                    return "student";
+                }
+                return "teacher";
         }
 
         public static string userID()
@@ -173,7 +173,7 @@ namespace SWEngWeb
 
         public static void logout()
         {
-            CPE01Var.clear();
+            CPE01.clear();
 
             HttpContext.Current.Session["userName"] = null;
             HttpContext.Current.Session["name"] = null;
