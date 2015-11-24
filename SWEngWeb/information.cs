@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Web;
 using System.Web.Configuration;
+using System.Web.UI;
 
 namespace SWEngWeb
 {
@@ -492,6 +494,57 @@ namespace SWEngWeb
                 eName = reader.ToString();
             conn.Close();
             return eName;
+        }
+
+        public static bool isInproject(string projectID)
+        {
+            bool inPro = false;
+
+            SqlConnection conn = new SqlConnection(connectionString);
+            
+            try
+            {
+                conn.Open();
+                String cmd = "SELECT * FROM position WHERE projectID = " + projectID + " AND personID = " + user.userID() + " AND personStatusID = 1";
+                SqlCommand com = new SqlCommand(cmd, conn);
+                Object reader = com.ExecuteScalar();
+                if (reader != null)
+                    inPro = true;
+                conn.Close();
+            }
+            catch
+            {
+                HttpContext.Current.Response.Write("<script>alert('E006 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
+            }
+            
+
+            return inPro;
+        }
+        public static int studentConfirmMemCount(string projectID)
+        {
+            int inPro = 0;
+
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            try
+            {
+                conn.Open();
+                String cmd = "DELETE FROM position WHERE projectID = " + projectID + " AND personID = " + user.userID();
+                SqlCommand com = new SqlCommand(cmd, conn);
+                SqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+
+                }
+                conn.Close();
+            }
+            catch
+            {
+                HttpContext.Current.Response.Write("<script>alert('E006 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
+            }
+
+
+            return inPro;
         }
     }
 }

@@ -84,7 +84,7 @@
 
                         <div class="card-panel red lighten-4 center">
                             <div class="grey-text text-darken-4 col s12 center" style="margin-top: -10px;">
-                                <h5 style="margin: 0px;" class="center">แบบประเมินข้อเสนอโครงงานวิศวกรรมคอมพิวเตอร์ (CPE04)</h5>
+                                <h5 style="margin: 0px;" class="center">แบบขอสอบโครงงานวิศวกรรมคอมพิวเตอร์ (CPE07)</h5>
                             </div>
                         </div>
 
@@ -248,19 +248,19 @@
                                     <div class="col s12">
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="memNumN" type="radio" name="C1" />
-                                                <label for="memNumN"></label>
+                                                <input class="with-gap" id="workResultN" type="radio" name="C1" />
+                                                <label for="workResultN"></label>
                                             </p>
                                         </div>
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="memNumY" type="radio" name="C1" <%--checked="checked"--%> />
-                                                <label for="memNumY"></label>
+                                                <input class="with-gap" id="workResultY" type="radio" name="C1" <%--checked="checked"--%> />
+                                                <label for="workResultY"></label>
                                             </p>
                                         </div>
                                         <div class="col s8 right">
                                             <p style="margin-top: 12px;">
-                                                1. จำนวนนิสิตที่ทำโครงงาน
+                                                1. ผลการดำเนินงาน
                                             </p>
                                         </div>
                                     </div>
@@ -268,19 +268,19 @@
                                     <div class="col s12 grey lighten-4">
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="ideaN" type="radio" name="C2" />
-                                                <label for="ideaN"></label>
+                                                <input class="with-gap" id="progressN" type="radio" name="C2" />
+                                                <label for="progressN"></label>
                                             </p>
                                         </div>
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="ideaY" type="radio" name="C2" />
-                                                <label for="ideaY"></label>
+                                                <input class="with-gap" id="progressY" type="radio" name="C2" />
+                                                <label for="progressY"></label>
                                             </p>
                                         </div>
                                         <div class="col s8 right">
                                             <p style="margin-top: 12px;">
-                                                2. ที่มาและความสำคัญของปัญหา
+                                                2. ความสมบูรณ์ของรายงานโครงงาน
                                             </p>
                                         </div>
                                     </div>
@@ -288,19 +288,19 @@
                                     <div class="col s12">
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="objectiveN" type="radio" name="C3" />
-                                                <label for="objectiveN"></label>
+                                                <input class="with-gap" id="understandingN" type="radio" name="C3" />
+                                                <label for="understandingN"></label>
                                             </p>
                                         </div>
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="objectiveY" type="radio" name="C3" />
-                                                <label for="objectiveY"></label>
+                                                <input class="with-gap" id="understandingY" type="radio" name="C3" />
+                                                <label for="understandingY"></label>
                                             </p>
                                         </div>
                                         <div class="col s8 right">
                                             <p style="margin-top: 12px;">
-                                                3. วัตถุประสงค์ของโครงงาน
+                                                3. ความรู้ความเข้าใจของนิสิตเกี่ยวกับโครงงาน
                                             </p>
                                         </div>
                                     </div>
@@ -381,24 +381,24 @@
                                     <div class="col s12">
                                         <div class="col s2 right">
                                             <p >
-                                                <input class="with-gap" id="sumN" type="radio" name="C8" />
-                                                <label for="sumN">ไม่ผ่าน</label>
+                                                <input class="with-gap" id="sumEvaN" type="radio" name="C8" />
+                                                <label for="sumEvaN">ไม่ผ่าน</label>
                                             </p>
                                         </div>
                                         <div class="col s6 right">
                                             <p class="col s12">
-                                                <input class="with-gap" id="sumEY" type="radio" name="C8" <%--checked="checked"--%> />
-                                                <label for="sumEY">สมควรแก้ไข - สอบใหม่</label>
+                                                <input class="with-gap" id="sumEvaEY" type="radio" name="C8" <%--checked="checked"--%> />
+                                                <label for="sumEvaEY">สมควรแก้ไข - สอบใหม่</label>
                                             </p>
                                             <p class=" col s12">
-                                                <input class="with-gap" id="sumEN" type="radio" name="C8" <%--checked="checked"--%> />
-                                                <label for="sumEN">สมควรแก้ไข - ไม่ต้องสอบใหม่</label>
+                                                <input class="with-gap" id="sumEvaEN" type="radio" name="C8" <%--checked="checked"--%> />
+                                                <label for="sumEvaEN">สมควรแก้ไข - ไม่ต้องสอบใหม่</label>
                                             </p>
                                         </div>
                                         <div class="col s4 right">
                                             <p >
-                                                <input class="with-gap" id="sumY" type="radio" name="C8" />
-                                                <label for="sumY">ผ่าน</label>
+                                                <input class="with-gap" id="sumEvaY" type="radio" name="C8" />
+                                                <label for="sumEvaY">ผ่าน</label>
                                             </p>
                                         </div>
 

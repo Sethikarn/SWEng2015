@@ -551,5 +551,10 @@ namespace SWEngWeb
                 */
             }
         }
+        protected void leavProject(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

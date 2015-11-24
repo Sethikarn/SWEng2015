@@ -84,7 +84,7 @@
 
                         <div class="card-panel red lighten-4 center">
                             <div class="grey-text text-darken-4 col s12 center" style="margin-top: -10px;">
-                                <h5 style="margin: 0px;" class="center">แบบประเมินข้อเสนอโครงงานวิศวกรรมคอมพิวเตอร์ (CPE04)</h5>
+                                <h5 style="margin: 0px;" class="center">แบบขอสอบโครงงานวิศวกรรมคอมพิวเตอร์ (CPE06)</h5>
                             </div>
                         </div>
 
@@ -256,7 +256,7 @@
                                         <div class="col s6 right">
                                             <p class="center">
                                                 <input class="with-gap" id="opinionY" type="radio" name="C7" />
-                                                <label for="opinionY">เห็นสมควรให้สอบได้</label>
+                                                <label for="opinionY">เห็นสมควรให้สอบโครงงานได้</label>
                                             </p>
                                         </div>
 

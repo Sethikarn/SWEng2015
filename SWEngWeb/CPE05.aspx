@@ -84,7 +84,7 @@
 
                         <div class="card-panel red lighten-4 center">
                             <div class="grey-text text-darken-4 col s12 center" style="margin-top: -10px;">
-                                <h5 style="margin: 0px;" class="center">แบบประเมินข้อเสนอโครงงานวิศวกรรมคอมพิวเตอร์ (CPE04)</h5>
+                                <h5 style="margin: 0px;" class="center">แบบประเมินความก้าวหน้าโครงงานวิศวกรรมคอมพิวเตอร์ (CPE05)</h5>
                             </div>
                         </div>
 
@@ -248,19 +248,19 @@
                                     <div class="col s12">
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="memNumN" type="radio" name="C1" />
-                                                <label for="memNumN"></label>
+                                                <input class="with-gap" id="progressN" type="radio" name="C1" />
+                                                <label for="progressN"></label>
                                             </p>
                                         </div>
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="memNumY" type="radio" name="C1" <%--checked="checked"--%> />
-                                                <label for="memNumY"></label>
+                                                <input class="with-gap" id="progressY" type="radio" name="C1" <%--checked="checked"--%> />
+                                                <label for="progressY"></label>
                                             </p>
                                         </div>
                                         <div class="col s8 right">
                                             <p style="margin-top: 12px;">
-                                                1. จำนวนนิสิตที่ทำโครงงาน
+                                                1. ความก้าวหน้าของการดำเนินงานเทียบกับแผน
                                             </p>
                                         </div>
                                     </div>
@@ -268,19 +268,19 @@
                                     <div class="col s12 grey lighten-4">
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="ideaN" type="radio" name="C2" />
-                                                <label for="ideaN"></label>
+                                                <input class="with-gap" id="reportN" type="radio" name="C2" />
+                                                <label for="reportN"></label>
                                             </p>
                                         </div>
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="ideaY" type="radio" name="C2" />
-                                                <label for="ideaY"></label>
+                                                <input class="with-gap" id="reportY" type="radio" name="C2" />
+                                                <label for="reportY"></label>
                                             </p>
                                         </div>
                                         <div class="col s8 right">
                                             <p style="margin-top: 12px;">
-                                                2. ที่มาและความสำคัญของปัญหา
+                                                2. ความสมบูรณ์ของรายงานความก้าวหน้า
                                             </p>
                                         </div>
                                     </div>
@@ -288,19 +288,19 @@
                                     <div class="col s12">
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="objectiveN" type="radio" name="C3" />
-                                                <label for="objectiveN"></label>
+                                                <input class="with-gap" id="understandingN" type="radio" name="C3" />
+                                                <label for="understandingN"></label>
                                             </p>
                                         </div>
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="objectiveY" type="radio" name="C3" />
-                                                <label for="objectiveY"></label>
+                                                <input class="with-gap" id="understandingY" type="radio" name="C3" />
+                                                <label for="understandingY"></label>
                                             </p>
                                         </div>
                                         <div class="col s8 right">
                                             <p style="margin-top: 12px;">
-                                                3. วัตถุประสงค์ของโครงงาน
+                                                3. ความรู้ความเข้าใจของนิสิตเกี่ยวกับโครงงาน
                                             </p>
                                         </div>
                                     </div>
@@ -308,19 +308,19 @@
                                     <div class="col s12 grey lighten-4">
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="theoryN" type="radio" name="C4" />
-                                                <label for="theoryN"></label>
+                                                <input class="with-gap" id="teamworkN" type="radio" name="C4" />
+                                                <label for="teamworkN"></label>
                                             </p>
                                         </div>
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="theoryY" type="radio" name="C4" />
-                                                <label for="theoryY"></label>
+                                                <input class="with-gap" id="teamworkY" type="radio" name="C4" />
+                                                <label for="teamworkY"></label>
                                             </p>
                                         </div>
                                         <div class="col s8 right">
                                             <p style="margin-top: 12px;">
-                                                4. การศึกษาเกี่ยวกับทฤษฏีและหลักการที่เกี่ยวข้อง
+                                                4. การแบ่งงานและการทำงานเป็นทีม (กรณีมีนิสิตทำงานมากกว่า 1 คน)
                                             </p>
                                         </div>
                                     </div>

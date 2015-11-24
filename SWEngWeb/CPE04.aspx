@@ -441,18 +441,18 @@
                                     <div class="col s12">
                                         <div class="col s4 right">
                                             <p class="center">
-                                                <input class="with-gap" id="sumN" type="radio" name="C8" />
-                                                <label for="sumN">ไม่ผ่าน</label>
+                                                <input class="with-gap" id="sumEvaN" type="radio" name="C8" />
+                                                <label for="sumEvaN">ไม่ผ่าน</label>
                                             </p>
                                         </div>
                                         <div class="col s4 right">
                                             <p class="center col s12">
-                                                <input class="with-gap" id="sumEY" type="radio" name="C8" <%--checked="checked"--%> />
-                                                <label for="sumEY">สมควรแก้ไข - สอบใหม่</label>
+                                                <input class="with-gap" id="sumEvaEY" type="radio" name="C8" <%--checked="checked"--%> />
+                                                <label for="sumEvaEY">สมควรแก้ไข - สอบใหม่</label>
                                             </p>
                                             <p class="center col s12">
-                                                <input class="with-gap" id="sumEN" type="radio" name="C8" <%--checked="checked"--%> />
-                                                <label for="sumEN">สมควรแก้ไข - ไม่ต้องสอบใหม่</label>
+                                                <input class="with-gap" id="sumEvaEN" type="radio" name="C8" <%--checked="checked"--%> />
+                                                <label for="sumEvaEN">สมควรแก้ไข - ไม่ต้องสอบใหม่</label>
                                             </p>
                                         </div>
                                         <div class="col s4 right">

@@ -84,7 +84,7 @@
 
                         <div class="card-panel red lighten-4 center">
                             <div class="grey-text text-darken-4 col s12 center" style="margin-top: -10px;">
-                                <h5 style="margin: 0px;" class="center">แบบประเมินข้อเสนอโครงงานวิศวกรรมคอมพิวเตอร์ (CPE04)</h5>
+                                <h5 style="margin: 0px;" class="center">แบบขอสอบข้อเสนอโครงงานวิศวกรรมคอมพิวเตอร์ (CPE03)</h5>
                             </div>
                         </div>
 

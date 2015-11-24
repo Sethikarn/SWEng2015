@@ -136,7 +136,10 @@ namespace SWEngWeb
 
         public static string userID()
         {
-            return HttpContext.Current.Session["userID"].ToString();
+            if(user.isLogin())
+               return HttpContext.Current.Session["userID"].ToString();
+
+            return "0";
         }
 
         public static bool login(string userName ,string password)
