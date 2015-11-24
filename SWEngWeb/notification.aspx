@@ -92,8 +92,8 @@
                                         {
                                             if (req[i][1] == "1")
                                             {
-                                                string linkOk = "href=\"reqAction.aspx?acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=yes\"";
-                                                string linkNot = "href=\"reqAction.aspx?acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=no\"";
+                                                string linkOk = "href=\"operate.aspx?opType=noti&acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=yes\"";
+                                                string linkNot = "href=\"operate.aspx?opType=noti&acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=no\"";
                                     %>
                                     <div class="row" style="margin-bottom: 0px;">
                                         <div class="card-panel grey lighten-4" style="padding-bottom: 8px; padding-top: 8px; margin-bottom: 0px;">
@@ -134,8 +134,8 @@
                                                 </div>
                                             </a>
                                             <div class="row" style="margin-bottom: 0px;">
-                                                <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 0px 0px 0px;" href="reqAction.aspx?acID=<%=req[i][0]%>&ac=<%=req[i][1]%>&pid=<%=req[i][2]%>&rep=yes">ยกเลิก</a>
-                                                <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 5px 0px 0px;" href="reqAction.aspx?acID=<%=req[i][0]%>&ac=<%=req[i][1]%>&pid=<%=req[i][2]%>&rep=no">ตกลง</a>
+                                                <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 0px 0px 0px;" href="operate.aspx?opType=noti&acID=<%=req[i][0]%>&ac=<%=req[i][1]%>&pid=<%=req[i][2]%>&rep=yes">ยกเลิก</a>
+                                                <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 5px 0px 0px;" href="operate.aspx?opType=noti&acID=<%=req[i][0]%>&ac=<%=req[i][1]%>&pid=<%=req[i][2]%>&rep=no">ตกลง</a>
                                             </div>
                                         </div>
                                     </div>
@@ -146,8 +146,8 @@
 
                                         if (req[i][1] == "4")
                                         {
-                                            string linkOk = "href=\"reqAction.aspx?acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=yes\"";
-                                            string linkNot = "href=\"reqAction.aspx?acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=no\"";
+                                            string linkOk = "href=\"operate.aspx?opType=noti&acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=yes\"";
+                                            string linkNot = "href=\"operate.aspx?opType=noti&acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=no\"";
                                     %>
                                     <div class="row" style="margin-bottom: 0px;">
                                         <div class="card-panel grey lighten-4" style="padding-bottom: 8px; padding-top: 8px; margin-bottom: 0px;">
@@ -174,8 +174,8 @@
 
                                         if (req[i][1] == "5")
                                         {
-                                            string linkOk = "href=\"reqAction.aspx?acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=yes\"";
-                                            string linkNot = "href=\"reqAction.aspx?acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=no\"";
+                                            string linkOk = "href=\"operate.aspx?opType=noti&acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=yes\"";
+                                            string linkNot = "href=\"operate.aspx?opType=noti&acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=no\"";
                                     %>
                                     <div class="row" style="margin-bottom: 0px;">
                                         <div class="card-panel grey lighten-4" style="padding-bottom: 8px; padding-top: 8px; margin-bottom: 0px;">

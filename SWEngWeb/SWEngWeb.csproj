@@ -83,12 +83,9 @@
     <Content Include="CPE05.aspx" />
     <Content Include="CPE06.aspx" />
     <Content Include="CPE07.aspx" />
-    <Content Include="CPE2forProfessor.aspx" />
     <Content Include="CPE03.aspx" />
-    <Content Include="CPE3forPr.aspx" />
     <Content Include="default.aspx" />
     <Content Include="operate.aspx" />
-    <Content Include="reqAction.aspx" />
     <Content Include="StudentMenu.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Notification.aspx" />
@@ -164,13 +161,6 @@
       <DependentUpon>operate.aspx</DependentUpon>
     </Compile>
     <Compile Include="process.cs" />
-    <Compile Include="reqAction.aspx.cs">
-      <DependentUpon>reqAction.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="reqAction.aspx.designer.cs">
-      <DependentUpon>reqAction.aspx</DependentUpon>
-    </Compile>
     <Compile Include="TeacherMenu.aspx.cs">
       <DependentUpon>TeacherMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -194,26 +184,12 @@
     <Compile Include="CPE02.aspx.designer.cs">
       <DependentUpon>CPE02.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CPE2forProfessor.aspx.cs">
-      <DependentUpon>CPE2forProfessor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CPE2forProfessor.aspx.designer.cs">
-      <DependentUpon>CPE2forProfessor.aspx</DependentUpon>
-    </Compile>
     <Compile Include="CPE03.aspx.cs">
       <DependentUpon>CPE03.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CPE03.aspx.designer.cs">
       <DependentUpon>CPE03.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CPE3forPr.aspx.cs">
-      <DependentUpon>CPE3forPr.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CPE3forPr.aspx.designer.cs">
-      <DependentUpon>CPE3forPr.aspx</DependentUpon>
     </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>

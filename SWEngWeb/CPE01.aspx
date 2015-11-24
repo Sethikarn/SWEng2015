@@ -485,8 +485,8 @@
                         <%if (acID != null)
                             { %>
                         <div class="row" style="margin-bottom: 0px;">
-                            <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 12px 0px 0px;" href="reqAction.aspx?acID=<%=acID%>&ac=<%=ac%>&pid=<%=pid%>&rep=no">ยกเลิก</a>
-                            <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 5px 0px 0px;" href="reqAction.aspx?acID=<%=acID%>&ac=<%=ac%>&pid=<%=pid%>&rep=yes">ตกลง</a>
+                            <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 12px 0px 0px;" href="operate.aspx?opType=noti&acID=<%=acID%>&ac=<%=ac%>&pid=<%=pid%>&rep=no">ยกเลิก</a>
+                            <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 5px 0px 0px;" href="operate.aspx?opType=noti&acID=<%=acID%>&ac=<%=ac%>&pid=<%=pid%>&rep=yes">ตกลง</a>
                         </div>
                         <%} %>
 
