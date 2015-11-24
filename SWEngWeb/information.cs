@@ -107,7 +107,7 @@ namespace SWEngWeb
                     studentInfor = new string[2];
                     studentInfor[0] = memberSta[0].ToString();
                     studentInfor[1] = memberSta[1].ToString();
-                    if(memberSta[1].ToString() == "1" || memberSta[1].ToString() == "11")
+                    if(memberSta[1].ToString() == "1" || memberSta[1].ToString() == "11" || memberSta[1].ToString() == "0")
                     studentStatusList.Add(studentInfor);
                 }
             }
@@ -500,26 +500,29 @@ namespace SWEngWeb
         {
             bool inPro = false;
 
-            SqlConnection conn = new SqlConnection(connectionString);
-            
-            try
+            if (projectID != null)
             {
-                conn.Open();
-                String cmd = "SELECT * FROM position WHERE projectID = " + projectID + " AND personID = " + user.userID() + " AND personStatusID = 1";
-                SqlCommand com = new SqlCommand(cmd, conn);
-                Object reader = com.ExecuteScalar();
-                if (reader != null)
-                    inPro = true;
-                conn.Close();
-            }
-            catch
-            {
-                HttpContext.Current.Response.Write("<script>alert('E006 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
+                SqlConnection conn = new SqlConnection(connectionString);
+                try
+                {
+                    conn.Open();
+                    String cmd = "SELECT * FROM position WHERE projectID = " + projectID + " AND personID = " + user.userID() + " AND personStatusID = 1";
+                    SqlCommand com = new SqlCommand(cmd, conn);
+                    Object reader = com.ExecuteScalar();
+                    if (reader != null)
+                        inPro = true;
+                    conn.Close();
+                }
+                catch
+                {
+                    HttpContext.Current.Response.Write("<script>alert('E006 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
+                }
             }
             
 
             return inPro;
         }
+
         public static int studentConfirmMemCount(string projectID)
         {
             int inPro = 0;
@@ -529,18 +532,18 @@ namespace SWEngWeb
             try
             {
                 conn.Open();
-                String cmd = "DELETE FROM position WHERE projectID = " + projectID + " AND personID = " + user.userID();
+                String cmd = "SELECT * FROM position WHERE projectID = " + projectID + " AND personStatusID = 1";
                 SqlCommand com = new SqlCommand(cmd, conn);
                 SqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-
+                    inPro++;
                 }
                 conn.Close();
             }
             catch
             {
-                HttpContext.Current.Response.Write("<script>alert('E006 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
+                HttpContext.Current.Response.Write("<script>alert('E007 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
             }
 
 

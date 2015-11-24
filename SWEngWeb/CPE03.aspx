@@ -14,7 +14,7 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 <body style="min-width: 860px;">
-    <form id="form1" runat="server">
+    <form method="post" action="operate.aspx?opType=CPE03&pid=<%=pid%>">
         <nav class="red lighten-2 z-depth-2" role="navigation">
             <div class="container">
 
@@ -135,19 +135,19 @@
                             <div class="card-panel" style="padding-bottom: 5px; margin-top: -14px;">
                                 <div class="row" style="margin-bottom: 0px;">
                                     <div class="input-field col s2">
-                                        <input id="MemberID1" type="text" class="validate" value="<%= memSta[0][0] %>" disabled="disabled" />
+                                        <input type="text" class="validate" value="<%= memSta[0][0] %>" disabled="disabled" />
                                         <label for="MemberID1">รหัสนิสิต</label>
                                     </div>
                                     <div class="input-field col s4">
-                                        <input id="MemberName1" type="text" class="validate" value="<%= memSta[0][1] + memSta[0][2] + " " + memSta[0][3] %>" disabled="disabled" />
+                                        <input type="text" class="validate" value="<%= memSta[0][1] + memSta[0][2] + " " + memSta[0][3] %>" disabled="disabled" />
                                         <label for="MemberName1">ชื่อ - สกุล</label>
                                     </div>
                                     <div class="input-field col s2">
-                                        <input id="MemberTel1" type="tel" class="validate" value="<%= memSta[0][5] %>" disabled="disabled" />
+                                        <input type="tel" class="validate" value="<%= memSta[0][5] %>" disabled="disabled" />
                                         <label for="MemberTel1">เบอร์โทร</label>
                                     </div>
                                     <div class="input-field col s4">
-                                        <input id="MemberEmail1" type="email" class="validate" value="<%= memSta[0][4] %>" disabled="disabled" />
+                                        <input type="email" class="validate" value="<%= memSta[0][4] %>" disabled="disabled" />
                                         <label for="MemberEmail1">อีเมล์</label>
                                     </div>
                                 </div>
@@ -162,19 +162,19 @@
                             <div class="card-panel" id="my_own_textbox1" style="padding-bottom: 5px; margin-top: -14px;">
                                 <div class="row" style="margin-bottom: 0px;">
                                     <div class="input-field col s2">
-                                        <input id="MemberID1" type="text" class="validate" value="<%= memSta[1][0] %>" disabled="disabled" />
+                                        <input type="text" class="validate" value="<%= memSta[1][0] %>" disabled="disabled" />
                                         <label for="MemberID1">รหัสนิสิต</label>
                                     </div>
                                     <div class="input-field col s4">
-                                        <input id="MemberName1" type="text" class="validate" value="<%= memSta[1][1] + memSta[1][2] + " " + memSta[1][3] %>" disabled="disabled" />
+                                        <input type="text" class="validate" value="<%= memSta[1][1] + memSta[1][2] + " " + memSta[1][3] %>" disabled="disabled" />
                                         <label for="MemberName1">ชื่อ - สกุล</label>
                                     </div>
                                     <div class="input-field col s2">
-                                        <input id="MemberTel1" type="tel" class="validate" value="<%= memSta[1][5] %>" disabled="disabled" />
+                                        <input type="tel" class="validate" value="<%= memSta[1][5] %>" disabled="disabled" />
                                         <label for="MemberTel1">เบอร์โทร</label>
                                     </div>
                                     <div class="input-field col s4">
-                                        <input id="MemberEmail1" type="email" class="validate" value="<%= memSta[1][4] %>" disabled="disabled" />
+                                        <input type="email" class="validate" value="<%= memSta[1][4] %>" disabled="disabled" />
                                         <label for="MemberEmail1">อีเมล์</label>
                                     </div>
                                 </div>
@@ -228,7 +228,7 @@
                                 <div class="col s12">
                                     <div class="col s12" style="margin: 20px 0px 0px 0px;">
                                         <div class="input-field col s12" style="margin: 5px 0px 5px 0px">
-                                            <textarea id="textarea1" class="materialize-textarea" placeholder="กรุณากรอกประเด็นปัญหาและขอบเขตุโครงงานโดยย่อ" style="padding: 0px;"></textarea>
+                                            <textarea name="scope" id="scope" class="materialize-textarea" placeholder="กรุณากรอกประเด็นปัญหาและขอบเขตุโครงงานโดยย่อ" style="padding: 0px;"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -256,14 +256,14 @@
                                         </div>
                                         <div class="col s4 right">
                                             <p class="center">
-                                                <input class="with-gap" id="opinionN" type="radio" name="C7" />
-                                                <label for="opinionN">ยังไม่ตรวจสอบ</label>
+                                                <input class="with-gap" id="adviserEvaN" value="adviserEvaN" type="radio" name="C7" />
+                                                <label for="adviserEvaN">ยังไม่ตรวจสอบ</label>
                                             </p>
                                         </div>
                                         <div class="col s4 right">
                                             <p class="center">
-                                                <input class="with-gap" id="opinionY" type="radio" name="C7" />
-                                                <label for="opinionY">ตรวจสอบแล้ว</label>
+                                                <input class="with-gap" id="adviserEvaY" value="adviserEvaY" type="radio" name="C7" />
+                                                <label for="adviserEvaY">ตรวจสอบแล้ว</label>
                                             </p>
                                         </div>
                                     </div>
@@ -278,14 +278,14 @@
                                         </div>
                                         <div class="col s4 right">
                                             <p class="center">
-                                                <input class="with-gap" id="opinionN" type="radio" name="C7" />
-                                                <label for="opinionN">ยังไม่ตรวจสอบ</label>
+                                                <input class="with-gap" id="coadviserEvaN" value="coadviserEvaN" type="radio" name="C8" />
+                                                <label for="coadviserEvaN">ยังไม่ตรวจสอบ</label>
                                             </p>
                                         </div>
                                         <div class="col s4 right">
                                             <p class="center">
-                                                <input class="with-gap" id="opinionY" type="radio" name="C7" />
-                                                <label for="opinionY">ตรวจสอบแล้ว</label>
+                                                <input class="with-gap" id="coadviserEvaY" value="coadviserEvaY" type="radio" name="C8" />
+                                                <label for="coadviserEvaY">ตรวจสอบแล้ว</label>
                                             </p>
                                         </div>
                                     </div>
@@ -300,14 +300,14 @@
                                         </div>
                                         <div class="col s4 right">
                                             <p class="center">
-                                                <input class="with-gap" id="opinionN" type="radio" name="C7" />
-                                                <label for="opinionN">ยังไม่ตรวจสอบ</label>
+                                                <input class="with-gap" id="committeeEvaN" value="committeeEvaN" type="radio" name="C9" />
+                                                <label for="committeeEvaN">ยังไม่ตรวจสอบ</label>
                                             </p>
                                         </div>
                                         <div class="col s4 right">
                                             <p class="center">
-                                                <input class="with-gap" id="opinionY" type="radio" name="C7" />
-                                                <label for="opinionY">ตรวจสอบแล้ว</label>
+                                                <input class="with-gap" id="committeeEvaY" value="committeeEvaY" type="radio" name="C9" />
+                                                <label for="committeeEvaY">ตรวจสอบแล้ว</label>
                                             </p>
                                         </div>
                                     </div>
@@ -320,7 +320,7 @@
 
                         <div class="row" style="margin-bottom: 0px;">
                             <a runat="server" class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">ยกเลิก</a>
-                            <a id="submit" runat="server" class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">บันทึก</a>
+                            <button type="submit" id="submit" class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">บันทึก</button>
                         </div>
                     </div>
 

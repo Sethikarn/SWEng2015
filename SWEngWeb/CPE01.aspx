@@ -80,14 +80,39 @@
 
 
                     <div class="card-panel" style="padding: 7px; margin-bottom: 0px;">
-                        <a class="waves-effect waves-light btn center red lighten-2" href="StudentMenu.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">เมนูหลัก</a>
-                        <% 
-                            if (SWEngWeb.user.userHaveProject())
-                            {
+                        <%if (pid != null)
+                          {
                         %>
-                        <a href="operate.aspx?opType=CPE01&op=leav&pid=<%=pid%>" class="waves-effect waves-light btn center red lighten-2" onclick="return confirm('คุณแน่ใจที่จะออกจากโครงงานหรือไม่')" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">ออกจากโครงงาน</a>
-                        <a href="operate.aspx?opType=CPE01&op=delete&pid=<%=pid%>" class="waves-effect waves-light btn center red lighten-2" onclick="return confirm('คุณแน่ใจที่จะลบโครงงานหรือไม่')" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">ลบโครงงาน</a>
+                              <a class="waves-effect waves-light btn center red lighten-2" href="StudentMenu.aspx?pid=<%=pid%>" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">เมนูหลัก</a>
                         <%
+                          }
+                          else
+                          {
+                        %>
+                             <a class="waves-effect waves-light btn center red lighten-2" href="StudentMenu.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">เมนูหลัก</a>
+                        <% 
+                            }
+                            if (SWEngWeb.information.isInproject(pid))
+                            {
+                                if (SWEngWeb.information.studentConfirmMemCount(pid) > 1 && SWEngWeb.user.position() == "student")
+                                {
+                        %>
+                                    <a href="operate.aspx?opType=CPE01&op=leav&pid=<%=pid%>" class="waves-effect waves-light btn center red lighten-2" onclick="return confirm('คุณแน่ใจที่จะออกจากโครงงานหรือไม่')" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">ออกจากโครงงาน</a>
+                                    <a href="operate.aspx?opType=CPE01&op=delete&pid=<%=pid%>" class="waves-effect waves-light btn center red lighten-2" onclick="return confirm('คุณแน่ใจที่จะลบโครงงานหรือไม่')" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">ลบโครงงาน</a>
+                        <%      }
+                                else
+                                {
+                        %>
+                                   <a href="operate.aspx?opType=CPE01&op=delete&pid=<%=pid%>" class="waves-effect waves-light btn center red lighten-2" onclick="return confirm('คุณแน่ใจที่จะลบโครงงานหรือไม่')" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">ลบโครงงาน</a>
+                        <%
+                                }
+
+                                if(SWEngWeb.user.position() == "teacher")
+                                {
+                        %>
+                                    <a href="operate.aspx?opType=CPE01&op=leav&pid=<%=pid%>" class="waves-effect waves-light btn center red lighten-2" onclick="return confirm('คุณแน่ใจที่จะออกจากโครงงานหรือไม่')" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">ออกจากโครงงาน</a>
+                        <%        
+                                }
                             }
                         %>
                     </div>

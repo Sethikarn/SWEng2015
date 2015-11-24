@@ -14,7 +14,7 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 <body style="min-width: 860px;">
-    <form id="form1" runat="server">
+    <form method="post" action="operate.aspx?opType=CPE07&pid=<%=pid%>">
         <nav class="red lighten-2 z-depth-2" role="navigation">
             <div class="container">
 
@@ -248,13 +248,13 @@
                                     <div class="col s12">
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="workResultN" type="radio" name="C1" />
+                                                <input class="with-gap" id="workResultN" value="workResultN" type="radio" name="C1" />
                                                 <label for="workResultN"></label>
                                             </p>
                                         </div>
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="workResultY" type="radio" name="C1" <%--checked="checked"--%> />
+                                                <input class="with-gap" id="workResultY" value="workResultN" type="radio" name="C1" <%--checked="checked"--%> />
                                                 <label for="workResultY"></label>
                                             </p>
                                         </div>
@@ -268,13 +268,13 @@
                                     <div class="col s12 grey lighten-4">
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="progressN" type="radio" name="C2" />
+                                                <input class="with-gap" id="progressN" value="progressN" type="radio" name="C2" />
                                                 <label for="progressN"></label>
                                             </p>
                                         </div>
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="progressY" type="radio" name="C2" />
+                                                <input class="with-gap" id="progressY" value="progressY" type="radio" name="C2" />
                                                 <label for="progressY"></label>
                                             </p>
                                         </div>
@@ -288,13 +288,13 @@
                                     <div class="col s12">
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="understandingN" type="radio" name="C3" />
+                                                <input class="with-gap" id="understandingN" value="understandingN" type="radio" name="C3" />
                                                 <label for="understandingN"></label>
                                             </p>
                                         </div>
                                         <div class="col s2 right">
                                             <p class="center">
-                                                <input class="with-gap" id="understandingY" type="radio" name="C3" />
+                                                <input class="with-gap" id="understandingY" value="understandingY" type="radio" name="C3" />
                                                 <label for="understandingY"></label>
                                             </p>
                                         </div>
@@ -320,7 +320,7 @@
                                 <div class="col s12">
                                     <div class="col s12" style="margin: 20px 0px 0px 0px;">
                                         <div class="input-field col s12" style="margin: 5px 0px 5px 0px">
-                                            <textarea id="textarea1" class="materialize-textarea" placeholder="กรุณากรอกข้อเสนอแนะ" style="padding:0px;"></textarea>
+                                            <textarea id="comment" name="comment" class="materialize-textarea" placeholder="กรุณากรอกข้อเสนอแนะ" style="padding:0px;"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -348,23 +348,23 @@
                                     <div class="col s12">
                                         <div class="col s2 right">
                                             <p>
-                                                <input class="with-gap" id="opinionN" type="radio" name="C7" />
+                                                <input class="with-gap" id="opinionN" value="opinionN" type="radio" name="C7" />
                                                 <label for="opinionN">ไม่ผ่าน</label>
                                             </p>
                                         </div>
                                         <div class="col s6 right">
                                             <p class="col s12">
-                                                <input class="with-gap" id="opinionEY" type="radio" name="C7" <%--checked="checked"--%> />
+                                                <input class="with-gap" id="opinionEY" value="opinionEY" type="radio" name="C7" <%--checked="checked"--%> />
                                                 <label for="opinionEY">สมควรแก้ไข - สอบใหม่</label>
                                             </p>
                                             <p class="col s12" style="margin-top:0px;">
-                                                <input class="with-gap" id="opinionEN" type="radio" name="C7" <%--checked="checked"--%> />
+                                                <input class="with-gap" id="opinionEN" value="opinionEN" type="radio" name="C7" <%--checked="checked"--%> />
                                                 <label for="opinionEN">สมควรแก้ไข - ไม่ต้องสอบใหม่</label>
                                             </p>
                                         </div>
                                         <div class="col s4 right">
                                             <p>
-                                                <input class="with-gap" id="opinionY" type="radio" name="C7" />
+                                                <input class="with-gap" id="opinionY" value="opinionY" type="radio" name="C7" />
                                                 <label for="opinionY">ผ่าน</label>
                                             </p>
                                         </div>
@@ -381,23 +381,23 @@
                                     <div class="col s12">
                                         <div class="col s2 right">
                                             <p >
-                                                <input class="with-gap" id="sumEvaN" type="radio" name="C8" />
+                                                <input class="with-gap" id="sumEvaN" value="sumEvaN" type="radio" name="C8" />
                                                 <label for="sumEvaN">ไม่ผ่าน</label>
                                             </p>
                                         </div>
                                         <div class="col s6 right">
                                             <p class="col s12">
-                                                <input class="with-gap" id="sumEvaEY" type="radio" name="C8" <%--checked="checked"--%> />
+                                                <input class="with-gap" id="sumEvaEY" value="sumEvaEY" type="radio" name="C8" <%--checked="checked"--%> />
                                                 <label for="sumEvaEY">สมควรแก้ไข - สอบใหม่</label>
                                             </p>
                                             <p class=" col s12">
-                                                <input class="with-gap" id="sumEvaEN" type="radio" name="C8" <%--checked="checked"--%> />
+                                                <input class="with-gap" id="sumEvaEN" value="sumEvaEN" type="radio" name="C8" <%--checked="checked"--%> />
                                                 <label for="sumEvaEN">สมควรแก้ไข - ไม่ต้องสอบใหม่</label>
                                             </p>
                                         </div>
                                         <div class="col s4 right">
                                             <p >
-                                                <input class="with-gap" id="sumEvaY" type="radio" name="C8" />
+                                                <input class="with-gap" id="sumEvaY" value="sumEvaY" type="radio" name="C8" />
                                                 <label for="sumEvaY">ผ่าน</label>
                                             </p>
                                         </div>
@@ -412,7 +412,7 @@
 
                         <div class="row" style="margin-bottom: 0px;">
                             <a runat="server" class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">ยกเลิก</a>
-                            <a id="submit" runat="server" class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">บันทึก</a>
+                            <button type="submit" id="submit" class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">บันทึก</button>
                         </div>
                     </div>
 

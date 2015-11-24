@@ -14,7 +14,7 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 <body style="min-width: 860px;">
-    <form id="form1" runat="server">
+    
         <nav class="red lighten-2 z-depth-2" role="navigation">
             <div class="container">
 
@@ -86,7 +86,7 @@
 
                         <div class="card-panel red lighten-4 center">
                             <div class="grey-text text-darken-4 col s12 center" style="margin-top: -10px;">
-                                <h5 style="margin: 0px;" class="center">แบบบันทึกการดำเนินงาน (CPE02) * Under Construction</h5>
+                                <h5 style="margin: 0px;" class="center">แบบบันทึกการดำเนินงาน (CPE02)</h5>
                             </div>
                         </div>
 
@@ -115,8 +115,9 @@
 
 
 
-                        <!-- เลือกอาจารย์ -->
+                        <!-- บันทึก02-->
 
+                        <form method="post" action="operate.aspx?opType=CPE02&pid=<%=pid%>">
                         <div class="card-panel red lighten-4" style="padding: 5px;">
                             <div class="row" style="margin-bottom: 0px;">
                                 <div class="grey-text text-darken-4 col" style="margin-left: 5px; margin-top: 5px;">
@@ -132,19 +133,19 @@
                                     <div class="row" style="margin: 20px 0px 0px 0px;">
                                         <div class="col s4 right" style="padding-bottom: 5px; ">
                                             <label>วันที่</label>
-                                            <input id="datepic" type="date" class="datepicker"/>
+                                            <input name="datepic" id="datepic" type="date" class="datepicker"/>
                                             
                                         </div>
 
                                        
                                             
                                                 <div class="input-field col s12" style="margin: 5px 0px 5px 0px">
-                                                    <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                                    <label for="textarea1">ประเด็น / งาน / หัวข้อที่มอบหมาย</label>
+                                                    <textarea name="subject" id="subject" class="materialize-textarea"></textarea>
+                                                    <label for="subject">ประเด็น / งาน / หัวข้อที่มอบหมาย</label>
                                                 </div>
                                                 <div class="input-field col s12">
-                                                    <textarea id="textarea2" class="materialize-textarea"></textarea>
-                                                    <label for="textarea2">ข้อสรุป / ความคืบหน้า</label>
+                                                    <textarea name="conclusion" id="conclusion" class="materialize-textarea"></textarea>
+                                                    <label for="conclusion">ข้อสรุป / ความคืบหน้า</label>
                                                 </div>
                                             </div>
                                         
@@ -159,13 +160,14 @@
                                         <!-- บันทึก/ยกเลิก -->
 
                     <div class="row" style="margin-bottom: 0px;">
-                        <a runat="server" class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">ยกเลิก</a>
-                        <a id="submit" runat="server" class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">บันทึก</a>
+                        <a class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">ยกเลิก</a>
+                        <button type="submit" id="submit" class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">บันทึก</button>
                     </div>
-                    </div>
-
+                            
     
+                    </form>
 
+                    </div>
                 </div>
             </div>
         </div>
@@ -252,7 +254,5 @@
                 format: 'yyyy-mm-dd'
             });
         </script>
-
-    </form>
 </body>
 </html>

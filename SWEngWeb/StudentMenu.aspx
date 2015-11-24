@@ -69,7 +69,23 @@
                         </div>
                     </div>
 
-
+                    <%if (pid != null)
+                      {
+                    %>
+                    <div class="card-panel" style="padding: 7px; margin-bottom: 0px;">
+                        <a class="waves-effect waves-light btn center red lighten-2" href="CPE01.aspx?pid=<%=pid%>" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">แบบเสนอหัวข้อโครงงาน</a>
+                        <a class="waves-effect waves-light btn center red lighten-2" href="CPE02.aspx?pid=<%=pid%>" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">แบบบันทึกการดำเนินงาน</a>
+                        <a class="waves-effect waves-light btn center red lighten-2" href="CPE03.aspx?pid=<%=pid%>" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">แบบขอสอบข้อเสนอโครงงาน</a>
+                        <a class="waves-effect waves-light btn center red lighten-2" href="CPE04.aspx?pid=<%=pid%>" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">แบบประเมินข้อเสนอโครงงาน</a>
+                        <a class="waves-effect waves-light btn center red lighten-2" href="CPE05.aspx?pid=<%=pid%>" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">แบบประเมินความก้าวหน้า</a>
+                        <a class="waves-effect waves-light btn center red lighten-2" href="CPE06.aspx?pid=<%=pid%>" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">แบบขอสอบโครงงาน</a>
+                        <a class="waves-effect waves-light btn center red lighten-2" href="CPE07.aspx?pid=<%=pid%>" style="margin-bottom: -7px; padding-left: 0px; padding-right: 0px; width: 100%;">แบบประเมินโครงงาน</a>
+                    </div>
+                    <%
+                     }
+                     else
+                     {
+                    %>
                     <div class="card-panel" style="padding: 7px; margin-bottom: 0px;">
                         <a class="waves-effect waves-light btn center red lighten-2" href="CPE01.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">แบบเสนอหัวข้อโครงงาน</a>
                         <a class="waves-effect waves-light btn center red lighten-2" href="CPE02.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">แบบบันทึกการดำเนินงาน</a>
@@ -79,6 +95,7 @@
                         <a class="waves-effect waves-light btn center red lighten-2" href="CPE06.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">แบบขอสอบโครงงาน</a>
                         <a class="waves-effect waves-light btn center red lighten-2" href="CPE07.aspx" style="margin-bottom: -7px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">แบบประเมินโครงงาน</a>
                     </div>
+                    <%} %>
                 </div>
                 <div class="col s9" style="margin-left: 0px; padding-left: 0px; padding: 0px;">
                     <div class="card-panel infor" style="padding: 15px; margin: 0px; min-height: 527px;">
@@ -87,12 +104,12 @@
 
 
                             <%
-                                if (SWEngWeb.user.userHaveProject())
+                                if (SWEngWeb.user.userHaveProject() || SWEngWeb.user.position() == "teacher")
                                 {
                             %>
                             <div class="card-panel red lighten-4" style="margin: 0px 0px 10px 0px;">
                                 <div class="grey-text text-darken-4 col s12" style="margin-top: -12px;">
-                                    <h5 style="margin: 0px;">โครงงาน  <%= SWEngWeb.user.thaiProjectName() + " : " + SWEngWeb.user.engProjectName() %></h5>
+                                    <h5 style="margin: 0px;">โครงงาน  <%= SWEngWeb.information.thaiProjectName(pid) + " : " + SWEngWeb.information.engProjectName(pid) %></h5>
                                 </div>
                             </div>
                             <!-- <div class="section" style="margin-bottom: -20px;"> -->
@@ -100,12 +117,12 @@
 
                                 <div class="col s6">
                                     <div class="row" style="margin: 0px;">
-                                        <div class="information card-panel light" style="height: 225px; padding:10px;">
+                                        <div class="information card-panel light" style="height: 225px; padding:10px; margin-bottom:5px;">
                                             <div class="icon-block">
                                                 <h2 class="center brown-text" style="margin-top: 0px; margin-bottom: 0px;"><i class="large material-icons">info</i></h2>
                                                 <h5 class="center">สถานะล่าสุด</h5>
 
-                                                <p class="light center"><%= SWEngWeb.information.projectLastStatus(SWEngWeb.user.projectID().ToString()) %></p>
+                                                <p class="light center"><%= SWEngWeb.information.projectLastStatus(pid) %></p>
                                             </div>
                                         </div>
                                     </div>
@@ -114,7 +131,6 @@
                                             <div class="icon-block">
                                                 <h2 class="center brown-text" style="margin-top: 0px; margin-bottom: 0px;"><i class="large material-icons">web</i></h2>
                                                 <h5 class="center">Under construction</h5>
-                                                
                                             </div>
                                         </div>
                                     </div>
@@ -169,7 +185,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>
 
         <footer class="page-footer red lighten-1" style="padding-top: 0px;">

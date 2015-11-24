@@ -14,7 +14,7 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 <body style="min-width: 860px;">
-    <form id="form1" runat="server">
+    <form method="post" action="operate.aspx?opType=CPE06&pid=<%=pid%>">
         <nav class="red lighten-2 z-depth-2" role="navigation">
             <div class="container">
 
@@ -228,7 +228,7 @@
                                 <div class="col s12">
                                     <div class="col s12" style="margin: 20px 0px 0px 0px;">
                                         <div class="input-field col s12" style="margin: 5px 0px 5px 0px">
-                                            <textarea id="textarea1" class="materialize-textarea" placeholder="ยังไม่มีความคิดเห็น" style="padding:0px;"></textarea>
+                                            <textarea id="comment" name="comment" class="materialize-textarea" placeholder="ยังไม่มีความคิดเห็น" style="padding:0px;"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -249,13 +249,13 @@
                                     <div class="col s12">
                                         <div class="col s6 right">
                                             <p class="center">
-                                                <input class="with-gap" id="opinionN" type="radio" name="C7" />
+                                                <input class="with-gap" id="opinionN" value="opinionN" type="radio" name="C7" />
                                                 <label for="opinionN">ยังไม่สมควรให้สอบโครงงาน</label>
                                             </p>
                                         </div>
                                         <div class="col s6 right">
                                             <p class="center">
-                                                <input class="with-gap" id="opinionY" type="radio" name="C7" />
+                                                <input class="with-gap" id="opinionY" value="opinionY" type="radio" name="C7" />
                                                 <label for="opinionY">เห็นสมควรให้สอบโครงงานได้</label>
                                             </p>
                                         </div>
@@ -269,7 +269,7 @@
 
                         <div class="row" style="margin-bottom: 0px;">
                             <a runat="server" class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">ยกเลิก</a>
-                            <a id="submit" runat="server" class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">บันทึก</a>
+                            <button type="submit" id="submit" class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">บันทึก</button>
                         </div>
                     </div>
 

@@ -13,6 +13,7 @@ namespace SWEngWeb
 {
     public partial class Home : System.Web.UI.Page
     {
+        public string pid = null;
         string constr1 = WebConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -25,6 +26,29 @@ namespace SWEngWeb
             if (!(user.position() == "student"))
             {
                 Response.Redirect("~/");
+            }
+
+            Page.MaintainScrollPositionOnPostBack = true;
+
+            try
+            {
+                pid = Request.QueryString["pid"];
+            }
+            catch
+            {
+                if (user.userHaveProject())
+                {
+                    pid = user.projectID();
+                }
+                else
+                {
+                    pid = null;
+                }
+            }
+
+            if (user.userHaveProject())
+            {
+                pid = user.projectID();
             }
         }
 

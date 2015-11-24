@@ -65,32 +65,89 @@ namespace SWEngWeb
                     }
                 case "CPE02":
                     {
+                        string subject = HttpContext.Current.Request.Form["subject"];
+                        string conclusion = HttpContext.Current.Request.Form["conclusion"];
+                        string datepic = HttpContext.Current.Request.Form["datepic"];
+                        HttpContext.Current.Response.Write("<script>alert('"+subject+"');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + conclusion + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + datepic + "');</script>");
                         // 
                         break;
                     }
                 case "CPE03":
                     {
-                        // 
+
+                        string scope = HttpContext.Current.Request.Form["scope"];
+                        string adviserEva = HttpContext.Current.Request.Form["C7"];
+                        string coadviserEva = HttpContext.Current.Request.Form["C8"];
+                        string committeeEva = HttpContext.Current.Request.Form["C9"];
+                        HttpContext.Current.Response.Write("<script>alert('" + scope + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + adviserEva + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + coadviserEva + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + committeeEva + "');</script>"); 
                         break;
                     }
                 case "CPE04":
                     {
-                        // 
+                        string memNum = HttpContext.Current.Request.Form["C1"];
+                        string idea = HttpContext.Current.Request.Form["C2"];
+                        string objective = HttpContext.Current.Request.Form["C3"];
+                        string theory = HttpContext.Current.Request.Form["C4"];
+                        string suitability = HttpContext.Current.Request.Form["C5"];
+                        string scope = HttpContext.Current.Request.Form["C6"];
+                        string comment = HttpContext.Current.Request.Form["comment"];
+                        string opinion = HttpContext.Current.Request.Form["C7"];
+                        string sumEva = HttpContext.Current.Request.Form["C8"];
+
+                        HttpContext.Current.Response.Write("<script>alert('" + memNum + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + idea + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + objective + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + theory + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + suitability + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + scope + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + comment + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + opinion + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + sumEva + "');</script>"); 
                         break;
                     }
                 case "CPE05":
                     {
-                        // 
+                        string progress = HttpContext.Current.Request.Form["C1"];
+                        string report = HttpContext.Current.Request.Form["C2"];
+                        string understanding = HttpContext.Current.Request.Form["C3"];
+                        string teamwork = HttpContext.Current.Request.Form["C4"];
+                        string comment = HttpContext.Current.Request.Form["comment"];
+                        string opinion = HttpContext.Current.Request.Form["C7"];
+                        HttpContext.Current.Response.Write("<script>alert('" + progress + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + report + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + understanding + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + teamwork + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + comment + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + opinion + "');</script>"); 
                         break;
                     }
                 case "CPE06":
                     {
-                        // 
+                        string comment = HttpContext.Current.Request.Form["comment"];
+                        string opinion = HttpContext.Current.Request.Form["C7"];
+                        HttpContext.Current.Response.Write("<script>alert('" + comment + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + opinion + "');</script>");
                         break;
                     }
                 case "CPE07":
                     {
-                        // 
+                        string workResult = HttpContext.Current.Request.Form["C1"];
+                        string progress = HttpContext.Current.Request.Form["C2"];
+                        string understanding = HttpContext.Current.Request.Form["C3"];
+                        string comment = HttpContext.Current.Request.Form["comment"];
+                        string opinion = HttpContext.Current.Request.Form["C7"];
+                        string sumEva = HttpContext.Current.Request.Form["C8"];
+                        HttpContext.Current.Response.Write("<script>alert('" + workResult + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + progress + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + understanding + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + comment + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + opinion + "');</script>");
+                        HttpContext.Current.Response.Write("<script>alert('" + sumEva + "');</script>"); 
                         break;
                     }
                 case "noti":
