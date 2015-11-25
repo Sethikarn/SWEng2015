@@ -42,7 +42,7 @@ namespace SWEngWeb
 
             if (user.isLogin())
             {
-                if (pid != null)
+                if (pid != null && pid != "")
                 {
                     if(int.Parse(information.projectLastStatusID(pid)) >= 3)
                     {

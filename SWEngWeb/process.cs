@@ -145,5 +145,32 @@ namespace SWEngWeb
                 HttpContext.Current.Response.Write("<script>alert('E012 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
             }
         }
+
+        public static string createCPE02(string subject, string conclusion)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand("INSERT INTO CPE02 (projectID , subject , conclusion , sentDate) OUTPUT INSERTED.projectID VALUES (@projectID, @subject , @conclusion, @sentDate)");
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = connection;
+            cmd.Parameters.AddWithValue("@projectID", user.projectID());
+            cmd.Parameters.AddWithValue("@subject", subject);
+            cmd.Parameters.AddWithValue("@conclusion", conclusion);
+            DateTime myDateTime = DateTime.Now;
+            cmd.Parameters.AddWithValue("@sentDate", myDateTime.ToString("yyyy-MM-dd HH:mm:ss"));
+            connection.Open();
+            var cpe02ID = cmd.ExecuteScalar();
+            connection.Close();
+            return cpe02ID.ToString();
+        }
+
+        public static void checkCPE02(string processID)
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            String cmd = "UPDATE CPE02 SET adviserCheck = 'Y' WHERE processID = " + processID;
+            SqlCommand com = new SqlCommand(cmd, conn);
+            com.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }

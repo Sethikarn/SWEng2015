@@ -14,120 +14,120 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 <body style="min-width: 860px;">
-    
-        <nav class="red lighten-2 z-depth-2" role="navigation">
-            <div class="container">
 
-                <a href="http://www.nu.ac.th" target="_blank">
-                    <img src="pic/NU_LOGO1.png" alt="" class="left circle responsive-img z-depth-1" />
-                </a>
-                <a href="http://www.eng.nu.ac.th" target="_blank">
-                    <img src="pic/logoEng.png" alt="" class="left circle responsive-img z-depth-1" style="margin-left: 4px;" />
-                </a>
-
-                <a class="center-align grey-text text-lighten-4 center" style="margin-left: 70px;"><span style="font-size: 21px;">ระบบประเมินและตรวจสอบโครงการคณะวิศวกรรมศาสตร์</span></a>
-                <a class="waves-effect waves-light btn right " href="Logout.aspx" style="margin: 12px 0px 0px 0px; padding: 0px 10px 0px 10px;">ออกจากระบบ</a>
-                <% 
-                    int notiCount = SWEngWeb.user.ontificationCount();
-                    if (notiCount != 0)
-                    {
-                %>
-                <a class="waves-effect waves-light btn right red" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left: 10px;">textsms</i> <%: notiCount %> </a>
-                <%
-                    }
-                    else
-                    {
-                %>
-                <a class="waves-effect waves-light btn right" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left: 10px;">textsms</i>0</a>
-                <%
-                    }
-                %>
-
-
-            </div>
-        </nav>
-
+    <nav class="red lighten-2 z-depth-2" role="navigation">
         <div class="container">
-            <div class="row" style="margin-bottom: 5px;">
-                <div id="menubar" class="col s3 left" style="margin-right: 0px; min-height: 538px; padding-right: 5px; padding-left: 5px;" runat="server">
 
-                    <div class="row red lighten-5" style="margin: 0px;">
-                        <a href="http://www.eng.nu.ac.th" target="_blank">
-                            <img src="pic/imageedit_6_2524784814.png" alt="" class="responsive-img center" />
-                        </a>
-                    </div>
+            <a href="http://www.nu.ac.th" target="_blank">
+                <img src="pic/NU_LOGO1.png" alt="" class="left circle responsive-img z-depth-1" />
+            </a>
+            <a href="http://www.eng.nu.ac.th" target="_blank">
+                <img src="pic/logoEng.png" alt="" class="left circle responsive-img z-depth-1" style="margin-left: 4px;" />
+            </a>
 
-                    <%string UName = SWEngWeb.user.name(); %>
-                    <div class="row" style="margin: 0px 0px;">
-                        <div class="card-panel red lighten-4 z-depth-1" style="margin: 0px 0px 0px 0px; padding: 0px 3px 0px 3px; height: 40px;">
-                            <div class="row valign-wrapper" style="margin-bottom: 0px;">
-                                <div class="col s1" style="margin: 0px 10px 0px 0px;">
-                                    <i class="material-icons prefix" style="margin-left: 5px; margin-right: 2px; margin-top: 8px;">person_pin</i>
-                                </div>
-                                <div class="col s11" style="margin-left: 0px; line-height: 40px;">
-                                    <span class="black-text center">สวัสดี <%: UName %>
-                                    </span>
-                                </div>
+            <a class="center-align grey-text text-lighten-4 center" style="margin-left: 70px;"><span style="font-size: 21px;">ระบบประเมินและตรวจสอบโครงการคณะวิศวกรรมศาสตร์</span></a>
+            <a class="waves-effect waves-light btn right " href="Logout.aspx" style="margin: 12px 0px 0px 0px; padding: 0px 10px 0px 10px;">ออกจากระบบ</a>
+            <% 
+                int notiCount = SWEngWeb.user.ontificationCount();
+                if (notiCount != 0)
+                {
+            %>
+            <a class="waves-effect waves-light btn right red" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left: 10px;">textsms</i> <%: notiCount %> </a>
+            <%
+                }
+                else
+                {
+            %>
+            <a class="waves-effect waves-light btn right" href="Notification.aspx" style="margin: 12px 5px 0px 0px; padding: 0px 10px 0px 10px;"><i class="material-icons right" style="margin-left: 10px;">textsms</i>0</a>
+            <%
+                }
+            %>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row" style="margin-bottom: 5px;">
+            <div id="menubar" class="col s3 left" style="margin-right: 0px; min-height: 538px; padding-right: 5px; padding-left: 5px;" runat="server">
+
+                <div class="row red lighten-5" style="margin: 0px;">
+                    <a href="http://www.eng.nu.ac.th" target="_blank">
+                        <img src="pic/imageedit_6_2524784814.png" alt="" class="responsive-img center" />
+                    </a>
+                </div>
+
+                <%string UName = SWEngWeb.user.name(); %>
+                <div class="row" style="margin: 0px 0px;">
+                    <div class="card-panel red lighten-4 z-depth-1" style="margin: 0px 0px 0px 0px; padding: 0px 3px 0px 3px; height: 40px;">
+                        <div class="row valign-wrapper" style="margin-bottom: 0px;">
+                            <div class="col s1" style="margin: 0px 10px 0px 0px;">
+                                <i class="material-icons prefix" style="margin-left: 5px; margin-right: 2px; margin-top: 8px;">person_pin</i>
+                            </div>
+                            <div class="col s11" style="margin-left: 0px; line-height: 40px;">
+                                <span class="black-text center">สวัสดี <%: UName %>
+                                </span>
                             </div>
                         </div>
-                    </div>
-
-
-                    <div class="card-panel" style="padding: 7px; margin-bottom: 0px;">
-                        <%if (pid != null)
-                        {
-                        %>
-                        <a class="waves-effect waves-light btn center red lighten-2" href="StudentMenu.aspx?pid=<%=pid%>" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">เมนูหลัก</a>
-                        <%
-                         }
-                          else
-                         {
-                        %>
-                        <a class="waves-effect waves-light btn center red lighten-2" href="StudentMenu.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">เมนูหลัก</a>
-                        <%} %>
-                        <%--<a class="waves-effect waves-light btn center red lighten-2" href="Notification.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">แก้ไข</a>--%>
                     </div>
                 </div>
-                <div class="col s9" style="margin-left: 0px; padding-left: 0px; padding: 0px;">
-                    <div class="card-panel infor" style="padding: 15px; margin: 0px; min-height: 527px;">
 
 
-                        <!-- ชื่อform -->
+                <div class="card-panel" style="padding: 7px; margin-bottom: 0px;">
+                    <%if (pid != null)
+                        {
+                    %>
+                    <a class="waves-effect waves-light btn center red lighten-2" href="StudentMenu.aspx?pid=<%=pid%>" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">เมนูหลัก</a>
+                    <%
+                        }
+                        else
+                        {
+                    %>
+                    <a class="waves-effect waves-light btn center red lighten-2" href="StudentMenu.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">เมนูหลัก</a>
+                    <%} %>
+                    <%--<a class="waves-effect waves-light btn center red lighten-2" href="Notification.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">แก้ไข</a>--%>
+                </div>
+            </div>
+            <div class="col s9" style="margin-left: 0px; padding-left: 0px; padding: 0px;">
+                <div class="card-panel infor" style="padding: 15px; margin: 0px; min-height: 527px;">
 
-                        <div class="card-panel red lighten-4 center">
-                            <div class="grey-text text-darken-4 col s12 center" style="margin-top: -10px;">
-                                <h5 style="margin: 0px;" class="center">แบบบันทึกการดำเนินงาน (CPE02)</h5>
+
+                    <!-- ชื่อform -->
+
+                    <div class="card-panel red lighten-4 center">
+                        <div class="grey-text text-darken-4 col s12 center" style="margin-top: -10px;">
+                            <h5 style="margin: 0px;" class="center">แบบบันทึกการดำเนินงาน (CPE02)</h5>
+                        </div>
+                    </div>
+
+                    <!-- ชื่อโครงงาน -->
+
+                    <div class="card-panel red lighten-4" style="padding: 5px;">
+                        <div class="row" style="margin-bottom: 0px;">
+                            <div class="grey-text text-darken-4 col" style="margin-left: 5px; margin-top: 5px;">
+                                <h5>ชื่อโครงงาน</h5>
                             </div>
                         </div>
-
-                        <!-- ชื่อโครงงาน -->
-
-                        <div class="card-panel red lighten-4" style="padding: 5px;">
-                            <div class="row" style="margin-bottom: 0px;">
-                                <div class="grey-text text-darken-4 col" style="margin-left: 5px; margin-top: 5px;">
-                                    <h5>ชื่อโครงงาน</h5>
-                                </div>
+                    </div>
+                    <div class="card-panel" style="padding-bottom: 5px; margin-top: -14px;">
+                        <div class="row" style="margin-bottom: 0px;">
+                            <div class="input-field col s6">
+                                <input value="<%= SWEngWeb.information.thaiProjectName(pid) %>" id="thaiNameInput2" type="text" class="validate" disabled="disabled" />
+                                <label for="thaiNameInput2">ชื่อไทย</label>
                             </div>
-                        </div>
-                        <div class="card-panel" style="padding-bottom: 5px; margin-top: -14px;">
-                            <div class="row" style="margin-bottom: 0px;">
-                                <div class="input-field col s6">
-                                    <input value="<%= SWEngWeb.information.thaiProjectName(pid) %>" id="thaiNameInput2" type="text" class="validate" disabled="disabled" />
-                                    <label for="thaiNameInput2">ชื่อไทย</label>
-                                </div>
-                                <div class="input-field col s6">
-                                    <input value="<%= SWEngWeb.information.engProjectName(pid) %>" id="englishNameInput2" type="text" class="validate" disabled="disabled" />
-                                    <label for="englishNameInput">ชื่ออังกฤษ</label>
-                                </div>
-
+                            <div class="input-field col s6">
+                                <input value="<%= SWEngWeb.information.engProjectName(pid) %>" id="englishNameInput2" type="text" class="validate" disabled="disabled" />
+                                <label for="englishNameInput">ชื่ออังกฤษ</label>
                             </div>
+
                         </div>
+                    </div>
 
 
 
-                        <!-- บันทึก02-->
-
-                        <form method="post" action="operate.aspx?opType=CPE02&pid=<%=pid%>">
+                    <!-- บันทึก02-->
+                    <%if (SWEngWeb.user.position() == "student")
+                        {
+                    %>
+                    <form method="post" action="operate.aspx?opType=CPE02&op=save&pid=<%=pid%>">
                         <div class="card-panel red lighten-4" style="padding: 5px;">
                             <div class="row" style="margin-bottom: 0px;">
                                 <div class="grey-text text-darken-4 col" style="margin-left: 5px; margin-top: 5px;">
@@ -138,129 +138,202 @@
                         <div class="card-panel" style="padding: 0px 0px 20px 20px; margin-top: -14px;">
                             <div class="row" style="margin-bottom: 0px;">
                                 <div class="col s12">
-
-
                                     <div class="row" style="margin: 20px 0px 0px 0px;">
                                         <%--<div class="col s4 right" style="padding-bottom: 5px; ">
                                             <label>วันที่</label>
                                         </div>--%>
-
-                                       
-                                            
-                                                <div class="input-field col s12" style="margin: 5px 0px 5px 0px">
-                                                    <textarea name="subject" id="subject" class="materialize-textarea"></textarea>
-                                                    <label for="subject">ประเด็น / งาน / หัวข้อที่มอบหมาย</label>
-                                                </div>
-                                                <div class="input-field col s12">
-                                                    <textarea name="conclusion" id="conclusion" class="materialize-textarea"></textarea>
-                                                    <label for="conclusion">ข้อสรุป / ความคืบหน้า</label>
-                                                </div>
-                                            </div>
-                                        
-                                   
-
-
+                                        <div class="input-field col s12" style="margin: 5px 0px 5px 0px">
+                                            <textarea name="subject" id="subject" class="materialize-textarea"></textarea>
+                                            <label for="subject">ประเด็น / งาน / หัวข้อที่มอบหมาย</label>
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <textarea name="conclusion" id="conclusion" class="materialize-textarea"></textarea>
+                                            <label for="conclusion">ข้อสรุป / ความคืบหน้า</label>
+                                        </div>
+                                    </div>
                                 </div>
-
                             </div>
+                            <!-- บันทึก/ยกเลิก -->
+
+                        <div class="row" style="margin-bottom: 0px;">
+                            <%--<a class="waves-effect waves-light btn right red lighten-2" style="margin-bottom: 10px; margin-right: 20px; margin-left: 10px; margin-top:10px;">ยกเลิก</a>--%>
+                            <button type="submit" id="submit" class="waves-effect waves-light btn right red lighten-2" style="margin-bottom: 10px; margin-right: 20px; margin-left: 10px; margin-top:10px;">บันทึก</button>
+                        </div>
                         </div>
 
-                                        <!-- บันทึก/ยกเลิก -->
+                        
 
-                    <div class="row" style="margin-bottom: 0px;">
-                        <a class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">ยกเลิก</a>
-                        <button type="submit" id="submit" class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">บันทึก</button>
+                        
+                    </form>
+                    <%} %>
+
+
+
+
+                    <%
+                        SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString);
+                        conn.Open();
+                        String cmd = "select * from CPE02 where projectID ='" + pid + "' ORDER BY sentDate DESC";
+                        SqlCommand com = new SqlCommand(cmd, conn);
+                        SqlDataReader reader = com.ExecuteReader();
+                        try
+                        {
+                            while (reader.Read())
+                            {
+                    %>
+                    <form method="post" action="operate.aspx?opType=CPE02&op=check&pid=<%=pid%>">
+                      <div class="card-panel red lighten-4" style="padding: 5px;">
+                        <div class="row" style="margin-bottom: 0px;">
+                            <div class="grey-text text-darken-4 col" style="margin-left: 5px; margin-top: 5px;">
+                                <h5>วันที่ <%= reader["sentDate"].ToString() %></h5>
+                            </div>
+                            <% 
+
+                                string ch = "";
+                                try
+                                {
+                                    ch = reader["adviserCheck"].ToString();
+                                }
+                                catch
+                                {
+
+                                }
+                                if(ch != "")
+                                {
+                                %>
+                                   <div class="col s3 right">ตรวจสอบแล้ว</div>
+                                <%
+                                }
+                                %>
+                        </div>
                     </div>
-                            
-    
+                    <div class="card-panel" style="padding: 0px 0px 20px 20px; margin-top: -14px;">
+                        <div class="row" style="margin-bottom: 0px;">
+                            <div class="col s12">
+                                <div class="row" style="margin: 20px 0px 0px 0px;">
+                                    <div class="input-field col s12" style="margin: 5px 0px 5px 0px">
+                                        <textarea name="subject" class="materialize-textarea" disabled="disabled"><%=reader["subject"].ToString() %></textarea>
+                                        <label for="subject">ประเด็น / งาน / หัวข้อที่มอบหมาย</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <textarea name="conclusion" class="materialize-textarea" disabled="disabled"><%=reader["conclusion"].ToString() %></textarea>
+                                        <label for="conclusion">ข้อสรุป / ความคืบหน้า</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%if (SWEngWeb.user.position() == "teacher" && ch == "")
+                            {
+                        %>
+
+                             <div class="row" style="margin-bottom: 0px;">
+                            <button type="submit" id=""subYes" name="subYes" value ="<%=reader["processID"].ToString() %>" class="waves-effect waves-light btn right red lighten-2" style="margin-bottom: 10px; margin-right: 20px; margin-left: 10px; margin-top:10px;">ตรวจสอบแล้ว</button>
+                            </div>
+
+                        <%
+                            }
+                        %>
+                    </div>
+
+                        
+
                     </form>
 
-                    </div>
+                    <%
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                        conn.Close();
+                    %>
                 </div>
             </div>
         </div>
+    </div>
 
-        <footer class="page-footer red lighten-1" style="padding-top: 0px;">
-            <div>
-                <p class="center-align grey-text text-lighten-4" style="margin: 0px;">เว็บไซต์นี้ถูกสร้างขึ้นเพื่อเป็นระบบประเมินและตรวจสอบโครงการของนิสิตคณะวิศวกรรมศาสตร์ สาขาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยนเรศวร</p>
+    <footer class="page-footer red lighten-1" style="padding-top: 0px;">
+        <div>
+            <p class="center-align grey-text text-lighten-4" style="margin: 0px;">เว็บไซต์นี้ถูกสร้างขึ้นเพื่อเป็นระบบประเมินและตรวจสอบโครงการของนิสิตคณะวิศวกรรมศาสตร์ สาขาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยนเรศวร</p>
+        </div>
+        <div class="footer-copyright" style="height: 40px; line-height: 40px;">
+            <div class="container center-align">
+                © 2014 <a class=" grey-text text-lighten-4" href="About.aspx">BagaJN</a> | © 2015 <a class=" grey-text text-lighten-4" href="About.aspx">หัวหลิม</a> | Powered by <a class=" grey-text text-lighten-4" href="http://materializecss.com" target="_blank">Materialize</a><a class="right grey-text text-lighten-1">P03</a><a class="waves-effect waves-light btn right " href="About.aspx" style="margin-top: 2px; margin-bottom: 0px; margin-right: 5px;">เกี่ยวกับ</a>
             </div>
-            <div class="footer-copyright" style="height: 40px; line-height: 40px;">
-                <div class="container center-align">
-                    © 2014 <a class=" grey-text text-lighten-4" href="About.aspx">BagaJN</a> | © 2015 <a class=" grey-text text-lighten-4" href="About.aspx">หัวหลิม</a> | Powered by <a class=" grey-text text-lighten-4" href="http://materializecss.com" target="_blank">Materialize</a><a class="right grey-text text-lighten-1">P03</a><a class="waves-effect waves-light btn right " href="About.aspx" style="margin-top: 2px; margin-bottom: 0px; margin-right: 5px;">เกี่ยวกับ</a>
-                </div>
-            </div>
-        </footer>
+        </div>
+    </footer>
 
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script src="js/jquery-2.1.1.min.js"></script>
-        <script src="js/materialize.js"></script>
-        <script src="js/init.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
 
-        <script type="text/javascript">
+    <script type="text/javascript">
 
-            function homePageResposive() {
-                var DisplayHeight = document.documentElement.clientHeight;
-                var H = DisplayHeight;
-                var minPageHeight = 650;
-                var currentHight;
+        function homePageResposive() {
+            var DisplayHeight = document.documentElement.clientHeight;
+            var H = DisplayHeight;
+            var minPageHeight = 650;
+            var currentHight;
 
-                var DisplayWidth = document.documentElement.clientWidth;
-                var minPageWidth = 860;
+            var DisplayWidth = document.documentElement.clientWidth;
+            var minPageWidth = 860;
 
-                $(".infor").css("min-height", function () {
-                    H = H - 147;
-                    if (H < 650 - 147) {
-                        H = 650 - 147;
-                    }
-                    return H;
-                });
-            }
+            $(".infor").css("min-height", function () {
+                H = H - 147;
+                if (H < 650 - 147) {
+                    H = 650 - 147;
+                }
+                return H;
+            });
+        }
 
+        homePageResposive();
+
+        window.onresize = function () {
             homePageResposive();
+        }
+    </script>
 
-            window.onresize = function () {
-                homePageResposive();
+    <script>
+        function memberSelect() {
+            if (document.getElementById('memberCountSelect').value == 1) {
+                document.getElementById('my_own_textbox1').style.display = 'none';
+                document.getElementById('my_own_textbox2').style.display = 'none';
+
             }
-        </script>
+            else if (document.getElementById('memberCountSelect').value == 2) {
+                document.getElementById('my_own_textbox1').style.display = 'block';
+                document.getElementById('my_own_textbox2').style.display = 'none';
 
-        <script>
-            function memberSelect() {
-                if (document.getElementById('memberCountSelect').value == 1) {
-                    document.getElementById('my_own_textbox1').style.display = 'none';
-                    document.getElementById('my_own_textbox2').style.display = 'none';
-
-                }
-                else if (document.getElementById('memberCountSelect').value == 2) {
-                    document.getElementById('my_own_textbox1').style.display = 'block';
-                    document.getElementById('my_own_textbox2').style.display = 'none';
-
-                }
-                else if (document.getElementById('memberCountSelect').value == 3) {
-                    document.getElementById('my_own_textbox1').style.display = 'block';
-                    document.getElementById('my_own_textbox2').style.display = 'block';
-                }
             }
+            else if (document.getElementById('memberCountSelect').value == 3) {
+                document.getElementById('my_own_textbox1').style.display = 'block';
+                document.getElementById('my_own_textbox2').style.display = 'block';
+            }
+        }
 
-        </script>
+    </script>
 
-        <script>
-            $(document).ready(function () {
-                $('.collapsible').collapsible({
-                    accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-                });
+    <script>
+        $(document).ready(function () {
+            $('.collapsible').collapsible({
+                accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
             });
-        </script>
+        });
+    </script>
 
-        <script>
-            $(document).ready(function () {
-                $('select').material_select();
-            });
-        </script>
+    <script>
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+    </script>
 
-        <script type="text/javascript">
-            $('.datepicker').pickadate({
-                format: 'yyyy-mm-dd'
-            });
-        </script>
+    <script type="text/javascript">
+        $('.datepicker').pickadate({
+            format: 'yyyy-mm-dd'
+        });
+    </script>
 </body>
 </html>

@@ -78,7 +78,7 @@ namespace SWEngWeb
                                     }
                                     catch
                                     {
-                                        HttpContext.Current.Response.Write("<script>alert('E006 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
+                                        HttpContext.Current.Response.Write("<script>alert('E007 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
                                     }
                                     conn.Close();
                                     break;
@@ -90,9 +90,22 @@ namespace SWEngWeb
                     {
                         string subject = HttpContext.Current.Request.Form["subject"];
                         string conclusion = HttpContext.Current.Request.Form["conclusion"];
-                        HttpContext.Current.Response.Write("<script>alert('"+subject+"');</script>");
-                        HttpContext.Current.Response.Write("<script>alert('" + conclusion + "');</script>");
-                        // 
+                        string op = HttpContext.Current.Request.QueryString["op"];
+                        string pid = HttpContext.Current.Request.QueryString["pid"];
+
+                        if (op == "save")
+                        {
+                            if (subject != null && conclusion != null)
+                                process.createCPE02(subject, conclusion);
+                        }
+
+                        if (op == "check")
+                        {
+                            string processID = HttpContext.Current.Request.Form["subYes"];
+                            process.checkCPE02(processID);
+                        }
+
+                        HttpContext.Current.Response.Redirect("CPE02.aspx?pid="+pid); 
                         break;
                     }
                 case "CPE03":
