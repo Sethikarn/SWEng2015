@@ -74,7 +74,17 @@
 
 
                     <div class="card-panel" style="padding: 7px; margin-bottom: 0px;">
+                        <%if (pid != null)
+                        {
+                        %>
+                        <a class="waves-effect waves-light btn center red lighten-2" href="StudentMenu.aspx?pid=<%=pid%>" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">เมนูหลัก</a>
+                        <%
+                         }
+                          else
+                         {
+                        %>
                         <a class="waves-effect waves-light btn center red lighten-2" href="StudentMenu.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">เมนูหลัก</a>
+                        <%} %>
                         <%--<a class="waves-effect waves-light btn center red lighten-2" href="Notification.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">แก้ไข</a>--%>
                     </div>
                 </div>
@@ -102,11 +112,11 @@
                         <div class="card-panel" style="padding-bottom: 5px; margin-top: -14px;">
                             <div class="row" style="margin-bottom: 0px;">
                                 <div class="input-field col s6">
-                                    <input value="<%= SWEngWeb.user.thaiProjectName() %>" id="thaiNameInput2" type="text" class="validate" disabled="disabled" />
+                                    <input value="<%= SWEngWeb.information.thaiProjectName(pid) %>" id="thaiNameInput2" type="text" class="validate" disabled="disabled" />
                                     <label for="thaiNameInput2">ชื่อไทย</label>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input value="<%= SWEngWeb.user.engProjectName() %>" id="englishNameInput2" type="text" class="validate" disabled="disabled" />
+                                    <input value="<%= SWEngWeb.information.engProjectName(pid) %>" id="englishNameInput2" type="text" class="validate" disabled="disabled" />
                                     <label for="englishNameInput">ชื่ออังกฤษ</label>
                                 </div>
 
@@ -131,11 +141,9 @@
 
 
                                     <div class="row" style="margin: 20px 0px 0px 0px;">
-                                        <div class="col s4 right" style="padding-bottom: 5px; ">
+                                        <%--<div class="col s4 right" style="padding-bottom: 5px; ">
                                             <label>วันที่</label>
-                                            <input name="datepic" id="datepic" type="date" class="datepicker"/>
-                                            
-                                        </div>
+                                        </div>--%>
 
                                        
                                             

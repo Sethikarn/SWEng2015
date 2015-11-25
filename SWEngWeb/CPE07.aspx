@@ -72,7 +72,17 @@
 
 
                     <div class="card-panel" style="padding: 7px; margin-bottom: 0px;">
+                        <%if (pid != null)
+                        {
+                        %>
+                        <a class="waves-effect waves-light btn center red lighten-2" href="StudentMenu.aspx?pid=<%=pid%>" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">เมนูหลัก</a>
+                        <%
+                         }
+                          else
+                         {
+                        %>
                         <a class="waves-effect waves-light btn center red lighten-2" href="StudentMenu.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">เมนูหลัก</a>
+                        <%} %>
                         <%--<a class="waves-effect waves-light btn center red lighten-2" href="Notification.aspx" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;" runat="server">แก้ไข</a>--%>
                     </div>
                 </div>

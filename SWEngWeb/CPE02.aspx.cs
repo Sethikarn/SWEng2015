@@ -44,7 +44,7 @@ namespace SWEngWeb
             {
                 if (pid != null)
                 {
-                    if(int.Parse(information.projectLastStatus(pid)) >= 4)
+                    if(int.Parse(information.projectLastStatusID(pid)) >= 3)
                     {
 
                     }

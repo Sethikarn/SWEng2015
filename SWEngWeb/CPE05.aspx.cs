@@ -45,6 +45,9 @@ namespace SWEngWeb
             {
                 pid = user.projectID();
             }
+
+            if (pid == null)
+                Response.Redirect("~/");
         }
     }
 }

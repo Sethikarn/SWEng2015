@@ -413,6 +413,28 @@ namespace SWEngWeb
             return mem;
         }
 
+        public static string projectLastStatusID(string projectID)
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            string staID = "";
+            conn.Open();
+            String cmd = "select lastStatus from project where projectID =" + projectID;
+            SqlCommand com = new SqlCommand(cmd, conn);
+
+            try
+            {
+                staID = com.ExecuteScalar().ToString();
+            }
+            catch
+            {
+
+            }
+            conn.Close();
+
+            return staID;
+        }
+
         public static string projectLastStatus(string projectID)
         {
             SqlConnection conn = new SqlConnection(connectionString);
@@ -554,6 +576,26 @@ namespace SWEngWeb
 
 
             return inPro;
+        }
+
+        public static string projectStatus(string sid)
+        {
+            string sta = "";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            String cmd = "select projectStatusName from projectStatus where projectStatusID ='" + sid + "'";
+            SqlCommand com = new SqlCommand(cmd, conn);
+
+            try
+            {
+                sta = com.ExecuteScalar().ToString();
+            }
+            catch
+            {
+
+            }
+            conn.Close();
+            return sta;
         }
     }
 }

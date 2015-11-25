@@ -90,10 +90,8 @@ namespace SWEngWeb
                     {
                         string subject = HttpContext.Current.Request.Form["subject"];
                         string conclusion = HttpContext.Current.Request.Form["conclusion"];
-                        string datepic = HttpContext.Current.Request.Form["datepic"];
                         HttpContext.Current.Response.Write("<script>alert('"+subject+"');</script>");
                         HttpContext.Current.Response.Write("<script>alert('" + conclusion + "');</script>");
-                        HttpContext.Current.Response.Write("<script>alert('" + datepic + "');</script>");
                         // 
                         break;
                     }

@@ -142,7 +142,229 @@
                                             <h2 class="center brown-text" style="margin-top: 0px; margin-bottom: 0px;"><i class="large material-icons">assessment</i></h2>
                                             <h5 class="center" style="margin-bottom:0px;">ภาพรวม</h5>
                                             <br />
+                                            <%
+                                                int lastStatus = 0;
+
+                                    SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString);
+                                    try
+                                    {
+                                    conn.Open();
+                                    String cmd = "select lastStatus from project where projectID =" + pid;
+                                    SqlCommand com = new SqlCommand(cmd, conn);
+                                    var reader = com.ExecuteScalar();
+                                    conn.Close();
+
+                                    lastStatus = int.Parse(reader.ToString());
+                                    }
+                                    catch
+                                    {
+                                        Response.Write("<script>alert('E010 : อ้าว! เกิดข้อพลาดบ้างประการ');</script>");
+                                    }
+                                    
+                                    %>
                                             <div>
+                                                <%
+                                                string status = "";
+                                                string textColor = "red-text";
+                                                string iconInProgress = "fast_forward";
+                                                   
+                                                if(lastStatus == 0 )
+                                                {
+                                                    iconInProgress = "fast_forward";
+                                                    textColor = "amber-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                if(lastStatus == 1 )
+                                                {
+                                                    iconInProgress = "fast_forward";
+                                                    textColor = "amber-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                if(lastStatus == 2 )
+                                                {
+                                                    iconInProgress = "fast_forward";
+                                                    textColor = "amber-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                if(lastStatus >= 3 )
+                                                {
+                                                    iconInProgress = "done";
+                                                    textColor = "green-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                %>
+                                                <a class="waves-effect waves-light center <%=textColor %>"><i class="material-icons left red-text"><%=iconInProgress%></i> <%=status %></a>
+                                                
+                                                
+                                                
+                                                <%
+                                                if(lastStatus < 4)
+                                                {
+                                                    iconInProgress = "warning";
+                                                    textColor = "red-text";
+                                                    status = "ยังไม่มีบันทึกการดำเนินโครงงาน";
+                                                }
+                                                if (lastStatus >= 4)
+                                                {
+                                                    iconInProgress = "fast_forward";
+                                                    textColor = "green-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                %>
+                                                <a class="waves-effect waves-light center <%=textColor %>"><i class="material-icons left red-text"><%=iconInProgress%></i> <%=status %></a>
+                                                
+                                                <%
+                                                if(lastStatus < 5)
+                                                {
+                                                    iconInProgress = "warning";
+                                                    textColor = "red-text";
+                                                    status = "ยังไม่ได้สอบข้อเสนอโครงงาน";
+                                                }
+                                                if (lastStatus == 5)
+                                                {
+                                                    iconInProgress = "fast_forward";
+                                                    textColor = "amber-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                if (lastStatus == 6)
+                                                {
+                                                    iconInProgress = "fast_forward";
+                                                    textColor = "amber-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                if (lastStatus >= 7)
+                                                {
+                                                    iconInProgress = "done";
+                                                    textColor = "green-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                %>
+                                                <a class="waves-effect waves-light center <%=textColor %>"><i class="material-icons left red-text"><%=iconInProgress%></i> <%=status %></a>
+                                                
+
+                                                <%
+                                                if (lastStatus < 8)
+                                                {
+                                                    iconInProgress = "warning";
+                                                    textColor = "red-text";
+                                                    status = "ยังไม่ผ่านการประเมินข้อเสนอโครงงาน";
+                                                }
+                                                if (lastStatus == 8)
+                                                {
+                                                    iconInProgress = "fast_forward";
+                                                    textColor = "amber-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                if (lastStatus == 9)
+                                                {
+                                                    iconInProgress = "fast_forward";
+                                                    textColor = "amber-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                if (lastStatus == 10)
+                                                {
+                                                    iconInProgress = "fast_forward";
+                                                    textColor = "amber-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                if (lastStatus >= 11)
+                                                {
+                                                    iconInProgress = "done";
+                                                    textColor = "green-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                %>
+                                                <a class="waves-effect waves-light center <%=textColor%>"><i class="material-icons left red-text"><%=iconInProgress%></i> <%=status%></a>
+                                              
+                                                 
+                                                <%
+                                                if(lastStatus < 12)
+                                                {
+                                                    iconInProgress = "warning";
+                                                    textColor = "red-text";
+                                                    status = "ยังไม่ผ่านความก้าวหน้าโครงงาน";
+                                                }
+                                                if (lastStatus == 12)
+                                                {
+                                                    iconInProgress = "fast_forward";
+                                                    textColor = "amber-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                if (lastStatus >= 13)
+                                                {
+                                                    iconInProgress = "done";
+                                                    textColor = "green-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                %>
+                                                <a class="waves-effect waves-light center <%=textColor %>"><i class="material-icons left red-text"><%=iconInProgress%></i> <%=status %></a>
+                                                
+                                                
+                                                <%
+                                                if(lastStatus < 14)
+                                                {
+                                                    iconInProgress = "warning";
+                                                    textColor = "red-text";
+                                                    status = "ยังไม่มีแบบขอสอบโครงงาน";
+                                                }
+                                                if (lastStatus == 14)
+                                                {
+                                                    iconInProgress = "fast_forward";
+                                                    textColor = "amber-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                if (lastStatus == 15)
+                                                {
+                                                    iconInProgress = "fast_forward";
+                                                    textColor = "amber-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                if (lastStatus >= 16)
+                                                {
+                                                    iconInProgress = "done";
+                                                    textColor = "green-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                %>
+                                                <a class="waves-effect waves-light center <%=textColor %>"><i class="material-icons left red-text"><%=iconInProgress%></i> <%=status %></a>
+                                                
+                                                
+                                                <%
+                                                if(lastStatus < 17)
+                                                {
+                                                    iconInProgress = "warning";
+                                                    textColor = "red-text";
+                                                    status = "ยังไม่ได้ดำเนินการขอสอบโครงงาน";
+                                                }
+                                                if (lastStatus == 17)
+                                                {
+                                                    iconInProgress = "fast_forward";
+                                                    textColor = "amber-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                if (lastStatus == 18)
+                                                {
+                                                    iconInProgress = "fast_forward";
+                                                    textColor = "amber-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                if (lastStatus == 19)
+                                                {
+                                                    iconInProgress = "fast_forward";
+                                                    textColor = "amber-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                if (lastStatus >= 20)
+                                                {
+                                                    iconInProgress = "done_all";
+                                                    textColor = "green-text";
+                                                    status = SWEngWeb.information.projectStatus(lastStatus.ToString());
+                                                }
+                                                %>
+                                                <a class="waves-effect waves-light center <%=textColor %>"><i class="material-icons left red-text"><%=iconInProgress%></i> <%=status %></a>
+                                                
+
+                                            <%--<div>
                                                 <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> under construction</a>
                                                 <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบเสนอหัวข้อโครงงาน</a>
                                                 <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบบันทึกการดำเนินงาน</a>
@@ -151,7 +373,8 @@
                                                 <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบประเมินความก้าวหน้า</a>
                                                 <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบขอสอบโครงงาน</a>
                                                 <a class="waves-effect waves-light center red-text" runat="server"><i class="material-icons left red-text">warning</i> ท่านยังไม่มีแบบประเมินโครงงาน</a>
-                                            </div>
+                                            </div>--%>
+
                                         </div>
                                     </div>
                                 </div>
@@ -183,6 +406,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+            
         </div>
 
         <footer class="page-footer red lighten-1" style="padding-top: 0px;">
