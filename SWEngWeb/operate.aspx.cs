@@ -25,19 +25,43 @@ namespace SWEngWeb
                                 {
                                     string pid = HttpContext.Current.Request.QueryString["pid"];
                                     SqlConnection conn = new SqlConnection(connectionString);
+                                    string leavSta = "";
+
                                     conn.Open();
-                                    String cmd = "DELETE FROM position WHERE projectID = " + pid + " AND personID = " + user.userID();
+                                    String cmd = "SELECT personStatusID FROM position WHERE projectID = " + pid + " AND personID = " + user.userID();
                                     SqlCommand com = new SqlCommand(cmd, conn);
                                     try
                                     {
-                                        com.ExecuteNonQuery();
-                                        HttpContext.Current.Response.Redirect("/");
+                                        leavSta = com.ExecuteScalar().ToString();
                                     }
                                     catch
                                     {
-                                        ScriptManager.RegisterStartupScript(this, this.GetType(), "redirect", "alert('l005 : เกิดข้อผิดพลาดในการดำเนินการ'); window.location='" + Request.ApplicationPath + "/CPE01.aspx';", true);
+                                        HttpContext.Current.Response.Write("<script>alert('E013 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
                                     }
                                     conn.Close();
+
+                                    if (leavSta == "1")
+                                        leavSta = "";
+                                    else
+                                    {
+                                        int temp = int.Parse(leavSta);
+                                        temp++;
+                                        leavSta = temp.ToString();
+                                    }
+
+                                    conn.Open();
+                                    cmd = "UPDATE position SET personStatusID = " + leavSta + "0 WHERE projectID = " + pid + " AND personID = " + user.userID();
+                                    com = new SqlCommand(cmd, conn);
+                                    try
+                                    {
+                                        com.ExecuteNonQuery();
+                                    }
+                                    catch
+                                    {
+                                        HttpContext.Current.Response.Write("<script>alert('E006 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
+                                    }
+                                    conn.Close();
+                                    process.checkCPE01(pid);
                                     break;
                                 }
                             case "delete":
@@ -54,13 +78,12 @@ namespace SWEngWeb
                                     }
                                     catch
                                     {
-                                        ScriptManager.RegisterStartupScript(this, this.GetType(), "redirect", "alert('l005 : เกิดข้อผิดพลาดในการดำเนินการ'); window.location='" + Request.ApplicationPath + "/CPE01.aspx';", true);
+                                        HttpContext.Current.Response.Write("<script>alert('E006 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
                                     }
                                     conn.Close();
                                     break;
                                 }
                         }
-                        //HttpContext.Current.Response.Redirect("/CPE01.aspx");
                         break;
                     }
                 case "CPE02":
@@ -152,86 +175,137 @@ namespace SWEngWeb
                     }
                 case "noti":
                     {
-                        try
+                        //try
                         {
                             string acID = Request.QueryString["acID"].ToString();
                             string ac = Request.QueryString["ac"].ToString();
                             string rep = Request.QueryString["rep"].ToString();
                             string pid = Request.QueryString["pid"].ToString();
 
-                            if (rep == "yes")
+                            if (ac == "1" || ac == "3" || ac == "4" || ac == "5")
                             {
-
-                                if (ac == "1")
+                                if (rep == "yes")
                                 {
-                                    SqlConnection conn = new SqlConnection(connectionString);
-                                    conn.Open();
-                                    String cmd = "DELETE FROM request WHERE requestID = " + acID + ";";
-                                    SqlCommand com = new SqlCommand(cmd, conn);
-                                    var reader = com.ExecuteNonQuery();
-                                    conn.Close();
 
-                                    conn.Open();
-                                    cmd = "UPDATE position SET personStatusID = 1 WHERE personID =" + user.userID() + " AND projectID =" + pid + " AND personStatusID = 11; ";
-                                    com = new SqlCommand(cmd, conn);
-                                    reader = com.ExecuteNonQuery();
-                                    conn.Close();
+                                    if (ac == "1")
+                                    {
+                                        SqlConnection conn = new SqlConnection(connectionString);
+                                        conn.Open();
+                                        String cmd = "DELETE FROM request WHERE requestID = " + acID + ";";
+                                        SqlCommand com = new SqlCommand(cmd, conn);
+                                        var reader = com.ExecuteNonQuery();
+                                        conn.Close();
+
+                                        conn.Open();
+                                        cmd = "UPDATE position SET personStatusID = 1 WHERE personID =" + user.userID() + " AND projectID =" + pid + " AND personStatusID = 11; ";
+                                        com = new SqlCommand(cmd, conn);
+                                        reader = com.ExecuteNonQuery();
+                                        conn.Close();
+
+                                        ////////////////////////////////////////////////////////////////////
+
+                                        conn.Open();
+                                        cmd = "UPDATE position SET personStatusID = 0 WHERE projectID <> " + pid + " AND personID = " + user.userID();
+                                        com = new SqlCommand(cmd, conn);
+                                        try
+                                        {
+                                            com.ExecuteNonQuery();
+                                        }
+                                        catch
+                                        {
+                                            HttpContext.Current.Response.Write("<script>alert('E008 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
+                                        }
+                                        conn.Close();
+
+                                        process.checkCPE01(pid);
+                                    }
+
+                                    if (ac == "3")
+                                    {
+                                        SqlConnection conn = new SqlConnection(connectionString);
+                                        conn.Open();
+                                        String cmd = "DELETE FROM request WHERE requestID = " + acID + ";";
+                                        SqlCommand com = new SqlCommand(cmd, conn);
+                                        var reader = com.ExecuteNonQuery();
+                                        conn.Close();
+
+                                        conn.Open();
+                                        cmd = "UPDATE position SET personStatusID = 2 WHERE personID =" + user.userID() + " AND projectID =" + pid + " AND personStatusID = 12; ";
+                                        com = new SqlCommand(cmd, conn);
+                                        reader = com.ExecuteNonQuery();
+                                        conn.Close();
+                                        process.checkCPE01(pid);
+                                    }
+
+                                    if (ac == "4")
+                                    {
+                                        SqlConnection conn = new SqlConnection(connectionString);
+                                        conn.Open();
+                                        String cmd = "DELETE FROM request WHERE requestID = " + acID + ";";
+                                        SqlCommand com = new SqlCommand(cmd, conn);
+                                        var reader = com.ExecuteNonQuery();
+                                        conn.Close();
+
+                                        conn.Open();
+                                        cmd = "UPDATE position SET personStatusID = 3 WHERE personID =" + user.userID() + " AND projectID =" + pid + " AND personStatusID = 13; ";
+                                        com = new SqlCommand(cmd, conn);
+                                        reader = com.ExecuteNonQuery();
+                                        conn.Close();
+                                        process.checkCPE01(pid);
+                                    }
+
+                                    if (ac == "5")
+                                    {
+                                        SqlConnection conn = new SqlConnection(connectionString);
+                                        conn.Open();
+                                        String cmd = "DELETE FROM request WHERE requestID = " + acID + ";";
+                                        SqlCommand com = new SqlCommand(cmd, conn);
+                                        var reader = com.ExecuteNonQuery();
+                                        conn.Close();
+
+                                        conn.Open();
+                                        cmd = "UPDATE position SET personStatusID = 4 WHERE personID =" + user.userID() + " AND projectID =" + pid + " AND personStatusID = 14; ";
+                                        com = new SqlCommand(cmd, conn);
+                                        reader = com.ExecuteNonQuery();
+                                        conn.Close();
+                                        process.checkCPE01(pid);
+                                    }
                                 }
-
-                                if (ac == "3")
+                                if(rep == "no")
                                 {
-                                    SqlConnection conn = new SqlConnection(connectionString);
-                                    conn.Open();
-                                    String cmd = "DELETE FROM request WHERE requestID = " + acID + ";";
-                                    SqlCommand com = new SqlCommand(cmd, conn);
-                                    var reader = com.ExecuteNonQuery();
-                                    conn.Close();
+                                    if (ac == "1")
+                                    {
+                                        process.deleteREQ(acID);
 
-                                    conn.Open();
-                                    cmd = "UPDATE position SET personStatusID = 2 WHERE personID =" + user.userID() + " AND projectID =" + pid + " AND personStatusID = 12; ";
-                                    com = new SqlCommand(cmd, conn);
-                                    reader = com.ExecuteNonQuery();
-                                    conn.Close();
-                                }
+                                        SqlConnection conn = new SqlConnection(connectionString);
+                                        conn.Open();
+                                        String cmd = "UPDATE position SET personStatusID = 0 WHERE personID =" + user.userID() + " AND projectID =" + pid;
+                                        SqlCommand com = new SqlCommand(cmd, conn);
+                                        var reader = com.ExecuteNonQuery();
+                                        conn.Close();
+                                        process.checkCPE01(pid);
+                                    }
 
-                                if (ac == "4")
-                                {
-                                    SqlConnection conn = new SqlConnection(connectionString);
-                                    conn.Open();
-                                    String cmd = "DELETE FROM request WHERE requestID = " + acID + ";";
-                                    SqlCommand com = new SqlCommand(cmd, conn);
-                                    var reader = com.ExecuteNonQuery();
-                                    conn.Close();
+                                    if (ac == "3" || ac == "4" || ac == "5")
+                                    {
+                                        process.deleteREQ(acID);
 
-                                    conn.Open();
-                                    cmd = "UPDATE position SET personStatusID = 3 WHERE personID =" + user.userID() + " AND projectID =" + pid + " AND personStatusID = 13; ";
-                                    com = new SqlCommand(cmd, conn);
-                                    reader = com.ExecuteNonQuery();
-                                    conn.Close();
-                                }
-
-                                if (ac == "5")
-                                {
-                                    SqlConnection conn = new SqlConnection(connectionString);
-                                    conn.Open();
-                                    String cmd = "DELETE FROM request WHERE requestID = " + acID + ";";
-                                    SqlCommand com = new SqlCommand(cmd, conn);
-                                    var reader = com.ExecuteNonQuery();
-                                    conn.Close();
-
-                                    conn.Open();
-                                    cmd = "UPDATE position SET personStatusID = 4 WHERE personID =" + user.userID() + " AND projectID =" + pid + " AND personStatusID = 14; ";
-                                    com = new SqlCommand(cmd, conn);
-                                    reader = com.ExecuteNonQuery();
-                                    conn.Close();
+                                        SqlConnection conn = new SqlConnection(connectionString);
+                                        conn.Open();
+                                        String cmd = "UPDATE position SET personStatusID = "+ac+"0 WHERE personID =" + user.userID() + " AND projectID =" + pid;
+                                        SqlCommand com = new SqlCommand(cmd, conn);
+                                        var reader = com.ExecuteNonQuery();
+                                        conn.Close();
+                                        process.checkCPE01(pid);
+                                    }
                                 }
                             }
                         }
-                        catch
+                        //catch
                         {
 
                         }
-
+                        
                         Response.Redirect("Notification.aspx");
                         break;
                     }

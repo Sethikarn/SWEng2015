@@ -23,11 +23,6 @@ namespace SWEngWeb
                 Response.Redirect("~/");
             }
 
-            if (!(user.position() == "student"))
-            {
-                Response.Redirect("~/");
-            }
-
             Page.MaintainScrollPositionOnPostBack = true;
 
             try

@@ -90,6 +90,7 @@
                                         List<string[]> req = getReq();
                                         for (int i = 0; i < req.Count; i++)
                                         {
+
                                             if (req[i][1] == "1")
                                             {
                                                 string linkOk = "href=\"operate.aspx?opType=noti&acID=" + req[i][0] + "&ac=" + req[i][1] + "&pid=" + req[i][2] + "&rep=yes\"";
@@ -103,7 +104,7 @@
                                                         เมื่อ <%= req[i][4] %>
                                                     </div>
                                                 </div>
-                                                <div class="grey-text text-darken-4 row right" style="margin-bottom: 10px;">
+                                                <div class="grey-text text-darken-4 row" style="margin: 0px 0px 10px 0px;">
                                                     <%= SWEngWeb.information.getNamebyID(req[i][3]) %> ชวนคุณเข้าเป็นสมาชิกโครงการ <%= SWEngWeb.information.thaiProjectName(req[i][2]) %> : <%= SWEngWeb.information.engProjectName(req[i][2]) %>
                                                 </div>
                                             </a>
@@ -124,18 +125,18 @@
                                     <div class="row" style="margin-bottom: 0px;">
                                         <div class="card-panel grey lighten-4" style="padding-bottom: 8px; padding-top: 8px; margin-bottom: 0px;">
                                             <a href="CPE01.aspx?pid=<%=req[i][2]%>&acID=<%=req[i][0]%>&ac=<%=req[i][1]%>">
-                                                <div class="row right" style="margin-bottom: 5px;">
+                                                <div class="row" style="margin-bottom: 5px;">
                                                     <div class="grey-text text-darken-3 col s4 right">
                                                         เมื่อ <%= req[i][4] %>
                                                     </div>
                                                 </div>
-                                                <div class="grey-text text-darken-4 row right" style="margin-bottom: 10px;">
+                                                <div class="grey-text text-darken-4 row" style="margin: 0px 0px 10px 0px;">
                                                     <%= SWEngWeb.information.getNamebyID(req[i][3]) %> เชิญคุณเป็นอาจารย์ที่ปรึกษา โครงการ<%= SWEngWeb.information.thaiProjectName(req[i][2]) %> : <%= SWEngWeb.information.engProjectName(req[i][2]) %>
                                                 </div>
                                             </a>
                                             <div class="row" style="margin-bottom: 0px;">
-                                                <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 0px 0px 0px;" href="operate.aspx?opType=noti&acID=<%=req[i][0]%>&ac=<%=req[i][1]%>&pid=<%=req[i][2]%>&rep=yes">ยกเลิก</a>
-                                                <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 5px 0px 0px;" href="operate.aspx?opType=noti&acID=<%=req[i][0]%>&ac=<%=req[i][1]%>&pid=<%=req[i][2]%>&rep=no">ตกลง</a>
+                                                <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 0px 0px 0px;" href="operate.aspx?opType=noti&acID=<%=req[i][0]%>&ac=<%=req[i][1]%>&pid=<%=req[i][2]%>&rep=no">ยกเลิก</a>
+                                                <a class="waves-effect waves-light btn right red lighten-2" style="margin: 0px 5px 0px 0px;" href="operate.aspx?opType=noti&acID=<%=req[i][0]%>&ac=<%=req[i][1]%>&pid=<%=req[i][2]%>&rep=yes">ตกลง</a>
                                             </div>
                                         </div>
                                     </div>
@@ -157,7 +158,7 @@
                                                         เมื่อ <%= req[i][4] %>
                                                     </div>
                                                 </div>
-                                                <div class="grey-text text-darken-4 row right" style="margin-bottom: 10px;">
+                                                <div class="grey-text text-darken-4 row" style="margin: 0px 0px 10px 0px;">
                                                     <%= SWEngWeb.information.getNamebyID(req[i][3]) %> เชิญคุณเป็นอาจารย์ที่ปรึกษาร่วม โครงการ<%= SWEngWeb.information.thaiProjectName(req[i][2]) %> : <%= SWEngWeb.information.engProjectName(req[i][2]) %>
                                                 </div>
                                             </a>
@@ -185,7 +186,7 @@
                                                         เมื่อ <%= req[i][4] %>
                                                     </div>
                                                 </div>
-                                                <div class="grey-text text-darken-4 row" style="margin-bottom: 10px;">
+                                                <div class="grey-text text-darken-4 row" style="margin: 0px 0px 10px 0px;">
                                                     <%= SWEngWeb.information.getNamebyID(req[i][3]) %> เชิญคุณเป็นกรรมการ โครงการ<%= SWEngWeb.information.thaiProjectName(req[i][2]) %> : <%= SWEngWeb.information.engProjectName(req[i][2]) %>
                                                 </div>
                                             </a>
@@ -197,8 +198,6 @@
                                     </div>
                                     <%
                                             }
-
-
                                         }
                                     %>
                                 </div>

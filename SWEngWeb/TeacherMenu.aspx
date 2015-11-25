@@ -87,10 +87,10 @@
 
                                 <div class="col s12">
                                     <div class="row" style="margin: 0px;">
-                                        <div class="information card-panel light" style="height: 470px;">
+                                        <div class="information card-panel light" style="height: 470px; padding-top:0px;">
                                             <div class="icon-block">
-                                                <h2 class="center brown-text" style="margin-top: 10px; margin-bottom: 10px;"><i class="large material-icons">recent_actors</i></h2>
-                                                <h5 class="center">โครงงานในความดูแลของท่าน</h5>
+                                                <h2 class="center brown-text" style="margin-top: 10px; margin-bottom: 0px;"><i class="large material-icons">recent_actors</i></h2>
+                                                <h5 class="center" style="margin-top:-10px; margin-bottom: 15px;">โครงงานในความดูแลของท่าน</h5>
                                                 <% List<string[]> ctrl = SWEngWeb.user.CTRLprojectID();
                                                     if (ctrl != null && ctrl.Count != 0)
                                                     {
@@ -98,15 +98,14 @@
                                                         {
                                                 %>
                                                 <div class="row" style="margin-bottom: 0px;">
-                                                    <div class="card-panel grey lighten-4" style="padding-bottom: 8px; margin-bottom: 0px;">
-                                                        <div class="row">
-                                                            <div class="grey-text text-darken-3 col s3 right">
-                                                                
-                                                                <%= ctrl[i][1] %>
+                                                    <div class="card-panel grey lighten-4" style="padding-bottom: 8px; padding-top:8px; margin-top: 0px;">
+                                                        <div class="row" style="margin-bottom:0px;">
+                                                            <div class="col s3 grey-text text-darken-3 col s3 right" style="margin-bottom:0px;">
+                                                                <a class="right grey-text"><%= ctrl[i][1] %></a>
                                                             </div>
-                                                        </div>
-                                                        <div class="grey-text text-darken-4 row">
-                                                            <%= SWEngWeb.information.thaiProjectName(ctrl[i][0]) %> : <%= SWEngWeb.information.engProjectName(ctrl[i][0]) %>
+                                                            <div class="col s9 grey-text text-darken-4 row left" style="margin-bottom:0px;">
+                                                               <a class="grey-text text-darken-4 left" href="studentMenu.aspx?pid=<%=ctrl[i][0]%>"><%= SWEngWeb.information.thaiProjectName(ctrl[i][0]) %> : <%= SWEngWeb.information.engProjectName(ctrl[i][0]) %></a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

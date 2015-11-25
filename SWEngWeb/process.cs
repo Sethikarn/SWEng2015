@@ -60,5 +60,90 @@ namespace SWEngWeb
             cmd.ExecuteNonQuery();
             connection.Close();
         }
+
+        public static void checkCPE01(string pid)
+        {
+            bool pass = true;
+            bool fail = false;
+            SqlConnection conn = new SqlConnection(connectionString);
+            //try
+            {
+            conn.Open();
+            String cmd = "SELECT personStatusID FROM position WHERE projectID = "+ pid;
+            SqlCommand com = new SqlCommand(cmd, conn);
+            SqlDataReader reader = com.ExecuteReader();
+            while(reader.Read())
+            {
+                   string temp = reader[0].ToString();
+                   if ( temp == "11" || temp == "12" || temp == "13" || temp == "14" || temp == "0" || temp == "30" || temp == "40" || temp == "50")
+                    {
+                        pass = false;
+                        if (temp == "0" || temp == "30" || temp == "40" || temp == "50")
+                        {
+                            fail = true;
+                            break;
+                        }
+                    }
+            }
+            conn.Close();
+            }
+            //catch
+            {
+                HttpContext.Current.Response.Write("<script>alert('E0011 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
+            }
+
+            ///////////////////////////////////////////////
+
+            if (fail)
+            {
+                //try
+                {
+                    conn.Open();
+                    String cmd = "UPDATE project SET lastStatus = 2 WHERE projectID = " + pid;
+                    SqlCommand com = new SqlCommand(cmd, conn);
+                    com.ExecuteNonQuery();
+                    conn.Close();
+                }
+                //catch
+                {
+                    HttpContext.Current.Response.Write("<script>alert('E0011 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
+                }
+            }
+
+            ///////////////////////////////////////////////
+
+            if (pass)
+            {
+                try
+                {
+                    conn.Open();
+                    String cmd = "UPDATE project SET lastStatus = 3 WHERE projectID = " + pid;
+                    SqlCommand com = new SqlCommand(cmd, conn);
+                    com.ExecuteNonQuery();
+                    conn.Close();
+                }
+                catch
+                {
+                    HttpContext.Current.Response.Write("<script>alert('E0011 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
+                }
+            }
+        }
+
+        public static void deleteREQ(string acID)
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+            try
+            {
+            conn.Open();
+            String cmd = "DELETE FROM request WHERE requestID = " + acID + ";";
+            SqlCommand com = new SqlCommand(cmd, conn);
+            var reader = com.ExecuteNonQuery();
+            conn.Close();
+            }
+            catch
+            {
+                HttpContext.Current.Response.Write("<script>alert('E012 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
+            }
+        }
     }
 }

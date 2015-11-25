@@ -17,23 +17,6 @@ namespace SWEngWeb
         string constr1 = WebConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (user.isLogin())
-            {
-                if (user.userHaveProject() || user.position() == "teacher")
-                {
-                    
-                }
-                else
-                {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "redirect", "alert('l004 : ท่านยังไม่ผ่านแบบเสนอหัวข้อโครงงาน'); window.location='" + Request.ApplicationPath + "';", true);
-                }
-
-            }
-            else
-            {
-                Response.Redirect("~/");
-            }
-
             Page.MaintainScrollPositionOnPostBack = true;
 
             try
@@ -56,7 +39,29 @@ namespace SWEngWeb
             {
                 pid = user.projectID();
             }
-            
+
+            if (user.isLogin())
+            {
+                if (pid != null)
+                {
+                    if(int.Parse(information.projectLastStatus(pid)) >= 4)
+                    {
+
+                    }
+                    else
+                    {
+                        Response.Redirect("~/");
+                    }
+                }
+                else
+                {
+                    Response.Redirect("~/");
+                }
+            }
+            else
+            {
+                Response.Redirect("~/");
+            }
         }
     }
 }

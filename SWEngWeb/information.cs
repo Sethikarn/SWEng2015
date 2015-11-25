@@ -189,7 +189,7 @@ namespace SWEngWeb
                 while (memberSta.Read())
                 {
                     
-                    if (memberSta[1].ToString() == "2" || memberSta[1].ToString() == "12")
+                    if (memberSta[1].ToString() == "2" || memberSta[1].ToString() == "12" || memberSta[1].ToString() == "30")
                     {
                         studentInfor = new string[2];
                         studentInfor[0] = memberSta[0].ToString();
@@ -265,7 +265,7 @@ namespace SWEngWeb
                 while (memberSta.Read())
                 {
 
-                    if (memberSta[1].ToString() == "3" || memberSta[1].ToString() == "13")
+                    if (memberSta[1].ToString() == "3" || memberSta[1].ToString() == "13" || memberSta[1].ToString() == "40")
                     {
                         studentInfor = new string[2];
                         studentInfor[0] = memberSta[0].ToString();
@@ -341,7 +341,7 @@ namespace SWEngWeb
                 while (memberSta.Read())
                 {
 
-                    if (memberSta[1].ToString() == "4" || memberSta[1].ToString() == "14")
+                    if (memberSta[1].ToString() == "4" || memberSta[1].ToString() == "14" || memberSta[1].ToString() == "50")
                     {
                         studentInfor = new string[2];
                         studentInfor[0] = memberSta[0].ToString();
@@ -419,12 +419,10 @@ namespace SWEngWeb
 
             string staID = "";
             string lastSta = "";
-
-
             conn.Open();
-            String cmd = "select lastStatus from project where projectID ='" + projectID + "'";
+            String cmd = "select lastStatus from project where projectID =" + projectID;
             SqlCommand com = new SqlCommand(cmd, conn);
-            SqlDataReader memberSta = com.ExecuteReader();
+
             try
             {
                 staID = com.ExecuteScalar().ToString();
@@ -506,11 +504,19 @@ namespace SWEngWeb
                 try
                 {
                     conn.Open();
-                    String cmd = "SELECT * FROM position WHERE projectID = " + projectID + " AND personID = " + user.userID() + " AND personStatusID = 1";
+                    String cmd = "SELECT personStatusID FROM position WHERE projectID = " + projectID + " AND personID = " + user.userID();
                     SqlCommand com = new SqlCommand(cmd, conn);
-                    Object reader = com.ExecuteScalar();
-                    if (reader != null)
-                        inPro = true;
+                    var reader = com.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        if (reader[0] != null)
+                        {
+                            if(reader[0].ToString() == "1" || reader[0].ToString() == "2" || reader[0].ToString() == "3" || reader[0].ToString() == "4")
+                            {
+                                inPro = true;
+                            }
+                        }
+                    }
                     conn.Close();
                 }
                 catch

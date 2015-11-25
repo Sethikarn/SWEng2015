@@ -100,7 +100,7 @@
                                     <a href="operate.aspx?opType=CPE01&op=leav&pid=<%=pid%>" class="waves-effect waves-light btn center red lighten-2" onclick="return confirm('คุณแน่ใจที่จะออกจากโครงงานหรือไม่')" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">ออกจากโครงงาน</a>
                                     <a href="operate.aspx?opType=CPE01&op=delete&pid=<%=pid%>" class="waves-effect waves-light btn center red lighten-2" onclick="return confirm('คุณแน่ใจที่จะลบโครงงานหรือไม่')" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">ลบโครงงาน</a>
                         <%      }
-                                else
+                                else if(SWEngWeb.information.studentConfirmMemCount(pid) == 1 && SWEngWeb.user.position() == "student")
                                 {
                         %>
                                    <a href="operate.aspx?opType=CPE01&op=delete&pid=<%=pid%>" class="waves-effect waves-light btn center red lighten-2" onclick="return confirm('คุณแน่ใจที่จะลบโครงงานหรือไม่')" style="margin-bottom: 0px; padding-left: 0px; padding-right: 0px; width: 100%;">ลบโครงงาน</a>

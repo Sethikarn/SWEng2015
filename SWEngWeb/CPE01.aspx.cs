@@ -221,41 +221,48 @@ namespace SWEngWeb
 
                     if (memberCount == memCount.ToString()) //ถ้ามีสมาชิกตากจำนวนที่กำหนด
                     {
-                        if (adviser.SelectedIndex == 0 && coadviser.SelectedIndex == 0 && committee.SelectedIndex == 0)//ไม่เลือก
-                        {
-                            isError = false;
-                        }
-                        else if (adviser.SelectedIndex == 0 && coadviser.SelectedIndex == 0)//เลือกหนึ่ง
-                        {
-                            isError = false;
-                        }
-                        else if (coadviser.SelectedIndex == 0 && committee.SelectedIndex == 0)//เลือกหนึ่ง
-                        {
-                            isError = false;
-                        }
-                        else if (adviser.SelectedIndex == 0 && committee.SelectedIndex == 0)//เลือกหนึ่ง
-                        {
-                            isError = false;
-                        }
-                        else if (adviser.SelectedIndex == 0 && committee.SelectedIndex != coadviser.SelectedIndex)//เลือกสอง
-                        {
-                            isError = false;
-                        }
-                        else if (coadviser.SelectedIndex == 0 && committee.SelectedIndex != adviser.SelectedIndex)//เลือกสอง
-                        {
-                            isError = false;
-                        }
-                        else if (committee.SelectedIndex == 0 && adviser.SelectedIndex != coadviser.SelectedIndex)//เลือกสอง
-                        {
-                            isError = false;
-                        }
-                        else if (adviser.SelectedIndex != coadviser.SelectedIndex && coadviser.SelectedIndex != committee.SelectedIndex && committee.SelectedIndex != adviser.SelectedIndex)//เลือกแบบไม่ซ้ำกับ
+                        //if (adviser.SelectedIndex == 0 && coadviser.SelectedIndex == 0 && committee.SelectedIndex == 0)//ไม่เลือก
+                        //{
+                        //    isError = false;
+                        //}
+                        //else if (adviser.SelectedIndex == 0 && coadviser.SelectedIndex == 0)//เลือกหนึ่ง
+                        //{
+                        //    isError = false;
+                        //}
+                        //else if (coadviser.SelectedIndex == 0 && committee.SelectedIndex == 0)//เลือกหนึ่ง
+                        //{
+                        //    isError = false;
+                        //}
+                        //else if (adviser.SelectedIndex == 0 && committee.SelectedIndex == 0)//เลือกหนึ่ง
+                        //{
+                        //    isError = false;
+                        //}
+                        //else if (adviser.SelectedIndex == 0 && committee.SelectedIndex != coadviser.SelectedIndex)//เลือกสอง
+                        //{
+                        //    isError = false;
+                        //}
+                        //else if (coadviser.SelectedIndex == 0 && committee.SelectedIndex != adviser.SelectedIndex)//เลือกสอง
+                        //{
+                        //    isError = false;
+                        //}
+                        //else if (committee.SelectedIndex == 0 && adviser.SelectedIndex != coadviser.SelectedIndex)//เลือกสอง
+                        //{
+                        //    isError = false;
+                        //}
+                        //else 
+                        if (adviser.SelectedIndex != coadviser.SelectedIndex && coadviser.SelectedIndex != committee.SelectedIndex && committee.SelectedIndex != adviser.SelectedIndex)//เลือกแบบไม่ซ้ำกับ
                         {
                             isError = false;
                         }
                         else
                         {
-                            error = "alert(\"ไม่สามารถเลือกอาจารย์ซ้ำได้\");";
+                            error = "alert(\"อาจารย์ไม่ครบ หรือ เลือกอาจารย์ซ้ำ\");";
+                        }
+
+                        if (adviser.SelectedIndex == 0 || coadviser.SelectedIndex == 0 || committee.SelectedIndex == 0)//ไม่เลือก
+                        {
+                            isError = true;
+                            error = "alert(\"อาจารย์ไม่ครบ หรือ เลือกอาจารย์ซ้ำ\");";
                         }
 
                     }

@@ -130,13 +130,11 @@
                                         <div class="information card-panel light" style="height: 225px; padding:10px;">
                                             <div class="icon-block">
                                                 <h2 class="center brown-text" style="margin-top: 0px; margin-bottom: 0px;"><i class="large material-icons">web</i></h2>
-                                                <h5 class="center">Under construction</h5>
+                                                <h5 class="center">"NEWS" Coming soon !</h5>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-
 
                                 <div class="col s6">
                                     <div class="information card-panel light">
