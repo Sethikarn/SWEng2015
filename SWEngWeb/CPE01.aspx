@@ -6,7 +6,11 @@
 <head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>ระบบประเมินและตรวจสอบโครงการ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร</title>
+
+    <title>
+        ระบบประเมินและตรวจสอบโครงการ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร
+    </title>
+
     <!-- CSS  -->
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
@@ -23,6 +27,7 @@
 </head>
 <body style="min-width: 860px;">
     <form id="form1" runat="server">
+
         <nav class="red lighten-2 z-depth-2" role="navigation">
             <div class="container">
 
@@ -293,16 +298,10 @@
                             <a id="submit" runat="server" onserverclick="create" class="waves-effect waves-light btn right red lighten-2" style="margin: 10px;">บันทึก</a>
                         </div>
 
-
-
                         <%
-
                             }
                             else
                             {
-                        %>
-
-                        <% 
                             List<string[]> memSta = new List<string[]>();
                             memSta = SWEngWeb.information.studentInProject(pid);
                             string[] ad = SWEngWeb.information.adviserInProject(pid);
@@ -477,9 +476,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
                         </div>
 
                         <%if (acID != null)
@@ -557,16 +553,15 @@
                     document.getElementById('my_own_textbox2').style.display = 'block';
                 }
             }
-
         </script>
 
-        <script>
+        <%--<script>
             $(document).ready(function () {
                 $('.collapsible').collapsible({
                     accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
                 });
             });
-        </script>
+        </script>--%>
 
         <script>
             $(document).ready(function () {

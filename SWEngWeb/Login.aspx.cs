@@ -13,6 +13,7 @@ namespace SWEngWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            int L = language.getLanguage();
             /*//////////////////////////////--------------- Check is login ---------------///////////////////////////////
             if not login continue
                 otherwise if login as student redirect to StudentMenu
@@ -53,16 +54,5 @@ namespace SWEngWeb
                 Response.Write("<script>alert('l001 : ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');</script>");
             }
         }
-
-        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("~/About.aspx");
-        }
-
-        protected void btabout_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/About.aspx");
-        }
-
     }
 }

@@ -160,6 +160,9 @@ namespace SWEngWeb
             connection.Open();
             var cpe02ID = cmd.ExecuteScalar();
             connection.Close();
+
+
+            upto4(user.projectID());
             return cpe02ID.ToString();
         }
 
@@ -171,6 +174,25 @@ namespace SWEngWeb
             SqlCommand com = new SqlCommand(cmd, conn);
             com.ExecuteNonQuery();
             conn.Close();
+        }
+
+        public static void upto4(string pid)
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+            try
+            {
+                conn.Open();
+                String cmd = "UPDATE project SET lastStatus = 4 WHERE projectID = " + pid;
+                SqlCommand com = new SqlCommand(cmd, conn);
+                com.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch
+            {
+                HttpContext.Current.Response.Write("<script>alert('E0018 : เกิดข้อผิดพลาดในการดำเนินการ');</script>");
+            }
+
+            ///////////////////////////////////////////////
         }
     }
 }

@@ -139,6 +139,7 @@
     <Compile Include="CPE07.aspx.designer.cs">
       <DependentUpon>CPE07.aspx</DependentUpon>
     </Compile>
+    <Compile Include="language.cs" />
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

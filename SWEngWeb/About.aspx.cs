@@ -13,15 +13,5 @@ namespace SWEngWeb
         {
             
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Server.Transfer("WebForm1.aspx");
-        }
-
-        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
-        {
-            Server.Transfer("home.aspx");
-        }
     }
 }

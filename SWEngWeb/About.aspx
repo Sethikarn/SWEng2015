@@ -6,7 +6,11 @@
 <head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>ระบบประเมินและตรวจสอบโครงการ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร</title>
+
+    <title>
+        ระบบประเมินและตรวจสอบโครงการ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยนเรศวร
+    </title>
+
     <!-- CSS  -->
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
@@ -28,10 +32,6 @@
 </head>
 
 <body class="page-home">
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-
     <form id="form2" runat="server" style="margin-bottom: 0px;">
 
         <nav class="red lighten-2 z-depth-2" role="navigation">
@@ -66,9 +66,8 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
+
                 <div class="row" style="margin-bottom: 15px;">
                     <div class="card-panel  red z-depth-1" style="padding: 10px 10px 10px 10px; margin-bottom: 0px;">
                         <div class="row valign-wrapper" style="margin-bottom: 0px;">
@@ -84,7 +83,6 @@
                 </div>
 
                 <div class="row">
-
                     <div class="row valign-wrapper">
                         <div class="container col s6">
                             <div class="card-panel pink lighten-5 z-depth-1" style="margin-bottom: 0px; margin-top: 0px">
@@ -205,7 +203,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="row" style="margin-bottom: 0px;">
@@ -221,6 +218,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="row valign-wrapper">
                         <div class="container col s6">
@@ -331,6 +329,11 @@
                 </div>
             </div>
         </footer>
+
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+
     </form>
 </body>
 </html>

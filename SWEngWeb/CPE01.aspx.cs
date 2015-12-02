@@ -36,27 +36,13 @@ namespace SWEngWeb
             displayMember = new string[3] { "selected=\"selected\"", "", "" };
             memberCheck = new bool[2];
         }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.MaintainScrollPositionOnPostBack = true;
-            try
-            {
-                pid = Request.QueryString["pid"];
-                acID = Request.QueryString["acID"];
-                ac = Request.QueryString["ac"];
-            }
-            catch
-            {
-                if (user.userHaveProject())
-                {
-                    pid = user.projectID();
-                }
-                else
-                {
-                    pid = null;
-                }
-            }
+
+            pid = Request.QueryString["pid"];
+            acID = Request.QueryString["acID"];
+            ac = Request.QueryString["ac"];
 
             if (user.userHaveProject())
             {
@@ -67,7 +53,7 @@ namespace SWEngWeb
             if not login redirect to login page 
                 otherwise continue
             */
-            if ( ! user.isLogin())
+            if (!user.isLogin())
                 Response.Redirect("~/");
 
             /*//////////////////////////////--------------- Check is user have project ---------------///////////////////////////////
@@ -292,23 +278,6 @@ namespace SWEngWeb
                 queryToDB();
                 Response.Redirect("CPE01.aspx");
             }
-        }
-        protected void createProject(object sender, EventArgs e)
-        {
-            string constr = WebConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
-            SqlConnection conn = new SqlConnection(constr);
-
-            String getInfor = "select title , firstName , lastName , phoneNumber , email from person where personID ='" + user.userID() + "'";
-            conn.Open();
-            SqlCommand com = new SqlCommand(getInfor, conn);
-            SqlDataReader infor = com.ExecuteReader();
-            infor.Read();
-            memberInforCS[0, 0] = infor.GetString(0);
-            memberInforCS[0, 1] = infor.GetString(1) + "  ";
-            memberInforCS[0, 2] = infor.GetString(2);
-            memberInforCS[0, 3] = infor.GetString(3);
-            memberInforCS[0, 4] = infor.GetString(4);
-            conn.Close();
         }
         protected void addMember2Click(object sender, EventArgs e)
         {
@@ -558,10 +527,5 @@ namespace SWEngWeb
                 */
             }
         }
-        protected void leavProject(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

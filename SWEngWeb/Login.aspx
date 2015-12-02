@@ -10,7 +10,7 @@
     <!-- CSS  -->
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
 
     <style type="text/css">
@@ -35,18 +35,33 @@
             <div class="container">
 
                 <a href="http://www.nu.ac.th" target="_blank">
-                    <img src="pic/NU_LOGO1.png" alt="" class="left circle responsive-img z-depth-1"  />
+                    <img src="pic/NU_LOGO1.png" alt="" class="left circle responsive-img z-depth-1" />
                 </a>
                 <a href="http://www.eng.nu.ac.th" target="_blank">
-                    <img src="pic/logoEng.png" alt="" class="left circle responsive-img z-depth-1" style="margin-left:4px;" />
+                    <img src="pic/logoEng.png" alt="" class="left circle responsive-img z-depth-1" style="margin-left: 4px;" />
                 </a>
-                
+
                 <a class="waves-effect waves-light btn right " href="About.aspx" style="margin-top: 12px; margin-bottom: 0px;">เกี่ยวกับ</a>
+
+                <%
+                    if (SWEngWeb.language.getLanguage() == 0)
+                    {
+                %>
+                <a class="waves-effect waves-light btn right " href="operate.aspx?opType=language&language=en" style="margin-top: 12px; margin-bottom: 0px; margin-right:5px;">EN</a>
+                <%
+                    }
+                    else
+                    {
+                %>
+                <a class="waves-effect waves-light btn right " href="operate.aspx?opType=language&language=th" style="margin-top: 12px; margin-bottom: 0px; margin-right:5px;">TH</a>
+                <%
+                    }
+                %>
             </div>
         </nav>
-        
+
         <div class="login_background parallax-container" style="width: 100%;">
-            <div class="section no-pad-bot" style="top : auto;">
+            <div class="section no-pad-bot" style="top: auto;">
                 <div class="row center">
                     <h5 class="header col s12 light"></h5>
                     <h3 class="header center white-text text-darken-2">ยินดีต้อนรับสู่</h3>
@@ -77,15 +92,15 @@
             <div class="right col s12 m7">
                 <div class="right card red lighten-4" style="margin-top: -320px; margin-bottom: 0px;">
                     <div class="card-content" style="padding: 0px 20px 0px 20px;">
-                       <!-- <div class="row" style="margin-bottom: 0px;">
+                        <!-- <div class="row" style="margin-bottom: 0px;">
                             <span class="card-title grey-text text-darken-4 right" style="margin-right: 12px; margin-bottom: 0px;">เข้าสู่ระบบ</span>
                         </div>
                         -->
-                        <div class="row valign-wrapper" style="margin-bottom: 0px; margin-top:15px;">
+                        <div class="row valign-wrapper" style="margin-bottom: 0px; margin-top: 15px;">
                             <div class="row">
                                 <div class="row" style="margin-bottom: 0px;">
                                     <div class="input-field col s12 grey-text text-darken-4">
-                                        
+
                                         <i class="material-icons prefix">person_pin</i>
                                         <input placeholder="ชื่อผู้ใช้" id="icon_prefix" type="text" class="validate" name="UserName" autofocus="autofocus" />
                                     </div>
@@ -98,7 +113,8 @@
                                 </div>
                                 <div class="row" style="margin-bottom: 0px;">
                                     <div class="col s6">
-                                        <button id="test1" onserverclick="ButtonLogin_Click" runat="server" class="waves-effect waves-light btn red lighten-2 offset-s1" style="width: 185px; margin-bottom: 0px;">เข้าสู่ระบบ</button>
+                                        <%--<button id="test1" onserverclick="ButtonLogin_Click" runat="server" class="waves-effect waves-light btn red lighten-2 offset-s1" style="width: 185px; margin-bottom: 0px;">เข้าสู่ระบบ</button>--%>
+                                        <button id="test1" onserverclick="ButtonLogin_Click" runat="server" class="waves-effect waves-light btn red lighten-2 offset-s1" style="width: 185px; margin-bottom: 0px;"><%= SWEngWeb.language.login[SWEngWeb.language.getLanguage()] %></button>
                                     </div>
                                     <div class="col s6">
                                         <button id="Button1" runat="server" class="waves-effect waves-light btn red lighten-2 " style="width: 185px; margin-bottom: 0px;">ยกเลิก</button>

@@ -200,17 +200,13 @@ namespace SWEngWeb
 
                                     if (ac == "1")
                                     {
+                                        process.deleteREQ(acID);
+
                                         SqlConnection conn = new SqlConnection(connectionString);
                                         conn.Open();
-                                        String cmd = "DELETE FROM request WHERE requestID = " + acID + ";";
+                                        String cmd = "UPDATE position SET personStatusID = 1 WHERE personID =" + user.userID() + " AND projectID =" + pid + " AND personStatusID = 11; ";
                                         SqlCommand com = new SqlCommand(cmd, conn);
                                         var reader = com.ExecuteNonQuery();
-                                        conn.Close();
-
-                                        conn.Open();
-                                        cmd = "UPDATE position SET personStatusID = 1 WHERE personID =" + user.userID() + " AND projectID =" + pid + " AND personStatusID = 11; ";
-                                        com = new SqlCommand(cmd, conn);
-                                        reader = com.ExecuteNonQuery();
                                         conn.Close();
 
                                         ////////////////////////////////////////////////////////////////////
@@ -233,52 +229,43 @@ namespace SWEngWeb
 
                                     if (ac == "3")
                                     {
+                                        process.deleteREQ(acID);
+
                                         SqlConnection conn = new SqlConnection(connectionString);
                                         conn.Open();
-                                        String cmd = "DELETE FROM request WHERE requestID = " + acID + ";";
+                                        String cmd = "UPDATE position SET personStatusID = 2 WHERE personID =" + user.userID() + " AND projectID =" + pid + " AND personStatusID = 12; ";
                                         SqlCommand com = new SqlCommand(cmd, conn);
                                         var reader = com.ExecuteNonQuery();
                                         conn.Close();
 
-                                        conn.Open();
-                                        cmd = "UPDATE position SET personStatusID = 2 WHERE personID =" + user.userID() + " AND projectID =" + pid + " AND personStatusID = 12; ";
-                                        com = new SqlCommand(cmd, conn);
-                                        reader = com.ExecuteNonQuery();
-                                        conn.Close();
                                         process.checkCPE01(pid);
                                     }
 
                                     if (ac == "4")
                                     {
+                                        process.deleteREQ(acID);
+
                                         SqlConnection conn = new SqlConnection(connectionString);
                                         conn.Open();
-                                        String cmd = "DELETE FROM request WHERE requestID = " + acID + ";";
+                                        String cmd = "UPDATE position SET personStatusID = 3 WHERE personID =" + user.userID() + " AND projectID =" + pid + " AND personStatusID = 13; ";
                                         SqlCommand com = new SqlCommand(cmd, conn);
                                         var reader = com.ExecuteNonQuery();
                                         conn.Close();
 
-                                        conn.Open();
-                                        cmd = "UPDATE position SET personStatusID = 3 WHERE personID =" + user.userID() + " AND projectID =" + pid + " AND personStatusID = 13; ";
-                                        com = new SqlCommand(cmd, conn);
-                                        reader = com.ExecuteNonQuery();
-                                        conn.Close();
                                         process.checkCPE01(pid);
                                     }
 
                                     if (ac == "5")
                                     {
+                                        process.deleteREQ(acID);
+
                                         SqlConnection conn = new SqlConnection(connectionString);
                                         conn.Open();
-                                        String cmd = "DELETE FROM request WHERE requestID = " + acID + ";";
+                                        String cmd = "UPDATE position SET personStatusID = 4 WHERE personID =" + user.userID() + " AND projectID =" + pid + " AND personStatusID = 14; ";
                                         SqlCommand com = new SqlCommand(cmd, conn);
                                         var reader = com.ExecuteNonQuery();
                                         conn.Close();
 
-                                        conn.Open();
-                                        cmd = "UPDATE position SET personStatusID = 4 WHERE personID =" + user.userID() + " AND projectID =" + pid + " AND personStatusID = 14; ";
-                                        com = new SqlCommand(cmd, conn);
-                                        reader = com.ExecuteNonQuery();
-                                        conn.Close();
                                         process.checkCPE01(pid);
                                     }
                                 }
@@ -318,6 +305,20 @@ namespace SWEngWeb
                         }
                         
                         Response.Redirect("Notification.aspx");
+                        break;
+                    }
+                case "language":
+                    {
+                        string language = Request.QueryString["language"].ToString();
+                        if(language != null)
+                        {
+                            if (language == "en")
+                                HttpContext.Current.Session["language"] = "1";
+                            else
+                                HttpContext.Current.Session["language"] = "0";
+                        }
+                        
+                        HttpContext.Current.Response.Redirect("/");
                         break;
                     }
                 default:

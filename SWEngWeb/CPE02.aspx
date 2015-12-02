@@ -203,7 +203,13 @@
                                 %>
                                    <div class="col s3 right">ตรวจสอบแล้ว</div>
                                 <%
-                                }
+                                    }
+                                    else
+                                    {
+                                        %>
+                            <div class="col s3 right">ยังไม่ได้ตรวจสอบ</div>
+                            <%
+                                    }
                                 %>
                         </div>
                     </div>
